@@ -93,14 +93,21 @@ fn task_state_presence_is_distinct_from_nested_checkbox_metadata() {
 }
 
 #[test]
-fn unsupported_control_metadata_fails_explicitly() {
-    for source in [
+fn unmapped_control_metadata_warns_and_an_unusable_title_fails() {
+    let actual = support::assert_ignored(
         "#list[#item(checked=true,checkbox={custom=true})[Text]]",
-        "#list[#item(checked=true,checkbox={title=\"Invalid\u{1}\"})[Text]]",
-    ] {
-        let document = mote::compile(source).unwrap();
-        assert!(mote::docx::emit(&document).is_err(), "{source}");
-    }
+        "checkbox.custom",
+    );
+    let expected = support::package("#list[#item(checked=true)[Text]]");
+    support::compare_xml(
+        &actual["word/document.xml"],
+        &expected["word/document.xml"],
+        "word/document.xml",
+    );
+    let document =
+        mote::compile("#list[#item(checked=true,checkbox={title=\"Invalid\u{1}\"})[Text]]")
+            .unwrap();
+    assert!(mote::docx::emit(&document).is_err());
 }
 
 #[test]

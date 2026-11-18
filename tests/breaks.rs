@@ -23,7 +23,10 @@ fn break_defaults_and_property_precedence_are_visible_in_the_model() {
     assert_eq!(output["content"][0]["attributes"]["type"], "page");
     assert_eq!(output["content"][1]["attributes"]["type"], "column");
     assert_eq!(output["content"][1]["attributes"]["note"], "kept");
-    assert!(mote::docx::emit(&document).is_err());
+    support::assert_ignored(
+        r#"#break()#break(type = "page", properties = { type = "column", note = "kept" })"#,
+        "break.note",
+    );
 }
 
 #[test]

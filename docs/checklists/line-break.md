@@ -25,7 +25,8 @@ Those belong to the separate [break directive](break.md).
 
 Explicit and Markdown hard breaks emit `w:br` in DOCX. Consecutive breaks and
 placement among formatted runs have [structural coverage](../../tests/fixtures/docx/text-fidelity/README.md).
-Named line-break attributes remain unsupported in output. Real Word review is
+Named line-break attributes have no output effect; DOCX ignores each with a
+warning. Real Word review is
 unreviewed; native PDF/PNG uses the shared text plan. See the
 [native output fixtures](../../tests/fixtures/native-output/README.md).
 

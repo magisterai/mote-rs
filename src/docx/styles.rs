@@ -1,5 +1,5 @@
 use super::{
-    Error, builtin_styles, check_attributes, configuration, paragraph_properties,
+    Error, builtin_styles, check_attributes, configuration, diagnostics, paragraph_properties,
     run_properties::{self, RunFormatting},
     values, xml,
 };
@@ -54,36 +54,40 @@ impl<'document> Styles<'document> {
         };
         for declaration in document.styles.values() {
             result.resolved_run(&declaration.name)?;
-            for relationship in ["based_on", "next", "link"] {
-                if let Some(name) = declaration
-                    .properties
-                    .get(relationship)
-                    .map(Value::to_text)
-                    .filter(|name| !name.is_empty())
-                {
-                    result.identifier(&name)?;
-                }
-            }
         }
         Ok(result)
     }
 
-    pub fn identifier(&self, name: &str) -> Result<&str, Error> {
+    fn declared_or_built_in(&self, name: &str) -> Option<&str> {
         if let Some(identifier) = self.identifiers.get(name) {
-            return Ok(identifier);
+            return Some(identifier);
         }
         let normalized = normalize_style_name(name);
-        if !normalized.is_empty()
-            && let Some((_, identifier)) = self
-                .identifiers
-                .iter()
-                .find(|(candidate, _)| normalize_style_name(candidate) == normalized)
-        {
-            return Ok(identifier);
+        if normalized.is_empty() {
+            return None;
         }
-        Err(Error::Unsupported(format!(
-            "unresolved style reference {name:?}"
-        )))
+        self.identifiers
+            .iter()
+            .find(|(candidate, _)| normalize_style_name(candidate) == normalized)
+            .map(|(_, identifier)| identifier.as_str())
+    }
+
+    /// The identifier of a style that the document declares or the writer supplies.
+    pub fn identifier(&self, name: &str) -> Result<&str, Error> {
+        self.declared_or_built_in(name)
+            .ok_or_else(|| Error::Unsupported(format!("unresolved style reference {name:?}")))
+    }
+
+    /// The identifier of the style that an authored attribute names. A name that
+    /// no style bears is reported and yields nothing, so that the reference is
+    /// left out, as the native and the presentation outputs leave an undeclared
+    /// style without effect.
+    pub fn reference(&self, name: &str, attribute: &str) -> Option<&str> {
+        let identifier = self.declared_or_built_in(name);
+        if identifier.is_none() {
+            diagnostics::ignore_undeclared_style(attribute, name);
+        }
+        identifier
     }
 
     pub fn resolved_run(&self, name: &str) -> Result<Properties, Error> {
@@ -91,9 +95,10 @@ impl<'document> Styles<'document> {
         let resolved = StyleResolver::new(self.document).resolve_style(name);
         for issue in &resolved.issues {
             match issue {
-                ResolutionIssue::MissingStyle(missing)
-                    if builtin_styles::canonical_name(missing).is_some() => {}
-                _ => {
+                // An undeclared ancestor is reported where the declaration that
+                // names it is written, and contributes no properties.
+                ResolutionIssue::MissingStyle(_) => {}
+                ResolutionIssue::CyclicStyle(_) => {
                     return Err(Error::Unsupported(format!(
                         "style resolution issue {issue:?}"
                     )));
@@ -172,6 +177,7 @@ impl<'document> Styles<'document> {
     }
 
     fn write_declaration(&self, declaration: &StyleDeclaration) -> Result<String, Error> {
+        let _scope = diagnostics::enter("style", declaration.source_location.as_ref());
         if declaration.kind == StyleKind::Table {
             return super::tables::write_style(declaration, self);
         }
@@ -189,7 +195,7 @@ impl<'document> Styles<'document> {
             "hanging_indent",
             "table",
         ]);
-        check_attributes(&declaration.properties, &accepted, "style declaration")?;
+        check_attributes(&declaration.properties, &accepted, "style");
         let default = if declaration.name == "Normal" && declaration.kind == StyleKind::Paragraph {
             " w:default=\"1\""
         } else {
@@ -207,10 +213,11 @@ impl<'document> Styles<'document> {
                 .get(name)
                 .map(Value::to_text)
                 .filter(|name| !name.is_empty())
+                && let Some(identifier) = self.reference(&reference, name)
             {
                 result.push_str(&format!(
                     "<w:{word_name} w:val=\"{}\"/>",
-                    xml::escape(self.identifier(&reference)?)?
+                    xml::escape(identifier)?
                 ));
             }
         }

@@ -21,7 +21,11 @@ fn tabs_are_inline_nodes_and_metadata_uses_shared_merging() {
     assert_eq!(tab["attributes"]["note"], "inner");
     assert_eq!(tab["attributes"]["extra"], 2.0);
     assert!(tab.get("children").is_none());
-    assert!(mote::docx::emit(&document).is_err());
+    let parts = support::assert_ignored(
+        r#"#paragraph[Left#tab(note = "outer", properties = { note = "inner", extra = 2 })Right]"#,
+        "tab.note",
+    );
+    assert!(parts["word/document.xml"].contains("<w:tab/>"));
 }
 
 #[test]
@@ -51,18 +55,12 @@ fn ordinary_edge_tabs_trim_while_preserved_tabs_survive() {
 }
 
 #[test]
-fn edge_trimming_does_not_hide_unsupported_tab_metadata() {
+fn edge_trimming_does_not_hide_unmapped_tab_metadata() {
     for source in [
         "#paragraph[#tab(note = 1)text]",
         "#list[#item[text#tab(note = 1)]]",
     ] {
-        let document = compile(source).unwrap();
-        assert!(
-            mote::docx::emit(&document)
-                .unwrap_err()
-                .to_string()
-                .contains("tab attribute")
-        );
+        support::assert_ignored(source, "tab.note");
     }
 }
 

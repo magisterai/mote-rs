@@ -51,7 +51,8 @@ gutter. Named-size dimensions, explicit overrides, orientation, unit conversion,
 rounding, repeated declarations and overflow failures are covered by
 [configuration tests](../../tests/configuration.rs) and
 [DOCX configuration tests](../../tests/docx_configuration.rs), including frozen
-package/model captures. Unsupported fields fail at output. Native layout and real
+package/model captures. A field without a Word mapping is ignored with a
+warning, and a value outside the output range fails at output. Native layout and real
 Word visual review remain unreviewed.
 
 [Specification](../specification/document-configuration.md),

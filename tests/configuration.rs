@@ -38,7 +38,23 @@ fn extra_metadata_is_retained_without_inventing_geometry() {
     assert_eq!(document.defaults["language"], Value::String("en-GB".into()));
     assert!(!document.page.contains_key("size"));
     assert!(matches!(document.margin["custom"], Value::Length { .. }));
-    assert!(mote::docx::emit(&document).is_err());
+    let resolver = mote::source::FileAssetResolver::new(".").unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+    for name in [
+        "document.note",
+        "document.page.custom",
+        "document.margin.custom",
+    ] {
+        let expected = format!("DOCX ignores {name};");
+        assert!(
+            generated
+                .warnings
+                .iter()
+                .any(|warning| warning.starts_with(&expected)),
+            "{:?}",
+            generated.warnings
+        );
+    }
 }
 
 #[test]

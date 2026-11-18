@@ -39,11 +39,14 @@ pub(super) fn write(
     );
     let widths = grid::widths(table, &grid, &grid_defaults, fixed)?;
     let mut output = String::from("<w:tbl><w:tblPr>");
-    let style = property_values::text(attributes, "style");
-    if !style.is_empty() {
+    // A table that names an undeclared style is written as one that names none.
+    let style = Some(property_values::text(attributes, "style"))
+        .filter(|style| !style.is_empty())
+        .and_then(|style| styles.reference(&style, "style"));
+    if let Some(identifier) = style {
         output.push_str(&format!(
             "<w:tblStyle w:val=\"{}\"/>",
-            xml::escape(styles.identifier(&style)?)?
+            xml::escape(identifier)?
         ));
     }
     if let Some(width) = attributes.get("width") {
@@ -93,7 +96,7 @@ pub(super) fn write(
     if fixed {
         output.push_str("<w:tblLayout w:type=\"fixed\"/>");
     }
-    let mut margins = if style.is_empty() {
+    let mut margins = if style.is_none() {
         tables::default_margins()
     } else {
         Properties::new()

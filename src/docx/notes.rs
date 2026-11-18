@@ -23,7 +23,7 @@ pub(super) fn write_reference(
     styles: &Styles<'_>,
     resources: &mut Resources,
 ) -> Result<String, Error> {
-    super::check_attributes(&element.attributes, &["id"], element.kind.as_text())?;
+    super::check_attributes(&element.attributes, &["id"], element.kind.as_text());
     if !resources.in_main_story() {
         resources.warnings.push(format!("DOCX flattened {} content in a running or note story because nested annotation references are unsupported", element.kind.as_text()));
         return runs::write_formatted(

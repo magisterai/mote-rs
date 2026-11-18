@@ -9,6 +9,12 @@ PNG uses the established raster edge allowance: maximum channel difference 64,
 no pixels above 64, and mean foreground channel difference at most 12. Native
 text geometry and package comparison remain independent of that allowance.
 
+[unmapped-names.mote](unmapped-names.mote) gives a name without a Word mapping
+to each construct that DOCX checks, and names an undeclared style wherever a
+style may be named. DOCX ignores each with a warning and writes the package, as
+the [diagnostic tests](../../docx_diagnostics.rs) require. The source has no
+capture.
+
 DOCX omits standalone connectors with a warning. Native document output displays
 `[line]` plus retained child text. Chart cells display `[chart]` or `[chart: title]`
 and retain block paragraph spacing. None of these fallbacks implies native object

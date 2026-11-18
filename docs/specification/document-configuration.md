@@ -58,8 +58,8 @@ Extra page fields and document arguments remain metadata, without an implied
 formatting effect. Extra margin fields must still be valid lengths. A declaration's
 `properties` argument is retained as an ordinary argument, not flattened.
 Arguments named `default_*` or `language` are additionally retained in `defaults`;
-only the defaults defined below have an effective formatting mapping. DOCX rejects unsupported
-properties instead of silently dropping them.
+only the defaults defined below have an effective formatting mapping. DOCX passes over a
+property without a Word mapping and reports a warning that names the property.
 
 ## Invalid uses
 

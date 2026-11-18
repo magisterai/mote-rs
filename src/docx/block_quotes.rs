@@ -21,7 +21,7 @@ pub(super) fn write(
             "line_spacing",
         ],
         "blockquote",
-    )?;
+    );
     let mut attributes = quote.attributes.clone();
     attributes
         .entry("style".into())

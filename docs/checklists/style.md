@@ -83,8 +83,9 @@ references, the Normal default, heading/quote/Code fallbacks, and direct/named p
 [Structural comparisons](../../tests/fixtures/docx/styles-and-fonts/README.md)
 cover font mappings and stable unique identifiers. Native PDF/PNG resolves
 supported paragraph/run properties and the table properties listed above;
-retained properties without an output effect produce warnings. Missing
-references and cycles fail explicitly during DOCX emission; language-level
+retained properties without an output effect produce warnings. DOCX leaves out
+a reference to an undeclared style with a warning, and a cycle fails explicitly
+during DOCX emission; language-level
 resolution still returns the documented partial result. Real Word review is
 unreviewed.
 

@@ -99,6 +99,7 @@ pub fn emit_with_assets(
     if !document.presentation.properties.is_empty() {
         return Err(Error::Unsupported("presentation declarations".into()));
     }
+    diagnostics::begin();
     let styles = styles::Styles::new(document)?;
     let font_table = fonts::write_table(document)?;
     let styles_xml = styles.write()?;
@@ -126,6 +127,7 @@ pub fn emit_with_assets(
             .into_iter()
             .map(|warning| format!("{warning}; emitted placeholder text")),
     );
+    state.resources.warnings.extend(diagnostics::finish());
     state.resources.warnings.sort();
     state.resources.warnings.dedup();
     Ok(GeneratedPackage {
@@ -134,15 +136,12 @@ pub fn emit_with_assets(
     })
 }
 
-fn check_attributes(
-    properties: &Properties,
-    supported: &[&str],
-    context: &str,
-) -> Result<(), Error> {
+/// A name without a Word mapping is reported and passed over, as the native and
+/// the presentation outputs pass it over. Only a value that cannot be used fails.
+fn check_attributes(properties: &Properties, supported: &[&str], path: &str) {
     for name in properties.keys() {
         if !supported.contains(&name.as_str()) {
-            return Err(Error::Unsupported(format!("{context} attribute {name:?}")));
+            diagnostics::ignore(path, name, "the name has no Word mapping");
         }
     }
-    Ok(())
 }

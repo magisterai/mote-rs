@@ -86,7 +86,6 @@ fn invalid_default_values_fail_at_output_without_rewriting_authored_arguments() 
         "default_size = \"1in\"",
         "default_size = 9999999999999",
         "language = 123",
-        "default_color = \"#ff0000\"",
     ] {
         let document = mote::compile(&format!("#document({fields})")).unwrap();
         let before = document.clone();

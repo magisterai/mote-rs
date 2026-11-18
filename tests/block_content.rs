@@ -137,8 +137,19 @@ fn raw_run_properties_are_native_and_slide_controls_with_word_limits() {
         "#raw(\"Literal\",font=\"Courier\",size=pt(18),color=\"#2563eb\",preserve_space=true)",
     )
     .unwrap();
-    assert!(mote::docx::emit(&document).is_err());
     let resolver = mote::source::FileAssetResolver::new(env!("CARGO_MANIFEST_DIR")).unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+    for name in ["font", "size", "color"] {
+        let expected = format!("DOCX ignores raw.{name};");
+        assert!(
+            generated
+                .warnings
+                .iter()
+                .any(|warning| warning.starts_with(&expected)),
+            "{:?}",
+            generated.warnings
+        );
+    }
     let planned = mote::render::plan(&document, &resolver, None).unwrap();
     let fragment = &planned.output.pages[0].lines[0].line.fragments[0];
     assert_eq!(fragment.style.measurement.size_points, 18.0);

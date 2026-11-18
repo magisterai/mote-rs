@@ -176,7 +176,8 @@ arguments. It remains inside the paragraph and adds no spaces to the evaluated
 model. Paragraph tab-stop definitions, introduced in Formatting attributes,
 control its position and alignment. The tab itself has no stop-position argument.
 Named attributes and the shared `properties` object are retained as metadata;
-DOCX rejects those attributes because they have no output mapping.
+DOCX ignores those attributes with a warning, because they have no output
+mapping.
 
 ```mote
 #paragraph[Left#tab()Right]

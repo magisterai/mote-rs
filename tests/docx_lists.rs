@@ -91,13 +91,33 @@ fn empty_lists_create_no_numbering_instances_but_empty_items_do() {
 }
 
 #[test]
-fn list_limits_and_unsupported_properties_are_explicit() {
+fn list_names_without_a_word_mapping_warn() {
+    for (source, name, without) in [
+        (
+            "#list(indent={left=pt(4), custom=pt(3)})[#item[Unknown]]",
+            "list.indent.custom",
+            "#list(indent={left=pt(4)})[#item[Unknown]]",
+        ),
+        (
+            "#list[#item(checkbox={custom=true})[Unsupported task property]]",
+            "checkbox.custom",
+            "#list[#item[Unsupported task property]]",
+        ),
+    ] {
+        let actual = support::assert_ignored(source, name);
+        let expected = support::package(without);
+        for part in ["word/document.xml", "word/numbering.xml"] {
+            support::compare_xml(&actual[part], &expected[part], part);
+        }
+    }
+}
+
+#[test]
+fn list_limits_are_explicit() {
     for source in [
         "#list(level=10)[#item[Too deep]]",
         "#list[#item(level=10)[Too deep]]",
         "#list(indent={level=twip(2147483647)})[#item[Overflow]]",
-        "#list(indent={left=pt(4), custom=pt(3)})[#item[Unknown]]",
-        "#list[#item(checkbox={custom=true})[Unsupported task property]]",
     ] {
         let document = mote::compile(source).unwrap();
         let original = document.clone();

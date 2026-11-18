@@ -32,7 +32,7 @@ impl RunFormatting {
             ElementKind::Span => {
                 let mut supported = ATTRIBUTES.to_vec();
                 supported.extend(["style", "preserve_space"]);
-                check_attributes(&element.attributes, &supported, "span")?;
+                check_attributes(&element.attributes, &supported, "span");
                 if let Some(name) = element
                     .attributes
                     .get("style")
@@ -46,15 +46,14 @@ impl RunFormatting {
                         .attributes
                         .iter()
                         .filter(|(name, value)| {
-                            name.as_str() != "style"
-                                && name.as_str() != "preserve_space"
+                            ATTRIBUTES.contains(&name.as_str())
                                 && !(name.as_str() == "font" && value.to_text().is_empty())
                         })
                         .map(|(name, value)| (name.clone(), value.clone())),
                 );
             }
             ElementKind::Strong | ElementKind::Emphasis => {
-                check_attributes(&element.attributes, &[], element.kind.as_text())?;
+                check_attributes(&element.attributes, &[], element.kind.as_text());
                 let property = if element.kind == ElementKind::Strong {
                     "bold"
                 } else {
@@ -67,7 +66,7 @@ impl RunFormatting {
             ElementKind::Underline => {
                 let mut supported = ATTRIBUTES.to_vec();
                 supported.push("style");
-                check_attributes(&element.attributes, &supported, "underline")?;
+                check_attributes(&element.attributes, &supported, "underline");
                 result
                     .properties
                     .insert("underline".into(), Value::Boolean(true));
@@ -75,7 +74,7 @@ impl RunFormatting {
                     element
                         .attributes
                         .iter()
-                        .filter(|(name, _)| name.as_str() != "style")
+                        .filter(|(name, _)| ATTRIBUTES.contains(&name.as_str()))
                         .map(|(name, value)| (name.clone(), value.clone())),
                 );
                 if let Some(value) = element.attributes.get("style") {
@@ -99,7 +98,7 @@ impl RunFormatting {
                     ElementKind::Highlight => allowed.push("fill"),
                     _ => {}
                 }
-                check_attributes(&element.attributes, &allowed, element.kind.as_text())?;
+                check_attributes(&element.attributes, &allowed, element.kind.as_text());
                 match element.kind {
                     ElementKind::Strike => {
                         let name =
@@ -131,7 +130,7 @@ impl RunFormatting {
                     &element.attributes,
                     &["style", "preserve_space", "language"],
                     "code",
-                )?;
+                );
                 let name = element
                     .attributes
                     .get("style")
@@ -160,8 +159,11 @@ impl RunFormatting {
         name: &str,
         styles: &Styles<'_>,
     ) -> Result<(), Error> {
+        let Some(identifier) = styles.reference(name, "style") else {
+            return Ok(());
+        };
         let supplied = styles.resolved_run(name)?;
-        self.character_style = Some(styles.identifier(name)?.into());
+        self.character_style = Some(identifier.into());
         // Character styles replace only the inherited direct properties they supply.
         if supplied
             .get("font")
@@ -204,7 +206,7 @@ impl RunFormatting {
         if declaration {
             supported.extend_from_slice(&["fill", "background"]);
         }
-        check_attributes(&self.properties, &supported, "run")?;
+        check_attributes(&self.properties, &supported, "run");
         let mut result = String::new();
         if let Some(name) = &self.character_style {
             result.push_str(&format!("<w:rStyle w:val=\"{}\"/>", xml::escape(name)?));

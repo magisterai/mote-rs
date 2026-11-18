@@ -15,5 +15,5 @@ script mappings; logical aliases are not written as physical fonts. A declared
 
 [Tests](../../../docx.rs) compare the model and all captured parts. Font files,
 embedding, substitution, native measurement, tables and other block output remain
-outside this increment. Missing style references and cycles cause explicit output
-errors. Real Word rendering and layout review remain **unreviewed**.
+outside this increment. A reference to an undeclared style is left out with a
+warning, and a cycle of styles causes an explicit output error. Real Word rendering and layout review remain **unreviewed**.

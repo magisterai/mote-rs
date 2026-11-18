@@ -21,7 +21,7 @@ pub(super) fn write(
             "style",
         ],
         "list",
-    )?;
+    );
     let level = list_layout::nesting_level(&list.attributes, inherited_level)?;
     let layout = ListLayout::from_list(&list.attributes)?;
     let mut numbering_identifier = None;
@@ -30,15 +30,18 @@ pub(super) fn write(
         let item = match child {
             Content::Text(text) if text.trim().is_empty() => continue,
             Content::Element(element) if element.kind == ElementKind::ListItem => element,
+            // Evaluation admits only items, so that another child arises only in a
+            // model that was not evaluated from source.
             _ => return Err(Error::InvalidValue("lists can contain only items".into())),
         };
+        let _scope = super::diagnostics::enter_element(item);
         check_attributes(
             &item.attributes,
             &[
                 "marker", "level", "tight", "indent", "spacing", "checked", "checkbox",
             ],
-            "list item",
-        )?;
+            "item",
+        );
         let item_level = list_layout::nesting_level(&item.attributes, level)?;
         let checked = item
             .attributes
@@ -46,7 +49,7 @@ pub(super) fn write(
             .map(values::boolean)
             .transpose()?;
         let checkbox = controls::checkbox_properties(&item.attributes)?;
-        check_attributes(&checkbox, &["checked", "kind", "name", "title"], "checkbox")?;
+        check_attributes(&checkbox, &["checked", "kind", "name", "title"], "checkbox");
         if state.table_cell_depth > 0 && item.children.iter().any(|child|matches!(child,Content::Element(element) if element.kind==ElementKind::Paragraph)) {
             let identifier=if checked.is_none() {Some(match numbering_identifier {Some(identifier)=>identifier,None=>{let identifier=state.numbering.for_list(list,layout,level)?;numbering_identifier=Some(identifier);identifier}})}else{None};
             write_structured_item(&mut output,item,item_level,layout,StructuredMarker{identifier,checked,checkbox:&checkbox},styles,state)?;

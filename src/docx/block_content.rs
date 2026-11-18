@@ -13,7 +13,7 @@ pub(super) fn write(
 ) -> Result<String, Error> {
     match element.kind {
         ElementKind::DefinitionList => {
-            check_attributes(&element.attributes, &["style"], "definition_list")?;
+            check_attributes(&element.attributes, &["style"], "definition_list");
             let mut output = String::new();
             for (index, paragraph) in
                 crate::block_content::definition_paragraphs(element, state.table_cell_depth > 0)
@@ -36,7 +36,7 @@ pub(super) fn write(
                 &element.attributes,
                 &["style", "language", "preserve_space"],
                 "raw",
-            )?;
+            );
             let mut attributes = element.attributes.clone();
             attributes.remove("language");
             attributes.remove("preserve_space");
@@ -63,7 +63,7 @@ pub(super) fn write(
                 &element.attributes,
                 &["style", "color", "width", "spacing"],
                 "divider",
-            )?;
+            );
             let mut attributes = element.attributes.clone();
             attributes
                 .entry("style".into())

@@ -23,10 +23,12 @@ pub(in crate::docx) fn write(
     );
     for (name, word) in [("based_on", "basedOn"), ("next", "next"), ("link", "link")] {
         let value = property_values::text(&declaration.properties, name);
-        if !value.is_empty() {
+        if !value.is_empty()
+            && let Some(identifier) = styles.reference(&value, name)
+        {
             output.push_str(&format!(
                 "<w:{word} w:val=\"{}\"/>",
-                xml::escape(styles.identifier(&value)?)?
+                xml::escape(identifier)?
             ));
         }
     }

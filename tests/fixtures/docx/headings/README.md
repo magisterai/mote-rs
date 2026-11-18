@@ -3,7 +3,8 @@
 Covers Markdown and directive headings, levels one through six, empty headings,
 inline formatting, direct spacing and pagination overrides, and declared styles
 for higher levels. DOCX clamps levels above nine to nine. Levels seven through
-nine need a declared style; the writer rejects unresolved style references.
+nine need a declared style; the writer leaves out a reference to an undeclared
+style and reports a warning.
 
 The opening heading suppresses implicit before-spacing. Authored before-spacing
 is retained. Fallback styles carry bold text, paired script sizes, outline levels,

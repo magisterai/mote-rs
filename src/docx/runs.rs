@@ -1,5 +1,6 @@
 use super::{
-    Error, check_attributes, run_properties::RunFormatting, styles::Styles, whitespace, xml,
+    Error, check_attributes, diagnostics, run_properties::RunFormatting, styles::Styles,
+    whitespace, xml,
 };
 use crate::model::{Content, ElementKind};
 
@@ -45,8 +46,9 @@ pub(super) fn write_flattened_inlines(
 fn validate_controls(children: &[Content]) -> Result<(), Error> {
     for child in children {
         if let Content::Element(element) = child {
+            let _scope = diagnostics::enter_element(element);
             if matches!(element.kind, ElementKind::LineBreak | ElementKind::Tab) {
-                check_attributes(&element.attributes, &[], element.kind.as_text())?;
+                check_attributes(&element.attributes, &[], element.kind.as_text());
                 continue;
             }
             validate_controls(&element.children)?;
@@ -63,6 +65,10 @@ pub(super) fn write_formatted(
 ) -> Result<String, Error> {
     let mut result = String::new();
     for child in children {
+        let _scope = match child {
+            Content::Element(element) => Some(diagnostics::enter_element(element)),
+            Content::Text(_) => None,
+        };
         match child {
             Content::Text(text) => result.push_str(&write_text(text, formatting, styles)?),
             Content::Element(element)
@@ -167,7 +173,7 @@ pub(super) fn write_formatted(
                     &element.attributes,
                     &["url", "title", "tooltip", "target"],
                     "link",
-                )?;
+                );
                 let url = element
                     .attributes
                     .get("url")
@@ -261,6 +267,7 @@ fn flatten_block_content(children: &[Content]) -> Result<Vec<Content>, Error> {
             && element.is_block()
             && element.kind != ElementKind::Image
         {
+            let _scope = diagnostics::enter_element(element);
             // Nested block structure supplies inline text without independent
             // paragraph layout or numbering.
             let supported: &[&str] = match element.kind {
@@ -282,7 +289,7 @@ fn flatten_block_content(children: &[Content]) -> Result<Vec<Content>, Error> {
                     )));
                 }
             };
-            check_attributes(&element.attributes, supported, "nested block content")?;
+            check_attributes(&element.attributes, supported, diagnostics::name(element));
             result.extend(flatten_block_content(&element.children)?);
         } else {
             result.push(child.clone());

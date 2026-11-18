@@ -46,18 +46,67 @@ fn paragraphs_generate_content_independently_of_the_reference() {
 }
 
 #[test]
-fn unsupported_content_and_attributes_fail_explicitly() {
-    for source in [
-        "#paragraph(custom=true)[Text]",
-        "#span(custom=true)[Text]",
-        "#font(name=\"Body\", pitch=\"fixed\")",
+fn names_without_a_word_mapping_warn_and_leave_the_package_as_it_is_without_them() {
+    for (source, name, without) in [
+        (
+            "#paragraph(custom=true)[Text]",
+            "paragraph.custom",
+            "#paragraph[Text]",
+        ),
+        ("#span(custom=true)[Text]", "span.custom", "#span[Text]"),
+        (
+            "#font(name=\"Body\", pitch=\"fixed\")",
+            "font.pitch",
+            "#font(name=\"Body\")",
+        ),
+        (
+            "#paragraph(indent={left=pt(4),start=pt(4)})[Text]",
+            "indent.start",
+            "#paragraph(indent={left=pt(4)})[Text]",
+        ),
+        ("#strong(size=pt(12))[Text]", "strong.size", "#strong[Text]"),
+        (
+            "#emphasis(font=\"Arial\")[Text]",
+            "emphasis.font",
+            "#emphasis[Text]",
+        ),
+        ("#code(color=\"#123\")[Text]", "code.color", "#code[Text]"),
+        (
+            "#heading(level=1, custom=true)[Unknown]",
+            "heading.custom",
+            "#heading(level=1)[Unknown]",
+        ),
+        (
+            "#heading(numbering={enabled=true,custom=3})[Numbered]",
+            "heading.numbering.custom",
+            "#heading(numbering={enabled=true})[Numbered]",
+        ),
     ] {
-        let error = mote::docx::emit(&mote::compile(source).unwrap()).unwrap_err();
-        assert!(
-            error.to_string().starts_with("DOCX does not yet support"),
-            "{source}: {error}"
-        );
+        let actual = support::assert_ignored(source, name);
+        let expected = support::package(without);
+        for part in ["word/document.xml", "word/styles.xml", "word/fontTable.xml"] {
+            support::compare_xml(&actual[part], &expected[part], part);
+        }
     }
+}
+
+#[test]
+fn a_warning_about_an_ignored_name_states_its_source_location() {
+    let source = "First.\n\n#paragraph[Second #span(custom=true)[text].]";
+    let document = mote::compile_with_options(
+        source,
+        mote::evaluation::EvaluationOptions {
+            source_name: Some(std::ffi::OsStr::new("report.mote")),
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let resolver = mote::source::FileAssetResolver::new(".").unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None).unwrap();
+    assert_eq!(
+        generated.warnings,
+        ["DOCX ignores span.custom; the name has no Word mapping (report.mote:3:19)"]
+    );
 }
 
 #[test]
@@ -80,9 +129,8 @@ fn paragraph_formatting_matches_reference() {
 }
 
 #[test]
-fn unimplemented_nested_properties_and_invalid_output_ranges_are_explicit() {
+fn invalid_output_ranges_are_explicit() {
     for source in [
-        "#paragraph(indent={start=pt(4)})[Text]",
         "#paragraph(outline_level=10)[Text]",
         "#paragraph(spacing_after=pt(1000000000000))[Text]",
     ] {
@@ -99,38 +147,58 @@ fn inline_formatting_matches_reference() {
 }
 
 #[test]
-fn direct_attributes_without_a_word_mapping_fail_explicitly() {
-    for source in [
-        "#strong(size=pt(12))[Text]",
-        "#emphasis(font=\"Arial\")[Text]",
-        "#code(color=\"#123\")[Text]",
-    ] {
-        assert!(
-            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
-            "{source}"
-        );
-    }
-}
-
-#[test]
 fn named_styles_and_font_mappings_match_reference() {
     support::compare_fixture("styles-and-fonts");
 }
 
 #[test]
-fn unresolved_styles_cycles_and_unsupported_declarations_fail_explicitly() {
-    for source in [
-        "#paragraph(style=\"Missing\")[Text]",
-        "#style(name=\"A\",based_on=\"B\")#style(name=\"B\",based_on=\"A\")",
-        "#style(name=\"A\",based_on=\"Missing\")",
-        "#style(name=\"A\",next=\"Missing\")",
-        "#font(name=\"Body\",pitch=\"fixed\")",
+fn undeclared_style_references_warn_and_are_left_out() {
+    for (source, name, without) in [
+        (
+            "#paragraph(style=\"Missing\")[Text]",
+            "paragraph.style",
+            "#paragraph[Text]",
+        ),
+        (
+            "#paragraph[#span(style=\"Missing\")[Text]]",
+            "span.style",
+            "#paragraph[#span[Text]]",
+        ),
+        (
+            "#style(name=\"A\",based_on=\"Missing\")",
+            "style.based_on",
+            "#style(name=\"A\")",
+        ),
+        (
+            "#style(name=\"A\",next=\"Missing\")",
+            "style.next",
+            "#style(name=\"A\")",
+        ),
+        (
+            "#table(style=\"Missing\")[#row[#cell[Text]]]",
+            "table.style",
+            "#table[#row[#cell[Text]]]",
+        ),
     ] {
+        let (actual, warnings) = support::package_with_warnings(source);
+        let expected = format!("DOCX ignores {name}; style \"Missing\" is not declared");
         assert!(
-            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
-            "{source}"
+            warnings
+                .iter()
+                .any(|warning| warning.starts_with(&expected)),
+            "{source}: {warnings:?}"
         );
+        let expected = support::package(without);
+        for part in ["word/document.xml", "word/styles.xml"] {
+            support::compare_xml(&actual[part], &expected[part], part);
+        }
     }
+}
+
+#[test]
+fn a_cycle_of_styles_fails_explicitly() {
+    let source = "#style(name=\"A\",based_on=\"B\")#style(name=\"B\",based_on=\"A\")";
+    assert!(mote::docx::emit(&mote::compile(source).unwrap()).is_err());
 }
 
 #[test]
@@ -263,19 +331,27 @@ fn heading_flow_start_preserves_explicit_spacing_only() {
 }
 
 #[test]
-fn unsupported_heading_styles_and_properties_fail_explicitly() {
-    for source in [
-        "#heading(level=7)[Missing default]",
-        "#heading(style=\"Missing\")[Missing style]",
-        "#heading(numbering={enabled=true,custom=3})[Numbered]",
-        "#heading(marker=\"custom\")[Marker]",
-        "#heading(level=1, custom=true)[Unknown]",
+fn a_heading_without_a_declared_style_warns_and_a_custom_marker_fails() {
+    for (source, style) in [
+        ("#heading(level=7)[Missing default]", "Heading7"),
+        ("#heading(style=\"Missing\")[Missing style]", "Missing"),
     ] {
+        let (parts, warnings) = support::package_with_warnings(source);
+        let expected = format!("DOCX ignores heading.style; style {style:?} is not declared");
         assert!(
-            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
+            warnings
+                .iter()
+                .any(|warning| warning.starts_with(&expected)),
+            "{source}: {warnings:?}"
+        );
+        assert!(
+            !parts["word/document.xml"].contains("<w:pStyle"),
             "{source}"
         );
     }
+    assert!(
+        mote::docx::emit(&mote::compile("#heading(marker=\"custom\")[Marker]").unwrap()).is_err()
+    );
 }
 
 #[test]

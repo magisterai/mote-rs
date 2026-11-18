@@ -37,7 +37,8 @@ A block line break introduces a separate break paragraph:
 
 Named metadata and the shared `properties` object follow the usual merge rules.
 The outer `type` must be a string even when properties override it. The merged
-value must be one of the three defined types. DOCX rejects extra attributes.
+value must be one of the three defined types. DOCX ignores an extra attribute
+and reports a warning.
 
 A break is invalid inside inline content:
 

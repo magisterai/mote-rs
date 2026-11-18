@@ -16,6 +16,7 @@ No content, formatting, geometry, or actual break settings are excluded.
 The capture warns that the unitless 240-twip exact line height may clip its text.
 The current writer preserves that requested spacing without estimating clipping.
 Output outline levels are limited to Word's 0–9 range even though model storage
-accepts larger non-negative integers. Extra nested properties fail explicitly.
+accepts larger non-negative integers. An extra nested property is ignored with a
+warning.
 
 Real Word rendering and layout review remain **unreviewed**.

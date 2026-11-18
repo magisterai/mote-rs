@@ -64,12 +64,41 @@ fn portrait_preserves_explicit_dimensions_and_landscape_swaps_only_when_needed()
 }
 
 #[test]
-fn unsupported_properties_and_overflow_fail_without_partial_packages() {
+fn configuration_names_without_a_word_mapping_warn() {
+    for (source, name) in [
+        (
+            "#document(default_color = \"#ff0000\")",
+            "document.default_color",
+        ),
+        ("#document(page = { code = 1 })", "document.page.code"),
+        (
+            "#document(margin = { inside = 20 })",
+            "document.margin.inside",
+        ),
+        (
+            "#document(page_numbering = { start = 2 })",
+            "document.page_numbering",
+        ),
+        (
+            "#document(columns = { count = 2, widths = { 1000, 2000 } })",
+            "document.columns.widths",
+        ),
+    ] {
+        let actual = support::assert_ignored(source, name);
+        let expected = support::package(if name == "document.columns.widths" {
+            "#document(columns = { count = 2 })"
+        } else {
+            ""
+        });
+        for part in ["word/document.xml", "word/styles.xml"] {
+            support::compare_xml(&actual[part], &expected[part], part);
+        }
+    }
+}
+
+#[test]
+fn overflow_fails_without_partial_packages() {
     for source in [
-        "#document(default_color = \"#ff0000\")",
-        "#document(page = { code = 1 })",
-        "#document(margin = { inside = 20 })",
-        "#document(page_numbering = { start = 2 })",
         "#document(page = { width = 999999999999 })",
         "#document(margin = { top = inch(999999999999) })",
     ] {
@@ -113,7 +142,6 @@ fn explicit_column_count_controls_output_and_omitted_gap_stays_omitted() {
 fn unsupported_column_layouts_and_overflow_fail_explicitly() {
     for fields in [
         "count = 2, equal_width = false",
-        "count = 2, widths = { 1000, 2000 }",
         "count = 2147483648",
         "count = 2, gap = inch(9999999999)",
     ] {

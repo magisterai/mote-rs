@@ -13,5 +13,5 @@ formatting retain their distinct run placement. Child changes never affect sibli
 
 [Tests](../../../docx.rs) compare the model and complete captured package. Direct
 strong/emphasis attributes and direct code font/size/color have no DOCX mapping
-in this scope and produce an error. Named styles and font declarations follow
+in this scope; each is ignored with a warning. Named styles and font declarations follow
 in a separate increment. Real Word review remains **unreviewed**.

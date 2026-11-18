@@ -1,4 +1,4 @@
-use super::{Error, check_attributes, values, xml};
+use super::{Error, check_attributes, diagnostics, values, xml};
 use crate::model::{Properties, Value};
 
 pub(super) const ATTRIBUTES: &[&str] = &[
@@ -32,7 +32,14 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
     if declaration {
         supported.extend_from_slice(&["background", "first_line_indent", "hanging_indent"]);
     }
-    check_attributes(properties, &supported, "paragraph")?;
+    // The properties of a declaration are those of its paragraph group, and
+    // direct properties are the attributes of the element being written.
+    let path = if declaration {
+        "paragraph"
+    } else {
+        diagnostics::construct("paragraph")
+    };
+    check_attributes(properties, &supported, path);
     let mut result = pagination(properties)?;
     if let Some(border) = properties.get("border") {
         result.push_str(&borders(border)?);
@@ -81,7 +88,7 @@ fn write_properties(properties: &Properties, declaration: bool) -> Result<String
             &indentation,
             &["left", "right", "first_line", "hanging"],
             "indent",
-        )?;
+        );
         result.push_str("<w:ind");
         for (name, word_name) in [
             ("left", "left"),
@@ -181,7 +188,7 @@ fn spacing(properties: &Properties) -> Result<String, Error> {
             "line_spacing",
         ],
         "spacing",
-    )?;
+    );
     let mut attributes = String::new();
     for (name, alias) in [("before", "spacing_before"), ("after", "spacing_after")] {
         if let Some(value) =
@@ -194,7 +201,7 @@ fn spacing(properties: &Properties) -> Result<String, Error> {
         values::first(spacing, &["line", "line_spacing"]).or_else(|| properties.get("line_spacing"))
     {
         let (line, rule) = if let Value::Object(line) = value {
-            check_attributes(line, &["rule", "value"], "line spacing")?;
+            check_attributes(line, &["rule", "value"], "spacing.line");
             let rule = line.get("rule").map(Value::to_text).unwrap_or_default();
             let value = line
                 .get("value")
@@ -235,7 +242,7 @@ fn borders(value: &Value) -> Result<String, Error> {
         properties,
         &["top", "left", "bottom", "right", "all", "width", "color"],
         "border",
-    )?;
+    );
     let mut result = String::new();
     for side in ["top", "left", "bottom", "right"] {
         let Some(value) = values::first(properties, &[side, "all"]) else {
@@ -246,8 +253,8 @@ fn borders(value: &Value) -> Result<String, Error> {
             check_attributes(
                 properties,
                 &["style", "val", "size", "width", "space", "color"],
-                "border side",
-            )?;
+                &format!("border.{side}"),
+            );
             (
                 properties,
                 values::first_text(properties, &["style", "val"])
@@ -335,8 +342,8 @@ fn tabs(value: &Value) -> Result<String, Error> {
                 "left",
                 "center",
             ],
-            "tab stop",
-        )?;
+            "tabs",
+        );
         let position = values::first(&stop, &["position", "pos", "right", "left", "center"])
             .ok_or_else(|| Error::InvalidValue("tab stop requires a position".into()))?;
         let alignment =

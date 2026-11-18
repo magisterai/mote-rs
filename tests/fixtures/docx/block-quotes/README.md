@@ -4,7 +4,8 @@ Covers Markdown quote lines, an explicit quote with nested paragraphs/lists/quot
 inline formatting, empty quotes, named styles, borders, fill and direct geometry.
 Outside table cells, each quote emits one Word paragraph. Nested block content
 flattens to inline runs without inserted separators or list counters. Formatting
-on nested blocks remains unsupported by this writer and produces explicit errors.
+on nested blocks remains unsupported by this writer, which ignores it with a
+warning.
 
 The capture reported alignment, indentation and spacing as unsupported, although
 its XML contains those direct paragraph properties. The comparison retains them.

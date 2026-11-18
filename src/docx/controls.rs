@@ -26,7 +26,7 @@ impl Controls {
             properties,
             &["checked", "kind", "name", "title"],
             "checkbox",
-        )?;
+        );
         let kind = properties
             .get("kind")
             .map(Value::to_text)

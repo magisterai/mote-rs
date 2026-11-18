@@ -72,8 +72,8 @@ pub(super) fn write_table(document: &Document) -> Result<String, Error> {
                 "word_line_height",
                 "files",
             ],
-            "font declaration",
-        )?;
+            "font",
+        );
         let font = StyleResolver::new(document).resolve_font(&declaration.name);
         for typeface in [font.latin, font.east_asian, font.complex_script]
             .into_iter()

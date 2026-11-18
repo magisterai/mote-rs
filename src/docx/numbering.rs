@@ -134,8 +134,8 @@ impl Numbering {
                 "label",
                 "prefix",
             ],
-            "heading numbering",
-        )?;
+            "heading.numbering",
+        );
         if !numbering
             .get("enabled")
             .map(values::boolean)

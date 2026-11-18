@@ -51,12 +51,13 @@ pub(super) fn write_blocks(
                 "top-level text outside a paragraph".into(),
             ));
         };
+        let _scope = super::diagnostics::enter_element(element);
         if previous_table && element.kind == ElementKind::Table {
             body.push_str("<w:p/>");
         }
         previous_table = element.kind == ElementKind::Table;
         if element.kind == ElementKind::Break {
-            check_attributes(&element.attributes, &["type"], "break")?;
+            check_attributes(&element.attributes, &["type"], "break");
             let kind = element
                 .attributes
                 .get("type")

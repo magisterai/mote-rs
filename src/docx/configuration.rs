@@ -23,19 +23,19 @@ pub(super) fn section_geometry(
             "language",
         ],
         "document",
-    )?;
+    );
     check_attributes(
         &document.page,
         &["size", "width", "height", "orientation"],
-        "page",
-    )?;
+        "document.page",
+    );
     check_attributes(
         &document.margin,
         &[
             "top", "right", "bottom", "left", "header", "footer", "gutter",
         ],
-        "margin",
-    )?;
+        "document.margin",
+    );
     let (default_width, default_height) = match document
         .page
         .get("size")
@@ -100,8 +100,8 @@ pub(super) fn document_defaults(document: &Document) -> Result<String, Error> {
     check_attributes(
         &document.defaults,
         &["default_font", "default_size", "language"],
-        "document defaults",
-    )?;
+        "document",
+    );
     let size = document
         .defaults
         .get("default_size")
@@ -133,8 +133,8 @@ fn column_properties(columns: &ColumnConfiguration) -> Result<String, Error> {
     check_attributes(
         &columns.properties,
         &["count", "gap", "separator", "equal_width"],
-        "columns",
-    )?;
+        "document.columns",
+    );
     if let Some(equal_width) = columns.properties.get("equal_width")
         && !values::boolean(equal_width)?
     {

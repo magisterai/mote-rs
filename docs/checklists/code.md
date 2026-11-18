@@ -48,7 +48,7 @@ separate presentation verification and truthful warnings for degraded output.
 DOCX supports the default Code character style, inherited formatting, nested
 inlines, preserved whitespace, and four-space expansion of preserved tabs.
 Custom character-style references are emitted. Direct font/size/color attributes have
-no DOCX mapping and produce an error. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
+no DOCX mapping; each is ignored with a warning. [Structural evidence](../../tests/fixtures/docx/inline-formatting/README.md)
 is captured; real Word review is unreviewed and native PDF/PNG uses the shared text plan. See the
 [native output fixtures](../../tests/fixtures/native-output/README.md).
 

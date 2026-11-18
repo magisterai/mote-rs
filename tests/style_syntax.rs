@@ -265,7 +265,11 @@ fn named_declarations_retain_validation_and_resolution_failures() {
     ] {
         let named = compile(named, false).unwrap();
         compare_models(&named, &compile(call, false).unwrap());
-        assert!(mote::docx::emit(&named).is_err());
+        // An undeclared parent is left out with a warning; a cycle cannot be written.
+        assert_eq!(
+            mote::docx::emit(&named).is_err(),
+            call.contains("\"Second\"")
+        );
     }
 }
 

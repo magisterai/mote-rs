@@ -50,12 +50,25 @@ fn quote_lists_supply_text_without_allocating_numbering() {
 }
 
 #[test]
-fn unsupported_nested_quote_formatting_is_explicit() {
-    for source in [
-        "#blockquote[#list[#item(checked=true)[Task]]]",
-        "#blockquote(custom=true)[Unknown]",
+fn quote_names_without_a_word_mapping_warn() {
+    for (source, name, without) in [
+        (
+            "#blockquote[#list[#item(checked=true)[Task]]]",
+            "item.checked",
+            "#blockquote[#list[#item[Task]]]",
+        ),
+        (
+            "#blockquote(custom=true)[Unknown]",
+            "blockquote.custom",
+            "#blockquote[Unknown]",
+        ),
     ] {
-        let document = mote::compile(source).unwrap();
-        assert!(mote::docx::emit(&document).is_err(), "{source}");
+        let actual = support::assert_ignored(source, name);
+        let expected = support::package(without);
+        support::compare_xml(
+            &actual["word/document.xml"],
+            &expected["word/document.xml"],
+            "word/document.xml",
+        );
     }
 }

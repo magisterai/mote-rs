@@ -49,7 +49,7 @@ fn retained_wrapper_formatting_warns_without_changing_its_semantic_effect() {
 }
 
 #[test]
-fn known_ignored_properties_warn_and_unknown_properties_still_fail() {
+fn known_ignored_and_unknown_properties_warn() {
     let resolver = FileAssetResolver::new(".").unwrap();
     for (source, property) in [
         (
@@ -85,16 +85,19 @@ fn known_ignored_properties_warn_and_unknown_properties_still_fail() {
         );
         assert!(!generated.bytes.is_empty());
     }
-    for source in [
-        "#strike(properties={future=true})[Text]",
-        "#list(indent={custom=pt(4)})[#item[Text]]",
-        "#paragraph(properties={unsupported=true})[Text]",
-        "#paragraph(style='Missing')[Text]",
+    for (source, name) in [
+        ("#strike(properties={future=true})[Text]", "strike.future"),
+        (
+            "#list(indent={custom=pt(4)})[#item[Text]]",
+            "list.indent.custom",
+        ),
+        (
+            "#paragraph(properties={unsupported=true})[Text]",
+            "paragraph.unsupported",
+        ),
+        ("#paragraph(style='Missing')[Text]", "paragraph.style"),
     ] {
-        assert!(
-            mote::docx::emit(&mote::compile(source).unwrap()).is_err(),
-            "{source}"
-        );
+        support::assert_ignored(source, name);
     }
 }
 
@@ -200,4 +203,64 @@ fn nested_story_paragraphs_keep_their_independent_formatting_context() {
     );
     let package = support::unpack(generated.bytes);
     assert!(package["word/footnotes.xml"].contains("w:jc w:val=\"right\""));
+}
+
+#[test]
+fn every_name_without_a_word_mapping_is_reported_and_the_package_is_written() {
+    let (parts, warnings) = support::package_with_warnings(include_str!(
+        "fixtures/output-fallbacks/unmapped-names.mote"
+    ));
+    for name in [
+        "blockquote.custom",
+        "border.top.sheen",
+        "break.note",
+        "checkbox.custom",
+        "code.color",
+        "divider.custom",
+        "document.columns.widths",
+        "document.margin.inside",
+        "document.note",
+        "document.page.code",
+        "emphasis.font",
+        "font.pitch",
+        "heading.custom",
+        "heading.numbering.custom",
+        "heading.style",
+        "indent.start",
+        "item.checked",
+        "item.future",
+        "link.rel",
+        "list.future",
+        "list.indent.custom",
+        "paragraph.custom",
+        "paragraph.shadow",
+        "paragraph.style",
+        "raw.font",
+        "raw.size",
+        "run.glow",
+        "spacing.extra",
+        "span.custom",
+        "span.style",
+        "strike.future",
+        "strong.size",
+        "style.based_on",
+        "style.next",
+        "tab.note",
+        "table.style",
+        "tabs.fill",
+        "underline.depth",
+    ] {
+        let expected = format!("DOCX ignores {name};");
+        assert!(
+            warnings
+                .iter()
+                .any(|warning| warning.starts_with(&expected)),
+            "{name}: {warnings:?}"
+        );
+    }
+    let document = &parts["word/document.xml"];
+    for ignored in ["custom", "future", "Absent", "sheen"] {
+        assert!(!document.contains(ignored), "{ignored}");
+    }
+    assert!(!parts["word/styles.xml"].contains("Absent"));
 }

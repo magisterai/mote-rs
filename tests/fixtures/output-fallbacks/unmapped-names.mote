@@ -1,0 +1,23 @@
+#document(note = "draft", page = { code = 1 }, margin = { inside = 20 }, columns = { count = 1, widths = { 1000 } })
+#font(name = "Body", latin = "Helvetica", pitch = "fixed")
+#style(name = "Lead", based_on = "Absent", next = "Absent", bold = true, run = { glow = true }, paragraph = { shadow = true })
+
+#paragraph(style = "Lead", custom = true, spacing = { extra = 1 }, indent = { start = pt(4) }, border = { top = { style = "single", sheen = 1 } }, tabs = { { position = inch(1), fill = 1 } })[Paragraph with #span(custom = true, style = "Absent")[a span], #strong(size = pt(12))[strong], #emphasis(font = "Arial")[emphasis], #underline(depth = 1)[underline], #strike(properties = { future = true })[strike], #code(color = "#123456")[code], a tab#tab(note = 1)and #link("https://example.com", rel = "next")[a link].]
+
+#paragraph(style = "Absent")[A paragraph in an undeclared style.]
+
+#heading(level = 1, custom = true, numbering = { enabled = true, custom = 3 })[Heading]
+
+#heading(level = 7)[A heading of the seventh level]
+
+#list(indent = { left = pt(4), custom = pt(3) }, future = true)[#item(checked = true, checkbox = { custom = true }, future = true)[Task]#item(future = true)[Item]]
+
+#blockquote(custom = true)[Quote with #list[#item(checked = true)[a nested task]]]
+
+#raw("Literal", font = "Courier", size = pt(18))
+
+#divider(custom = true)
+
+#table(style = "Absent")[#row[#cell[Cell]]]
+
+#break(type = "page", properties = { note = "kept" })

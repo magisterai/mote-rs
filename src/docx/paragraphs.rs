@@ -80,10 +80,11 @@ pub(super) fn opening(
         .remove("style")
         .map(|value| value.to_text())
         .filter(|name| !name.is_empty())
+        && let Some(identifier) = styles.reference(&name, "style")
     {
         properties.push_str(&format!(
             "<w:pStyle w:val=\"{}\"/>",
-            xml::escape(styles.identifier(&name)?)?
+            xml::escape(identifier)?
         ));
     }
     if let Some((identifier, level)) = numbering_reference {

@@ -13,6 +13,41 @@ pub fn package(source: &str) -> BTreeMap<String, String> {
     unpack(bytes)
 }
 
+/// Generates the package of a source that Word output accepts, requires every
+/// XML part to be well formed, and returns the parts with the warnings.
+#[allow(dead_code)]
+pub fn package_with_warnings(source: &str) -> (BTreeMap<String, String>, Vec<String>) {
+    let document = mote::compile(source).unwrap();
+    let original = document.clone();
+    let resolver = mote::source::FileAssetResolver::new(".").unwrap();
+    let generated = mote::docx::emit_with_assets(&document, &resolver, None)
+        .unwrap_or_else(|error| panic!("{source}: {error}"));
+    assert_eq!(document, original, "emission changed the document model");
+    let parts = unpack(generated.bytes);
+    for (name, content) in &parts {
+        if name.ends_with(".xml") || name.ends_with(".rels") {
+            roxmltree::Document::parse(content)
+                .unwrap_or_else(|error| panic!("{source}: {name}: {error}"));
+        }
+    }
+    (parts, generated.warnings)
+}
+
+/// Requires a source to be generated with a warning that Word output ignores
+/// `name`, and returns the parts of its package.
+#[allow(dead_code)]
+pub fn assert_ignored(source: &str, name: &str) -> BTreeMap<String, String> {
+    let (parts, warnings) = package_with_warnings(source);
+    let expected = format!("DOCX ignores {name};");
+    assert!(
+        warnings
+            .iter()
+            .any(|warning| warning.starts_with(&expected)),
+        "{source}: {warnings:?}"
+    );
+    parts
+}
+
 pub fn unpack(bytes: Vec<u8>) -> BTreeMap<String, String> {
     let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).unwrap();
     let mut parts = BTreeMap::new();
