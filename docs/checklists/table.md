@@ -40,6 +40,20 @@ Word's exports of the
 [nested-table-cell-end](../../tests/office/probes/nested-table-cell-end.mote) and
 [table-page-borders](../../tests/office/probes/table-page-borders.mote) probes
 show.
+A cell takes each property from the cell itself, else from the `cell` attribute
+of its table, else from a region of the table style, else from what the style
+gives every cell. Two properties depart from that order, as Word does: the
+margin of a region outranks the margin of the table, and the vertical alignment
+that the style gives every cell outranks that of a region. The last row outranks
+the band on which it lies. A margin is resolved side by side, and a side that
+nothing states is 4 points above and below and 6 points at the sides; DOCX
+writes the resolved margins on the table, since Word gives a cell no margin on a
+side that neither the table nor its style states and does not take the margin of
+a style from the style on which it is based. The
+[precedence tests](../../tests/table_style_precedence.rs) hold these rules, which
+Word's export of the
+[table-style-precedence probe](../../tests/office/probes/table-style-precedence.mote)
+shows.
 `indent`, `cell_spacing` and `layout` affect editable DOCX only; native output warns
 that these properties have no effect. First/last-column regions and column banding
 also remain editable-output capabilities. See the [capture notes](../../tests/fixtures/tables/README.md)

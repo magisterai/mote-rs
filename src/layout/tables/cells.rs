@@ -39,9 +39,11 @@ pub(super) fn defaults(document: &Document, table: &Element) -> Properties {
     if property_values::object(&base, "cell").is_none_or(|cell| !cell.contains_key("borders")) {
         defaults.remove("borders");
     }
-    defaults
-        .entry("margin".into())
-        .or_insert(Value::Object(tables::default_margins()));
+    let mut margin = tables::default_margins();
+    if let Some(declared) = property_values::object(&defaults, "margin") {
+        margin.extend(tables::margins(declared));
+    }
+    defaults.insert("margin".into(), Value::Object(margin));
     if let Some(actual) = property_values::object(&table.attributes, "cell") {
         defaults = tables::cell_defaults(actual, &defaults, false);
     }
@@ -55,14 +57,33 @@ pub(super) fn attributes(
     row: usize,
     count: usize,
 ) -> Properties {
-    let mut output = tables::cell_defaults(&cell.attributes, defaults, false);
+    let mut inherited = defaults.clone();
+    let mut margin = property_values::object(defaults, "margin")
+        .map(tables::margins)
+        .unwrap_or_default();
     for region in table_styles::regions(document, table, cell, row, count)
         .iter()
         .skip(1)
     {
-        output = tables::cell_defaults(&output, &flatten(region), false);
+        let region = flatten(region);
+        if let Some(declared) = property_values::object(&region, "margin") {
+            margin.extend(tables::margins(declared));
+        }
+        inherited = tables::cell_defaults(&region, &inherited, false);
     }
-    output
+    // Word keeps the vertical alignment that a table style gives every cell,
+    // whatever a region of the style states.
+    if let Some(alignment) = defaults.get("vertical_alignment") {
+        inherited.insert("vertical_alignment".into(), alignment.clone());
+    }
+    // DOCX writes the cell attribute of a table on each cell, where Word ranks
+    // it above a region of the style, and writes its margin on the table, where
+    // Word ranks it below the margin of a region.
+    if let Some(own) = property_values::object(&table.attributes, "cell") {
+        inherited = tables::cell_defaults(own, &inherited, false);
+    }
+    inherited.insert("margin".into(), Value::Object(margin));
+    tables::cell_defaults(&cell.attributes, &inherited, false)
 }
 pub(super) fn margins(attributes: &Properties) -> [f64; 4] {
     let fields = property_values::object(attributes, "margin")

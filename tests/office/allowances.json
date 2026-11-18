@@ -426,6 +426,13 @@
     "unmatched": 1,
     "vertical": 0.3
   },
+  "probes/table-style-precedence": {
+    "horizontal": 0.2,
+    "median": 0.2,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.5
+  },
   "word/01_plain_markdown_basics": {
     "horizontal": 0.1,
     "median": 0.5,

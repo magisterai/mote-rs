@@ -122,6 +122,16 @@ pub(crate) fn cell_defaults(
         borders.extend(actual.clone());
         properties.insert("borders".into(), Value::Object(borders));
     }
+    if !skip_margin
+        && let (Some(defaults), Some(actual)) = (
+            property_values::object(defaults, "margin"),
+            property_values::object(actual, "margin"),
+        )
+    {
+        let mut sides = margins(defaults);
+        sides.extend(margins(actual));
+        properties.insert("margin".into(), Value::Object(sides));
+    }
     properties
 }
 pub(crate) fn margins(properties: &Properties) -> Properties {

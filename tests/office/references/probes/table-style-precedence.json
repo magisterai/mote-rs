@@ -1,0 +1,248 @@
+{
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "MARGINS OF A STYLE: a style that states no margin leaves the margins of a plain table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 105.36,
+          "text": "Bare one Bare right one",
+          "x": 78.24
+        },
+        {
+          "baseline": 129.84,
+          "text": "Bare two Bare right two",
+          "x": 78.24
+        },
+        {
+          "baseline": 150.48,
+          "text": "A style that states the top margin alone.",
+          "x": 72.0
+        },
+        {
+          "baseline": 176.88,
+          "text": "Top one Top right one",
+          "x": 78.24
+        },
+        {
+          "baseline": 207.36,
+          "text": "Top two Top right two",
+          "x": 78.24
+        },
+        {
+          "baseline": 228.0,
+          "text": "A style whose first row states margins of its own.",
+          "x": 72.0
+        },
+        {
+          "baseline": 256.32,
+          "text": "Region one Region right one",
+          "x": 92.16
+        },
+        {
+          "baseline": 286.8,
+          "text": "Region two Region right two",
+          "x": 75.36
+        },
+        {
+          "baseline": 305.28,
+          "text": "A style that states margins for its first row alone.",
+          "x": 72.0
+        },
+        {
+          "baseline": 333.84,
+          "text": "Only one Only right one",
+          "x": 92.16
+        },
+        {
+          "baseline": 358.32,
+          "text": "Only two",
+          "x": 78.24
+        },
+        {
+          "baseline": 358.32,
+          "text": "Only right two",
+          "x": 148.32
+        },
+        {
+          "baseline": 378.96,
+          "text": "A style based on a style that states margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 404.4,
+          "text": "Child one Child right one",
+          "x": 81.36
+        },
+        {
+          "baseline": 438.96,
+          "text": "Child two Child right two",
+          "x": 81.36
+        },
+        {
+          "baseline": 464.4,
+          "text": "A table that states a left margin over a style that states none.",
+          "x": 72.0
+        },
+        {
+          "baseline": 484.8,
+          "text": "Own one Own right one",
+          "x": 87.36
+        },
+        {
+          "baseline": 509.28,
+          "text": "Own two Own right two",
+          "x": 87.36
+        },
+        {
+          "baseline": 529.92,
+          "text": "A table and a cell that state margins over the style with a first row.",
+          "x": 72.0
+        },
+        {
+          "baseline": 558.48,
+          "text": "Mixed one",
+          "x": 92.16
+        },
+        {
+          "baseline": 558.48,
+          "text": "Mixed right one",
+          "x": 176.16
+        },
+        {
+          "baseline": 592.8,
+          "text": "Mixed two Mixed right two",
+          "x": 80.16
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 84.96,
+          "text": "VERTICAL ALIGNMENT: the alignment that a style gives every cell outranks a region.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.88,
+          "text": "Aligned head Aligned head right",
+          "x": 78.24
+        },
+        {
+          "baseline": 176.88,
+          "text": "Aligned odd Aligned odd right",
+          "x": 78.24
+        },
+        {
+          "baseline": 224.88,
+          "text": "Aligned even Aligned even right",
+          "x": 78.24
+        },
+        {
+          "baseline": 272.88,
+          "text": "Aligned last Aligned last right",
+          "x": 78.24
+        },
+        {
+          "baseline": 293.28,
+          "text": "A table and a cell that state an alignment over that style.",
+          "x": 72.0
+        },
+        {
+          "baseline": 325.68,
+          "text": "Direct head",
+          "x": 78.24
+        },
+        {
+          "baseline": 337.44,
+          "text": "Direct head right",
+          "x": 146.64
+        },
+        {
+          "baseline": 373.68,
+          "text": "Direct last Direct last right",
+          "x": 78.24
+        },
+        {
+          "baseline": 405.84,
+          "text": "A style that aligns its first and last rows alone.",
+          "x": 72.0
+        },
+        {
+          "baseline": 450.0,
+          "text": "Edge head Edge head right",
+          "x": 78.24
+        },
+        {
+          "baseline": 474.48,
+          "text": "Edge body Edge body right",
+          "x": 78.24
+        },
+        {
+          "baseline": 534.24,
+          "text": "Edge last Edge last right",
+          "x": 78.24
+        },
+        {
+          "baseline": 566.4,
+          "text": "TEXT AND FILL: a region outranks the text, the alignment and the fill of the style.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.8,
+          "text": "Text head one",
+          "x": 135.26
+        },
+        {
+          "baseline": 586.8,
+          "text": "Text head two",
+          "x": 335.49
+        },
+        {
+          "baseline": 611.28,
+          "text": "Text odd one",
+          "x": 202.03
+        },
+        {
+          "baseline": 611.28,
+          "text": "Text odd two",
+          "x": 403.18
+        },
+        {
+          "baseline": 636.0,
+          "text": "Text even one",
+          "x": 196.53
+        },
+        {
+          "baseline": 636.0,
+          "text": "Text even two",
+          "x": 397.68
+        },
+        {
+          "baseline": 660.48,
+          "text": "Text last one",
+          "x": 78.24
+        },
+        {
+          "baseline": 660.48,
+          "text": "Text last two",
+          "x": 278.16
+        },
+        {
+          "baseline": 680.88,
+          "text": "End of the probe.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1",
+  "source_sha256": "1c38456a72dd17bff3afffdb47b35ac074c41d8982d65488569b48128403bb5a"
+}

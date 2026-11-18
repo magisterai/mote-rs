@@ -91,9 +91,7 @@ pub(crate) fn text(
     let mut text = Properties::new();
     for region in regions(document, table, cell, row, row_count) {
         if let Some(properties) = property_values::object(&region, "text") {
-            for (name, value) in properties {
-                text.entry(name.clone()).or_insert_with(|| value.clone());
-            }
+            text.extend(properties.clone());
         }
     }
     text

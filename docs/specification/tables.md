@@ -47,6 +47,15 @@ over table-style paragraph alignment; an explicit paragraph alignment inside
 the cell takes precedence over the cell. DOCX applies table text defaults without adding a paragraph-style
 reference solely from this cell attribute.
 
+In document layout a cell takes each property from the cell itself, else from
+the `cell` attribute of its table, else from a first-row or last-row region or a
+row band of the table style, else from what the style gives every cell. The
+last row takes precedence over the band on which it lies. A `margin` is resolved
+side by side in that order, except that the margin of a region takes precedence
+over the margin of the table; a side that nothing states is 4 points above and
+below and 6 points at the sides. The `vertical_alignment` that the style gives
+every cell takes precedence over that of a region.
+
 Table and cell `borders` objects specify physical edges: top, right, bottom and
 left, plus table inside_h and inside_v. Each edge records style, width or size,
 and hexadecimal color. `all` supplies every edge; table `outside` and `inside`

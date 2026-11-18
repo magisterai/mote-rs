@@ -60,6 +60,7 @@
   "probes/shape-text": 0.002,
   "probes/table-page-borders": 0.003,
   "probes/table-row-height": 0.003,
+  "probes/table-style-precedence": 0.007,
   "word/01_plain_markdown_basics": 0.005,
   "word/02_plain_markdown_longform": 0.006,
   "word/03_nested_styles_layout": 0.001,

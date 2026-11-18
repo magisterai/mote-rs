@@ -96,11 +96,14 @@ pub(super) fn write(
     if fixed {
         output.push_str("<w:tblLayout w:type=\"fixed\"/>");
     }
-    let mut margins = if style.is_none() {
-        tables::default_margins()
-    } else {
-        Properties::new()
-    };
+    // Word gives a cell no margin unless the table or its style states one, and
+    // does not take the margin of a style from the style on which it is based.
+    let mut margins = tables::default_margins();
+    if let Some(declared) = property_values::object(&table_style, "cell")
+        .and_then(|cell| property_values::object(cell, "margin"))
+    {
+        margins.extend(tables::margins(declared));
+    }
     if let Some(declared) = property_values::object(&defaults, "margin") {
         margins.extend(tables::margins(declared));
     }

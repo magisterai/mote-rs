@@ -1,0 +1,145 @@
+#document(
+  default_font = "Helvetica",
+  default_size = pt(11),
+  page = { size = "letter", orientation = "portrait" },
+  margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) }
+)
+
+#style(
+  name = "Normal",
+  type = "paragraph",
+  run = { font = "Helvetica", size = pt(11) },
+  paragraph = { spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(16) } } }
+)
+
+#style(name = "Bare", type = "table", table = { alignment = "left" })
+#style(name = "TopOnly", type = "table", table = { cell = { margin = { top = pt(10) } } })
+#style(
+  name = "Region",
+  type = "table",
+  table = {
+    cell = { margin = { top = pt(2), right = pt(3), bottom = pt(2), left = pt(3) } },
+    first_row = { cell = { margin = { top = pt(12), bottom = pt(12), left = pt(20) } } }
+  }
+)
+#style(name = "RegionOnly", type = "table", table = { first_row = { cell = { margin = { top = pt(12), left = pt(20) } } } })
+#style(name = "Parent", type = "table", table = { cell = { margin = { top = pt(9), right = pt(9), bottom = pt(9), left = pt(9) } } })
+#style(name = "Child", type = "table", based_on = "Parent", table = { alignment = "left" })
+#style(
+  name = "Aligned",
+  type = "table",
+  table = {
+    cell = { vertical_alignment = "bottom" },
+    first_row = { vertical_alignment = "top" },
+    last_row = { cell = { vertical_alignment = "center" } },
+    banding = { rows = true, odd = { vertical_alignment = "top" }, even = { vertical_alignment = "center" } }
+  }
+)
+#style(
+  name = "RegionAligned",
+  type = "table",
+  table = {
+    first_row = { vertical_alignment = "bottom" },
+    last_row = { cell = { vertical_alignment = "center" } }
+  }
+)
+#style(
+  name = "Texts",
+  type = "table",
+  table = {
+    cell = { fill = "#FFE4E1" },
+    text = { color = "#FF0000", italic = true },
+    paragraph = { alignment = "right" },
+    first_row = { fill = "#000080", alignment = "center", text = { color = "#FFFFFF", bold = true } },
+    last_row = { cell = { fill = "#90EE90" }, paragraph = { alignment = "left" }, text = { color = "#008000" } },
+    banding = { rows = true, odd = { fill = "#DDDDDD" }, even = { fill = "#FFFF00" } }
+  }
+)
+
+#set paragraph(style = "Normal")
+
+MARGINS OF A STYLE: a style that states no margin leaves the margins of a plain table.
+
+#table(style = "Bare")[
+  #row[#cell[Bare one]#cell[Bare right one]]
+  #row[#cell[Bare two]#cell[Bare right two]]
+]
+
+A style that states the top margin alone.
+
+#table(style = "TopOnly")[
+  #row[#cell[Top one]#cell[Top right one]]
+  #row[#cell[Top two]#cell[Top right two]]
+]
+
+A style whose first row states margins of its own.
+
+#table(style = "Region")[
+  #row[#cell[Region one]#cell[Region right one]]
+  #row[#cell[Region two]#cell[Region right two]]
+]
+
+A style that states margins for its first row alone.
+
+#table(style = "RegionOnly")[
+  #row[#cell[Only one]#cell[Only right one]]
+  #row[#cell[Only two]#cell[Only right two]]
+]
+
+A style based on a style that states margins.
+
+#table(style = "Child")[
+  #row[#cell[Child one]#cell[Child right one]]
+  #row[#cell[Child two]#cell[Child right two]]
+]
+
+A table that states a left margin over a style that states none.
+
+#table(style = "Bare", cell = { margin = { left = pt(15) } })[
+  #row[#cell[Own one]#cell[Own right one]]
+  #row[#cell[Own two]#cell[Own right two]]
+]
+
+A table and a cell that state margins over the style with a first row.
+
+#table(style = "Region", cell = { margin = { top = pt(6), left = pt(8) } })[
+  #row[#cell[Mixed one]#cell(margin = { left = pt(30) })[Mixed right one]]
+  #row[#cell[Mixed two]#cell[Mixed right two]]
+]
+
+#break(type = "page")
+
+VERTICAL ALIGNMENT: the alignment that a style gives every cell outranks a region.
+
+#table(style = "Aligned")[
+  #row(height = pt(44), height_rule = "exact")[#cell[Aligned head]#cell[Aligned head right]]
+  #row(height = pt(44), height_rule = "exact")[#cell[Aligned odd]#cell[Aligned odd right]]
+  #row(height = pt(44), height_rule = "exact")[#cell[Aligned even]#cell[Aligned even right]]
+  #row(height = pt(44), height_rule = "exact")[#cell[Aligned last]#cell[Aligned last right]]
+]
+
+A table and a cell that state an alignment over that style.
+
+#table(style = "Aligned", cell = { vertical_alignment = "center" })[
+  #row(height = pt(44), height_rule = "exact")[#cell[Direct head]#cell(vertical_alignment = "bottom")[Direct head right]]
+  #row(height = pt(44), height_rule = "exact")[#cell[Direct last]#cell[Direct last right]]
+]
+
+A style that aligns its first and last rows alone.
+
+#table(style = "RegionAligned")[
+  #row(height = pt(44), height_rule = "exact")[#cell[Edge head]#cell[Edge head right]]
+  #row(height = pt(44), height_rule = "exact")[#cell[Edge body]#cell[Edge body right]]
+  #row(height = pt(44), height_rule = "exact")[#cell[Edge last]#cell[Edge last right]]
+]
+
+TEXT AND FILL: a region outranks the text, the alignment and the fill of the style.
+
+#table(style = "Texts", width = pt(400))[
+  #row[#cell[Text head one]#cell[Text head two]]
+  #row[#cell[Text odd one]#cell[Text odd two]]
+  #row[#cell[Text even one]#cell[Text even two]]
+  #row[#cell[Text last one]#cell[Text last two]]
+]
+
+End of the probe.
