@@ -89,6 +89,15 @@ updates the recorded digests, in every native capture harness. A refreshed JSON
 capture keeps its stored text and changes only the values that moved. A refresh
 is made only for a change that Office evidence supports.
 
+A manifest records the digest of a capture file in a member named after the
+file, such as `reference-1.png`, or after its stem, such as `geometry_sha256`. A
+refreshed file replaces the digest in its own members alone, so that a file of
+equal content keeps its record. If the manifest records another digest than the
+stored file has, the manifest was stale before the refresh: the refresh of that
+file fails and writes nothing. A manifest that records no digest of the file is
+left as it is. The refreshes of one test binary update a manifest one at a time,
+since two tests of a binary refresh files that one manifest records.
+
 ## Office comparison
 
 `cargo xtask office-compare` compares the native layout of every review case and

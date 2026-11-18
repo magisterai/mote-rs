@@ -84,16 +84,82 @@ pub fn replace(folder: &std::path::Path, name: &str, bytes: &[u8]) {
 }
 
 /// Writes a refreshed capture file and its fingerprint in the named manifest.
+///
+/// A manifest records the fingerprint of a file in a member named after the
+/// file, as `reference-1.png`, or after its stem, as `geometry_sha256` for
+/// `geometry.json`. The member must hold the digest of the stored file: if it
+/// holds another digest, the manifest was stale before the refresh, and the
+/// refresh fails without writing. A manifest that records no fingerprint of the
+/// file is left as it is.
 #[allow(dead_code)]
 pub fn replace_recorded(folder: &std::path::Path, manifest: &str, name: &str, bytes: &[u8]) {
     use sha2::{Digest, Sha256};
+    // Two tests of one binary refresh files that one manifest records, and an
+    // unguarded read and write of the manifest loses one of their digests.
+    static MANIFEST_UPDATE: std::sync::Mutex<()> = std::sync::Mutex::new(());
+    let _guard = MANIFEST_UPDATE
+        .lock()
+        .unwrap_or_else(std::sync::PoisonError::into_inner);
     let path = folder.join(name);
     let previous = format!("{:x}", Sha256::digest(std::fs::read(&path).unwrap()));
-    std::fs::write(&path, bytes).unwrap();
-    let manifest_path = folder.join(manifest);
-    let manifest = std::fs::read_to_string(&manifest_path).unwrap();
     let current = format!("{:x}", Sha256::digest(bytes));
-    std::fs::write(manifest_path, manifest.replace(&previous, &current)).unwrap();
+    let manifest_path = folder.join(manifest);
+    let recorded = std::fs::read_to_string(&manifest_path).unwrap();
+    // Two files of equal content share a digest, so the digest is replaced only
+    // in the members of this file.
+    let updated = fingerprint_members(name)
+        .iter()
+        .fold(recorded.clone(), |text, member| {
+            text.replace(
+                &format!("\"{member}\": \"{previous}\""),
+                &format!("\"{member}\": \"{current}\""),
+            )
+        });
+    if updated == recorded && previous != current {
+        if let Some(stale) = recorded_fingerprint(&recorded, name) {
+            panic!(
+                "{}: the manifest records the digest {stale} for {name}, and the stored file has {previous}; nothing was written",
+                manifest_path.display()
+            );
+        }
+        assert!(
+            !recorded.contains(&previous),
+            "{}: the manifest records the digest of {name} in a member that the refresh does not know; nothing was written",
+            manifest_path.display()
+        );
+    }
+    std::fs::write(&path, bytes).unwrap();
+    if updated != recorded {
+        std::fs::write(manifest_path, updated).unwrap();
+    }
+}
+
+#[allow(dead_code)]
+fn fingerprint_members(name: &str) -> [String; 2] {
+    let stem = name.rsplit_once('.').map_or(name, |(stem, _)| stem);
+    [
+        name.to_owned(),
+        format!("{}_sha256", stem.replace('-', "_")),
+    ]
+}
+
+/// The digest that a manifest records for a file, wherever its member lies.
+#[allow(dead_code)]
+fn recorded_fingerprint(manifest: &str, name: &str) -> Option<String> {
+    fn find(value: &Value, members: &[String]) -> Option<String> {
+        match value {
+            Value::Object(fields) => fields.iter().find_map(|(field, value)| match value {
+                Value::String(digest) if members.contains(field) => Some(digest.clone()),
+                value => find(value, members),
+            }),
+            Value::Array(items) => items.iter().find_map(|item| find(item, members)),
+            _ => None,
+        }
+    }
+    find(
+        &serde_json::from_str(manifest).ok()?,
+        &fingerprint_members(name),
+    )
 }
 
 /// Rewrites a captured JSON file and its fingerprint in `native-capture.json`,

@@ -9,6 +9,12 @@ mod digest;
 mod inventory;
 mod json;
 mod layout_fixtures;
+/// The capture support of the library's tests, whose refresh path is tested
+/// beside the capture checks of this crate.
+#[cfg(test)]
+#[allow(dead_code)]
+#[path = "../../tests/support/native_capture.rs"]
+mod native_capture;
 mod office;
 mod package;
 mod parity;

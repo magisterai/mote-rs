@@ -438,8 +438,10 @@ pub(crate) fn unreferenced_parts(fixtures: &Path) -> Result<Vec<PathBuf>, String
 mod tests {
     use super::{captures, unreferenced_parts};
     use crate::{
+        digest::digest as digest_of,
         json::{Json, pretty},
-        repository,
+        native_capture, repository,
+        testing::TemporaryDirectory,
     };
 
     #[test]
@@ -496,6 +498,126 @@ mod tests {
             }
         }
         assert!(stale.is_empty(), "{stale:?}");
+    }
+
+    /// A capture folder that holds the given files and a manifest of the given
+    /// text, in which `{NAME}` stands for the digest of the file of that name.
+    fn capture_folder(files: &[(&str, &[u8])], manifest: &str) -> TemporaryDirectory {
+        let folder = TemporaryDirectory::new();
+        let mut manifest = manifest.to_owned();
+        for (name, bytes) in files {
+            std::fs::write(folder.0.join(name), bytes).unwrap();
+            manifest = manifest.replace(&format!("{{{name}}}"), &digest_of(bytes));
+        }
+        std::fs::write(folder.0.join("capture.json"), manifest).unwrap();
+        folder
+    }
+
+    fn manifest_of(folder: &TemporaryDirectory) -> String {
+        std::fs::read_to_string(folder.0.join("capture.json")).unwrap()
+    }
+
+    fn refresh(folder: &TemporaryDirectory, name: &str, bytes: &[u8]) {
+        native_capture::replace_recorded(&folder.0, "capture.json", name, bytes);
+    }
+
+    #[test]
+    fn a_refreshed_capture_replaces_its_own_fingerprint_alone() {
+        let text = r#"{
+  "geometry_sha256": "{geometry.json}",
+  "native_png_files": {
+    "reference-1.png": "{reference-1.png}",
+    "reference-2.png": "{reference-2.png}"
+  }
+}"#;
+        let folder = capture_folder(
+            &[
+                ("geometry.json", b"{}"),
+                ("reference-1.png", b"page"),
+                ("reference-2.png", b"page"),
+            ],
+            text,
+        );
+        refresh(&folder, "reference-1.png", b"moved");
+        refresh(&folder, "geometry.json", b"[]");
+        let expected = text
+            .replace("{geometry.json}", &digest_of(b"[]"))
+            .replace("{reference-1.png}", &digest_of(b"moved"))
+            .replace("{reference-2.png}", &digest_of(b"page"));
+        assert_eq!(manifest_of(&folder), expected);
+        let stored = |name: &str| std::fs::read(folder.0.join(name)).unwrap();
+        assert_eq!(stored("reference-1.png"), b"moved");
+        assert_eq!(stored("reference-2.png"), b"page");
+        assert_eq!(stored("geometry.json"), b"[]");
+    }
+
+    #[test]
+    fn a_refresh_fails_when_the_manifest_records_another_digest() {
+        let stale = digest_of(b"an earlier page");
+        for text in [
+            format!(r#"{{"files": {{"reference-1.png": "{stale}"}}}}"#),
+            format!(r#"{{"reference_1_sha256": "{stale}"}}"#),
+            r#"{"pages": [{"path": "reference-1.png", "sha256": "{reference-1.png}"}]}"#.to_owned(),
+        ] {
+            let folder = capture_folder(&[("reference-1.png", b"page")], &text);
+            let recorded = manifest_of(&folder);
+            let refreshed =
+                std::panic::catch_unwind(|| refresh(&folder, "reference-1.png", b"moved"));
+            assert!(refreshed.is_err(), "{text}");
+            assert_eq!(manifest_of(&folder), recorded);
+            assert_eq!(
+                std::fs::read(folder.0.join("reference-1.png")).unwrap(),
+                b"page"
+            );
+        }
+    }
+
+    #[test]
+    fn a_refresh_leaves_a_manifest_without_a_fingerprint_of_the_file() {
+        let text = r#"{"pages": 1, "native_png_dpi": 72}"#;
+        let folder = capture_folder(&[("reference-1.png", b"page")], text);
+        refresh(&folder, "reference-1.png", b"moved");
+        assert_eq!(manifest_of(&folder), text);
+        assert_eq!(
+            std::fs::read(folder.0.join("reference-1.png")).unwrap(),
+            b"moved"
+        );
+    }
+
+    #[test]
+    fn concurrent_refreshes_of_one_manifest_keep_every_fingerprint() {
+        let names: Vec<String> = (1..=16)
+            .map(|number| format!("reference-{number}.png"))
+            .collect();
+        let files: Vec<(&str, &[u8])> = names
+            .iter()
+            .map(|name| (name.as_str(), name.as_bytes()))
+            .collect();
+        let members: Vec<String> = names
+            .iter()
+            .map(|name| format!(r#""{name}": "{{{name}}}""#))
+            .collect();
+        for round in 0..20 {
+            let folder = capture_folder(&files, &format!("{{{}}}", members.join(", ")));
+            let start = std::sync::Barrier::new(names.len());
+            std::thread::scope(|scope| {
+                for name in &names {
+                    let (folder, start) = (&folder, &start);
+                    scope.spawn(move || {
+                        start.wait();
+                        refresh(folder, name, format!("{name} moved").as_bytes());
+                    });
+                }
+            });
+            let manifest = manifest_of(&folder);
+            for name in &names {
+                let expected = digest_of(format!("{name} moved").as_bytes());
+                assert!(
+                    manifest.contains(&format!(r#""{name}": "{expected}""#)),
+                    "round {round}: the fingerprint of {name} was lost"
+                );
+            }
+        }
     }
 
     #[test]
