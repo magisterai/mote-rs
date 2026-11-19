@@ -37,6 +37,12 @@ transforms, fills, stroke patterns and opacity, names and text defaults. Shapes
 also require preset text bounds, fitting and shadows; connectors require endpoint
 geometry, caps and start/end marker kinds and sizes. Editable and native slide
 coverage is captured. Native diamond markers use four vertices; marker width and
-length resolve independently, including per-end overrides. Native PNG cap painting retains the
-common rounded raster treatment.
+length resolve independently, including per-end overrides. Native output ends
+the line at the base of a triangle marker and at the notch of a stealth marker,
+so that the narrowing head does not lie over the full width of the line
+([test](../../tests/output_edges.rs)); the arrows of the shapes-and-lines case
+then leave no marks that differ from PowerPoint's export. An oval or a diamond marker is
+centred on the end and covers it. The native PNG painter draws the cap that the
+stroke states, as the PDF painter does
+([test](../../tests/presentation_rendering.rs)).
 PowerPoint visual review remains unreviewed independently of model support.

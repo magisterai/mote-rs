@@ -147,8 +147,8 @@
       }
     }
   },
-  "geometry_sha256": "19af7de7344fe13194c2592bc00cdd7e7cf715e1ab3cfdfd3482d65ca262b022",
+  "geometry_sha256": "90f9592f6d38ea43ce7c1cb389764192080b022ce6c6fa7c23bb1fe3a008c3f2",
   "native_png_files": {
-    "reference-1.png": "e39efe5a96887fc3226e6d5388be13c5a3f66461e1d976641c35a3ed68d96459"
+    "reference-1.png": "9530ecb589eab40851b8d68cb9ef7dc6b859b003525c09eaf7604137b186c928"
   }
 }

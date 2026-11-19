@@ -80,14 +80,11 @@ pub(in crate::layout) fn connector(attributes: &Properties) -> Vec<PageOperation
     let Some(stroke) = geometry::stroke(&border) else {
         return Vec::new();
     };
-    let mut output = vec![PageOperation::Path(PaintedPath {
-        points: vec![start, end],
-        closed: false,
-        fill: None,
-        stroke: Some(stroke.clone()),
-    })];
+    let mut markers = Vec::new();
+    // The distances short of the start and of the end at which the line stops.
+    let mut insets = [0.0; 2];
     if let Some(arrow) = object(attributes, "arrow") {
-        for (prefix, tip, other) in [("end", end, start), ("start", start, end)] {
+        for (index, prefix, tip, other) in [(1, "end", end, start), (0, "start", start, end)] {
             let width = marker_dimension(arrow, &[&format!("{prefix}_size"), "size"], stroke.width);
             let length = marker_dimension(
                 arrow,
@@ -99,20 +96,51 @@ pub(in crate::layout) fn connector(attributes: &Properties) -> Vec<PageOperation
                 ],
                 stroke.width,
             );
-            if let Some(path) = marker(
+            let kind = text(arrow, prefix);
+            insets[index] = stroke_inset(&kind, length);
+            markers.extend(marker(
                 tip,
                 other,
-                &text(arrow, prefix),
+                &kind,
                 width,
                 length,
                 stroke.paint.clone(),
-            ) {
-                output.push(PageOperation::Path(path));
-            }
+            ));
         }
     }
+    let length = (end[0] - start[0]).hypot(end[1] - start[1]);
+    let along = |distance: f64| {
+        [
+            start[0] + (end[0] - start[0]) * distance / length,
+            start[1] + (end[1] - start[1]) * distance / length,
+        ]
+    };
+    let mut output = Vec::new();
+    if insets[0] + insets[1] < length {
+        output.push(PageOperation::Path(PaintedPath {
+            points: vec![along(insets[0]), along(length - insets[1])],
+            closed: false,
+            fill: None,
+            stroke: Some(stroke.clone()),
+        }));
+    }
+    output.extend(markers.into_iter().map(PageOperation::Path));
     output
 }
+/// Returns how far short of its end a line stops for an arrowhead of `length`.
+/// PowerPoint ends the line at the base of a triangle and at the notch of a
+/// stealth head, so that the narrowing head does not lie over the full width
+/// of the line; an oval or a diamond is centred on the end and covers it.
+fn stroke_inset(kind: &str, length: f64) -> f64 {
+    match kind {
+        "triangle" => length,
+        "stealth" => length * STEALTH_NOTCH,
+        _ => 0.0,
+    }
+}
+/// The distance of the notch of a stealth head from its tip, as a part of the
+/// length of the head.
+const STEALTH_NOTCH: f64 = 0.62;
 fn marker(
     tip: [f64; 2],
     other: [f64; 2],
@@ -180,8 +208,8 @@ fn marker(
             tip,
             first,
             [
-                tip[0] - direction[0] * marker_length * 0.62,
-                tip[1] - direction[1] * marker_length * 0.62,
+                tip[0] - direction[0] * marker_length * STEALTH_NOTCH,
+                tip[1] - direction[1] * marker_length * STEALTH_NOTCH,
             ],
             last,
         ],

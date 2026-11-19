@@ -437,27 +437,43 @@ fn drawing_geometry_and_native_rasters_match_captured_output() {
 }
 
 #[test]
-fn explicit_flat_connector_caps_can_be_painted_natively() {
-    let document =
-        mote::compile("#slide[#line(from={x=pt(10),y=pt(10)},to={x=pt(100),y=pt(40)},cap='flat')]")
-            .unwrap();
+fn the_png_painter_ends_a_line_with_the_cap_it_states() {
     let resolver = FileAssetResolver::new(".").unwrap();
-    let plan =
-        render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+    // The line runs from 20 to 100 points at a height of 40 points and is 10
+    // points wide; at 72 dots per inch a pixel is one point.
+    let painted = |cap: &str, [x, y]: [usize; 2]| {
+        let document = mote::compile(&format!(
+            "#slide[#line(from={{x=pt(20),y=pt(40)}},to={{x=pt(100),y=pt(40)}},border={{color='#000000',width=pt(10)}},cap='{cap}')]"
+        ))
+        .unwrap();
+        let plan =
+            render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
+                .unwrap();
+        assert!(
+            render::paint_pdf(&plan.output)
+                .unwrap()
+                .starts_with(b"%PDF-")
+        );
+        let page = &render::paint_png(&plan.output, &render::PngOptions::default())
+            .unwrap()
+            .output[0];
+        let mut reader = png::Decoder::new(std::io::Cursor::new(&page.bytes))
+            .read_info()
             .unwrap();
-    assert!(!plan.output.pages[0].operations.is_empty());
-    assert!(
-        render::paint_pdf(&plan.output)
-            .unwrap()
-            .starts_with(b"%PDF-")
-    );
-    assert_eq!(
-        render::paint_png(&plan.output, &Default::default())
-            .unwrap()
-            .output
-            .len(),
-        1
-    );
+        let mut pixels = vec![0; reader.output_buffer_size().unwrap()];
+        let frame = reader.next_frame(&mut pixels).unwrap();
+        let offset = (y * frame.width as usize + x) * frame.color_type.samples();
+        pixels[offset] < 128
+    };
+    for cap in ["flat", "round", "square"] {
+        assert!(painted(cap, [60, 40]), "{cap}");
+    }
+    let beyond_the_end = [103, 40];
+    let beyond_the_corner = [103, 44];
+    assert!(!painted("flat", beyond_the_end));
+    assert!(painted("round", beyond_the_end));
+    assert!(!painted("round", beyond_the_corner));
+    assert!(painted("square", beyond_the_corner));
 }
 
 #[test]

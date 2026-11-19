@@ -18,7 +18,8 @@ with 79 pixels exceeding 64; tests cap these at 112, 1.0 and 90 respectively.
 Other cases stay below maximum 56 and foreground mean 12 with no pixels exceeding
 64. Every page was also visually inspected. PDF/PNG painting remains independent.
 
-PNG patterned outlines restart their dash phase at polygon segments and use
-round capsule ends; PDF outlines retain continuous path dashes. These are separate
+PNG patterned outlines restart their dash phase at polygon segments; PDF
+outlines retain continuous path dashes. Both painters end a dash with the cap of
+its stroke. These are separate
 captured painter behaviors. Matching these captures does not establish Word
 conformance: Microsoft Word render review remains unreviewed.

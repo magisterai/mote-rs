@@ -273,6 +273,42 @@ fn connector_markers_use_distinct_shapes_and_independent_dimensions() {
     }
 }
 
+#[test]
+fn a_connector_line_ends_at_the_base_of_a_triangle_and_at_the_notch_of_a_stealth_head() {
+    let resolver = FileAssetResolver::new(".").unwrap();
+    for (kind, expected_end) in [
+        ("triangle", 90.0),
+        ("stealth", 100.0 - 10.0 * 0.62),
+        ("oval", 100.0),
+        ("diamond", 100.0),
+    ] {
+        let source = format!(
+            "#presentation()#slide[#line(from={{x=pt(20),y=pt(30)}},to={{x=pt(100),y=pt(30)}},border={{width=pt(2)}},arrow={{start='{kind}',end='{kind}',length='large'}})]"
+        );
+        let plan = render::plan_with_layout(
+            &mote::compile(&source).unwrap(),
+            &resolver,
+            None,
+            render::LayoutMode::Presentation,
+        )
+        .unwrap()
+        .output;
+        let line = plan.pages[0]
+            .operations
+            .iter()
+            .find_map(|operation| match operation {
+                PageOperation::Path(path) if path.fill.is_none() => Some(path),
+                _ => None,
+            })
+            .unwrap();
+        let ends = [line.points[0][0], line.points[1][0]];
+        let expected = [120.0 - expected_end, expected_end];
+        for (actual, expected) in ends.into_iter().zip(expected) {
+            assert!((actual - expected).abs() < 1e-8, "{kind}: {ends:?}");
+        }
+    }
+}
+
 #[path = "support/language_capture.rs"]
 mod language_capture;
 

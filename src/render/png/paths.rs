@@ -1,5 +1,5 @@
 use super::{RenderError, color};
-use crate::layout::{PaintedPath, PathPaint, PathStroke};
+use crate::layout::{LineCap, PaintedPath, PathPaint, PathStroke};
 use tiny_skia::{FillRule, Mask, Paint, PathBuilder, Pixmap, Transform};
 
 fn paint(value: &PathPaint) -> Result<Paint<'static>, RenderError> {
@@ -57,9 +57,25 @@ pub(super) fn draw(
                 .then(|| [*path.points.last().unwrap(), path.points[0]]),
         );
         if stroke.dash.is_empty() {
+            // The segments meet in round joins; the free ends of an open path
+            // take the cap of the stroke.
+            let count = path.points.len() - 1 + usize::from(path.closed);
             let mut builder = PathBuilder::new();
-            for [start, end] in segments {
-                capsule(&mut builder, start, end, stroke.width, scale);
+            for (index, ends) in segments.enumerate() {
+                let cap = |free: bool| {
+                    if free && !path.closed {
+                        stroke.cap
+                    } else {
+                        LineCap::Round
+                    }
+                };
+                segment(
+                    &mut builder,
+                    ends,
+                    stroke.width,
+                    scale,
+                    [cap(index == 0), cap(index + 1 == count)],
+                );
             }
             fill_stroke(pixels, builder, &stroke.paint, clip)?;
         } else {
@@ -88,7 +104,16 @@ fn fill_stroke(
     }
     Ok(())
 }
-fn capsule(builder: &mut PathBuilder, start: [f64; 2], end: [f64; 2], width: f64, scale: f64) {
+/// Adds the outline of a stroke of `width` from `start` to `end`. An end with
+/// a round cap is closed by a half circle, an end with a square cap reaches half
+/// the width beyond its point, and an end with a flat cap stops at its point.
+fn segment(
+    builder: &mut PathBuilder,
+    [start, end]: [[f64; 2]; 2],
+    width: f64,
+    scale: f64,
+    [start_cap, end_cap]: [LineCap; 2],
+) {
     let start = start.map(|value| value * scale);
     let end = end.map(|value| value * scale);
     let length = (end[0] - start[0]).hypot(end[1] - start[1]);
@@ -104,33 +129,42 @@ fn capsule(builder: &mut PathBuilder, start: [f64; 2], end: [f64; 2], width: f64
             (start[1] + direction[1] * along + direction[0] * across) as f32,
         ]
     };
-    let first = point(0.0, radius);
+    let reach = |cap: LineCap| if cap == LineCap::Square { radius } else { 0.0 };
+    let (back, ahead) = (-reach(start_cap), length + reach(end_cap));
+    let first = point(back, radius);
     builder.move_to(first[0], first[1]);
-    let last = point(length, radius);
+    let last = point(ahead, radius);
     builder.line_to(last[0], last[1]);
-    for controls in [
-        [
-            [length + control, radius],
-            [length + radius, control],
-            [length + radius, 0.0],
-        ],
-        [
-            [length + radius, -control],
-            [length + control, -radius],
-            [length, -radius],
-        ],
-    ] {
-        let [first, second, last] = controls.map(|value| point(value[0], value[1]));
-        builder.cubic_to(first[0], first[1], second[0], second[1], last[0], last[1]);
+    if end_cap == LineCap::Round {
+        for controls in [
+            [
+                [length + control, radius],
+                [length + radius, control],
+                [length + radius, 0.0],
+            ],
+            [
+                [length + radius, -control],
+                [length + control, -radius],
+                [length, -radius],
+            ],
+        ] {
+            let [first, second, last] = controls.map(|value| point(value[0], value[1]));
+            builder.cubic_to(first[0], first[1], second[0], second[1], last[0], last[1]);
+        }
+    } else {
+        let corner = point(ahead, -radius);
+        builder.line_to(corner[0], corner[1]);
     }
-    let first = point(0.0, -radius);
-    builder.line_to(first[0], first[1]);
-    for controls in [
-        [[-control, -radius], [-radius, -control], [-radius, 0.0]],
-        [[-radius, control], [-control, radius], [0.0, radius]],
-    ] {
-        let [first, second, last] = controls.map(|value| point(value[0], value[1]));
-        builder.cubic_to(first[0], first[1], second[0], second[1], last[0], last[1]);
+    let corner = point(back, -radius);
+    builder.line_to(corner[0], corner[1]);
+    if start_cap == LineCap::Round {
+        for controls in [
+            [[-control, -radius], [-radius, -control], [-radius, 0.0]],
+            [[-radius, control], [-control, radius], [0.0, radius]],
+        ] {
+            let [first, second, last] = controls.map(|value| point(value[0], value[1]));
+            builder.cubic_to(first[0], first[1], second[0], second[1], last[0], last[1]);
+        }
     }
     builder.close();
 }
@@ -152,7 +186,13 @@ fn dashed(
             crisp(pixels, first, last, stroke, scale, clip)?;
         } else {
             let mut builder = PathBuilder::new();
-            capsule(&mut builder, first, last, stroke.width, scale);
+            segment(
+                &mut builder,
+                [first, last],
+                stroke.width,
+                scale,
+                [stroke.cap; 2],
+            );
             fill_stroke(pixels, builder, &stroke.paint, clip)?;
         }
     }
@@ -173,6 +213,56 @@ fn crisp(
         return Ok(());
     }
     let radius = (stroke.width * scale / 2.0).max(0.5);
+    if stroke.cap != LineCap::Round {
+        // A flat or square end is the side of a rectangle.
+        let reach = if stroke.cap == LineCap::Square {
+            radius
+        } else {
+            0.0
+        };
+        let (first, last) = (
+            start.map(|value| value * scale),
+            end.map(|value| value * scale),
+        );
+        let horizontal = first[1] == last[1];
+        let along = (
+            first[0].min(last[0]),
+            first[0].max(last[0]),
+            first[1].min(last[1]),
+            first[1].max(last[1]),
+        );
+        let [left, right, top, bottom] = if horizontal {
+            [
+                along.0 - reach,
+                along.1 + reach,
+                first[1] - radius,
+                first[1] + radius,
+            ]
+        } else {
+            [
+                first[0] - radius,
+                first[0] + radius,
+                along.2 - reach,
+                along.3 + reach,
+            ]
+        };
+        for row in
+            (top.round() as i64).max(0)..(bottom.round() as i64).min(i64::from(pixels.height()))
+        {
+            for column in
+                (left.round() as i64).max(0)..(right.round() as i64).min(i64::from(pixels.width()))
+            {
+                blend(
+                    pixels,
+                    row as usize * pixels.width() as usize + column as usize,
+                    source,
+                    stroke.paint.alpha,
+                    clip,
+                );
+            }
+        }
+        return Ok(());
+    }
     for step in 0..=steps {
         let center: [f64; 2] = std::array::from_fn(|axis| {
             (start[axis] + (end[axis] - start[axis]) * step as f64 / steps as f64) * scale
@@ -190,23 +280,26 @@ fn crisp(
                     continue;
                 }
                 let offset = row as usize * pixels.width() as usize + column as usize;
-                if clip.is_some_and(|mask| mask.data()[offset] == 0) {
-                    continue;
-                }
-                let alpha = u32::from(stroke.paint.alpha);
-                let inverse = 255 - alpha;
-                let target = &mut pixels.data_mut()[offset * 4..offset * 4 + 4];
-                for channel in 0..3 {
-                    target[channel] = ((u32::from(source[channel]) * alpha
-                        + u32::from(target[channel]) * inverse
-                        + 127)
-                        / 255) as u8;
-                }
-                target[3] = 255;
+                blend(pixels, offset, source, stroke.paint.alpha, clip);
             }
         }
     }
     Ok(())
+}
+/// Lays a colour of the given alpha over one pixel, unless the clip hides it.
+fn blend(pixels: &mut Pixmap, offset: usize, source: [u8; 3], alpha: u8, clip: Option<&Mask>) {
+    if clip.is_some_and(|mask| mask.data()[offset] == 0) {
+        return;
+    }
+    let alpha = u32::from(alpha);
+    let inverse = 255 - alpha;
+    let target = &mut pixels.data_mut()[offset * 4..offset * 4 + 4];
+    for channel in 0..3 {
+        target[channel] =
+            ((u32::from(source[channel]) * alpha + u32::from(target[channel]) * inverse + 127)
+                / 255) as u8;
+    }
+    target[3] = 255;
 }
 
 pub(super) fn draw_rectangle(
