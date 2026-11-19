@@ -30,7 +30,9 @@ layout, so the numbers remain correct when the text reflows.
   for the whole document and take precedence over `distance`.
 
 The interval between `margin.header` and `margin.top` holds the header, and the
-interval between `margin.footer` and `margin.bottom` holds the footer.
+interval between `margin.footer` and `margin.bottom` holds the footer. A header
+taller than its interval moves the top of the body down to its foot, and a footer
+taller than its interval moves the foot of the body up to its top.
 
 ```mote
 #document(margin = { top = inch(1.25), header = inch(0.5) })

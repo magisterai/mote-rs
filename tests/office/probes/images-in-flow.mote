@@ -1,0 +1,25 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+IMAGES IN FLOW: images beside text, in a table cell, at the foot of a page and after a heading.
+
+Text before an image.
+
+#image("../../cases/assets/evidence_stack.png", width = inch(3), alignment = "center", spacing = { before = pt(6), after = pt(6) })
+
+Text after the centred image.
+
+#image("../../cases/assets/mote-logo.png", width = inch(1), alignment = "right")
+
+Text after a right-aligned image.
+
+#table[
+  #row[#cell[#image("../../cases/assets/mote-logo.png", width = inch(1))]#cell[A cell beside an image.]]
+]
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(300) } })[Filler of 300 points.]
+
+## A heading kept with the image below it
+
+#image("../../cases/assets/evidence_stack.png", width = inch(2.5))
+
+Text after the image that moved with its heading.

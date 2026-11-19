@@ -1,0 +1,20 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+TABS AND JUSTIFIED TEXT: tab stops with leaders and alignments, in the body, in a list and in a cell; justified text with mixed sizes and indents.
+
+#paragraph(tabs = { { position = inch(6.5), alignment = "right", leader = "dot" } })[Introduction#tab()1]
+#paragraph(tabs = { { position = inch(6.5), alignment = "right", leader = "dot" } })[A much longer chapter title that runs further#tab()12]
+#paragraph(tabs = { { position = inch(2), alignment = "left" }, { position = inch(4), alignment = "center" }, { position = inch(6), alignment = "decimal" } })[Name#tab()Left#tab()Centre#tab()1,234.56]
+#paragraph(tabs = { { position = inch(2), alignment = "left" }, { position = inch(4), alignment = "center" }, { position = inch(6), alignment = "decimal" } })[Other#tab()Longer left#tab()Middle text#tab()7.5]
+
+- #paragraph(tabs = { { position = inch(4), alignment = "right", leader = "dot" } })[Item with a tab#tab()42]
+
+#table[
+  #row[#cell[#paragraph(tabs = { { position = inch(2), alignment = "right", leader = "hyphen" } })[Cell#tab()9]]]
+]
+
+#paragraph(alignment = "justify")[Justified text runs to both margins. The paragraph mixes #span(size = pt(14))[larger words] with ordinary ones and #span(bold = true)[bold words] so that the spaces of each line must stretch by different amounts; its last line is not stretched at all.]
+
+#paragraph(alignment = "justify", indent = { left = pt(36), first_line = pt(24) })[Justified text with a left indent and a first-line indent runs to both of its margins as well, and its lines stretch their spaces so that every line but the last ends at the right margin of the text area.]
+
+#paragraph(alignment = "justify")[Averyveryverylongwordwithoutanyspacesthatcannotbestretched followed by short words on the same line.]

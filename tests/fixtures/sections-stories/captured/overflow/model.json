@@ -172,7 +172,7 @@
             },
             {
               "kind": "text",
-              "text": "Omitted header second line"
+              "text": "Header second line, which pushes the body"
             }
           ]
         }
@@ -206,7 +206,7 @@
             },
             {
               "kind": "text",
-              "text": "Omitted footer second line"
+              "text": "Footer second line, which pushes the body"
             }
           ]
         }
@@ -232,7 +232,7 @@
           "children": [
             {
               "kind": "text",
-              "text": "Body remains within its margins."
+              "text": "Body begins below the header."
             }
           ]
         }
@@ -246,7 +246,7 @@
       "children": [
         {
           "kind": "text",
-          "text": "Body remains within its margins."
+          "text": "Body begins below the header."
         }
       ]
     }

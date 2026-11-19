@@ -257,6 +257,7 @@ fn plan_pass(
     styles.reference_pages = inputs.reference_pages.clone();
     styles.measure_font_line_heights(measurer);
     let mut sections = sections.to_vec();
+    super::stories::reserve_heights(&mut sections, inputs.total, &styles, measurer)?;
     let mut notes =
         super::notes::NoteLayout::prepare(&mut sections, inputs.total, &styles, measurer)?;
     let mut reference_pages = BTreeMap::new();

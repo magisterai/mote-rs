@@ -1,0 +1,45 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+LISTS IN TABLES: lists, nested lists and numbered lists inside table cells.
+
+#table(width = pt(468))[
+  #row[
+    #cell(width = pt(234))[
+      - First bullet in a cell.
+      - Second bullet in a cell that runs on over more than one line of the narrow column.
+        - A nested bullet.
+        - Another nested bullet.
+      - Third bullet.
+    ]
+    #cell(width = pt(234))[
+      1. First numbered item.
+      2. Second numbered item that wraps onto a second line of the cell.
+      3. Third numbered item.
+    ]
+  ]
+  #row[
+    #cell[A paragraph before a list.
+
+      - Bullet after a paragraph.
+      - Another bullet.
+
+      A paragraph after the list.]
+    #cell[#ordered_list(start = 4, format = "lower_roman")[
+      #item[Fourth in roman.]
+      #item[Fifth in roman.]
+    ]]
+  ]
+]
+
+Text after the table.
+
+- A body list before a table.
+- Its second item.
+
+| Head | Value |
+| --- | --- |
+| Alpha | One |
+| Beta | Two |
+
+1. A numbered list after a table.
+2. Its second item.

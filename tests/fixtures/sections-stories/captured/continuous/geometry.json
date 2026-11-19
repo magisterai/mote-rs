@@ -7,117 +7,182 @@
           "fragments": [
             {
               "advance": 35.464,
-              "baseline": 58.67,
-              "size": 11,
+              "baseline": 61.870000000000005,
+              "size": 11.0,
               "text": "Before ",
-              "x": 24
+              "x": 24.0
             },
             {
               "advance": 18.348,
-              "baseline": 58.67,
-              "size": 11,
+              "baseline": 61.870000000000005,
+              "size": 11.0,
               "text": "the ",
               "x": 59.464
             },
             {
               "advance": 44.011,
-              "baseline": 58.67,
-              "size": 11,
+              "baseline": 61.870000000000005,
+              "size": 11.0,
               "text": "columns.",
               "x": 77.812
             }
           ],
           "height": 15.179999999999998,
-          "top": 48,
-          "width": 97.823,
-          "x": 24
+          "top": 51.2,
+          "width": 97.82300000000001,
+          "x": 24.0
         },
         {
           "fragments": [
             {
               "advance": 24.442,
-              "baseline": 81.85000000000001,
-              "size": 11,
+              "baseline": 85.05,
+              "size": 11.0,
               "text": "First ",
-              "x": 24
+              "x": 24.0
             },
             {
               "advance": 38.511,
-              "baseline": 81.85000000000001,
-              "size": 11,
+              "baseline": 85.05,
+              "size": 11.0,
               "text": "column ",
               "x": 48.442
             },
             {
               "advance": 20.79,
-              "baseline": 81.85000000000001,
-              "size": 11,
+              "baseline": 85.05,
+              "size": 11.0,
               "text": "text.",
               "x": 86.953
             }
           ],
           "height": 15.179999999999998,
-          "top": 71.18,
+          "top": 74.38,
           "width": 83.743,
-          "x": 24
+          "x": 24.0
         },
         {
           "fragments": [
             {
               "advance": 40.359,
-              "baseline": 81.85000000000001,
-              "size": 11,
+              "baseline": 85.05,
+              "size": 11.0,
               "text": "Second ",
-              "x": 189
+              "x": 189.0
             },
             {
               "advance": 38.511,
-              "baseline": 81.85000000000001,
-              "size": 11,
+              "baseline": 85.05,
+              "size": 11.0,
               "text": "column ",
               "x": 229.359
             },
             {
               "advance": 20.79,
-              "baseline": 81.85000000000001,
-              "size": 11,
+              "baseline": 85.05,
+              "size": 11.0,
               "text": "text.",
               "x": 267.87
             }
           ],
           "height": 15.179999999999998,
-          "top": 71.18,
+          "top": 74.38,
           "width": 99.66,
-          "x": 189
+          "x": 189.0
         },
         {
           "fragments": [
             {
               "advance": 26.29,
-              "baseline": 105.03,
-              "size": 11,
+              "baseline": 108.22999999999999,
+              "size": 11.0,
               "text": "After ",
-              "x": 24
+              "x": 24.0
             },
             {
               "advance": 18.348,
-              "baseline": 105.03,
-              "size": 11,
+              "baseline": 108.22999999999999,
+              "size": 11.0,
               "text": "the ",
               "x": 50.29
             },
             {
               "advance": 44.011,
-              "baseline": 105.03,
-              "size": 11,
+              "baseline": 108.22999999999999,
+              "size": 11.0,
               "text": "columns.",
               "x": 68.638
             }
           ],
           "height": 15.179999999999998,
-          "top": 94.36,
+          "top": 97.55999999999999,
           "width": 88.649,
-          "x": 24
+          "x": 24.0
+        },
+        {
+          "fragments": [
+            {
+              "advance": 38.522,
+              "baseline": 46.67,
+              "size": 11.0,
+              "text": "Shared ",
+              "x": 24.0
+            },
+            {
+              "advance": 34.243,
+              "baseline": 46.67,
+              "size": 11.0,
+              "text": "header",
+              "x": 62.522
+            }
+          ],
+          "height": 15.179999999999998,
+          "top": 36.0,
+          "width": 72.765,
+          "x": 24.0
+        },
+        {
+          "fragments": [
+            {
+              "advance": 28.743,
+              "baseline": 259.49,
+              "size": 11.0,
+              "text": "Page ",
+              "x": 24.0
+            },
+            {
+              "advance": 6.116,
+              "baseline": 259.49,
+              "size": 11.0,
+              "text": "1",
+              "x": 52.742999999999995
+            },
+            {
+              "advance": 3.058,
+              "baseline": 259.49,
+              "size": 11.0,
+              "text": " ",
+              "x": 58.858999999999995
+            },
+            {
+              "advance": 12.232,
+              "baseline": 259.49,
+              "size": 11.0,
+              "text": "of ",
+              "x": 61.916999999999994
+            },
+            {
+              "advance": 6.116,
+              "baseline": 259.49,
+              "size": 11.0,
+              "text": "1",
+              "x": 74.149
+            }
+          ],
+          "height": 15.179999999999998,
+          "top": 248.82,
+          "width": 56.26499999999999,
+          "x": 24.0
         }
       ],
       "rules": [
@@ -126,11 +191,11 @@
           "dash": [],
           "end": [
             180,
-            86.36
+            89.55999999999999
           ],
           "start": [
             180,
-            71.18
+            74.38
           ],
           "width": 1
         }

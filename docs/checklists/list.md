@@ -103,6 +103,12 @@ gives that glyph. A native bullet is the disc of the ArialMT U+2022 glyph, which
 Word draws for a bullet level, at the resolved font size in both painters.
 See the [output edge tests](../../tests/output_edges.rs).
 
+A native list item, like any paragraph, keeps Word's widow control, and lies at
+the foot of a page whenever its own lines fit there, as the
+[quotes-and-lists-across-pages probe](../../tests/office/probes/quotes-and-lists-across-pages.mote)
+and the long-document probes record and the
+[page foot tests](../../tests/page_foot.rs) verify.
+
 Nested headings contribute inline text in DOCX list-item and quote content; their
 heading formatting warns rather than applying independently. Nested dividers are
 omitted with a warning. The [authored-content captures](../../tests/fixtures/authoring-content/README.md)

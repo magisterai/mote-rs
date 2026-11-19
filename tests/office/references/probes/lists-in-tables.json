@@ -1,0 +1,142 @@
+{
+  "package_sha256": "946d02fa8288411efa8fd2d30142e358357c70ef5a6d376dc3f8d7ef4ee43d79",
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "LISTS IN TABLES: lists, nested lists and numbered lists inside table cells.",
+          "x": 72.0
+        },
+        {
+          "baseline": 110.16,
+          "text": "• First bullet in a cell.",
+          "x": 114.24
+        },
+        {
+          "baseline": 110.16,
+          "text": "1. First numbered item.",
+          "x": 348.24
+        },
+        {
+          "baseline": 127.44,
+          "text": "• Second bullet in a cell that runs on",
+          "x": 114.24
+        },
+        {
+          "baseline": 127.44,
+          "text": "2. Second numbered item that wraps",
+          "x": 348.24
+        },
+        {
+          "baseline": 142.56,
+          "text": "over more than one line of the narrow",
+          "x": 114.24
+        },
+        {
+          "baseline": 142.56,
+          "text": "onto a second line of the cell.",
+          "x": 348.24
+        },
+        {
+          "baseline": 157.92,
+          "text": "column.",
+          "x": 114.24
+        },
+        {
+          "baseline": 159.84,
+          "text": "3. Third numbered item.",
+          "x": 348.24
+        },
+        {
+          "baseline": 174.96,
+          "text": "• A nested bullet.",
+          "x": 132.24
+        },
+        {
+          "baseline": 192.24,
+          "text": "• Another nested bullet.",
+          "x": 132.24
+        },
+        {
+          "baseline": 209.28,
+          "text": "• Third bullet.",
+          "x": 114.24
+        },
+        {
+          "baseline": 234.96,
+          "text": "A paragraph before a list.",
+          "x": 78.24
+        },
+        {
+          "baseline": 234.96,
+          "text": "iv. Fourth in roman.",
+          "x": 348.24
+        },
+        {
+          "baseline": 250.32,
+          "text": "• Bullet after a paragraph.",
+          "x": 114.24
+        },
+        {
+          "baseline": 252.24,
+          "text": "v. Fifth in roman.",
+          "x": 348.24
+        },
+        {
+          "baseline": 267.36,
+          "text": "• Another bullet.",
+          "x": 114.24
+        },
+        {
+          "baseline": 284.64,
+          "text": "A paragraph after the list.",
+          "x": 78.24
+        },
+        {
+          "baseline": 304.32,
+          "text": "Text after the table.",
+          "x": 72.0
+        },
+        {
+          "baseline": 327.6,
+          "text": "• A body list before a table.",
+          "x": 108.0
+        },
+        {
+          "baseline": 344.64,
+          "text": "• Its second item.",
+          "x": 108.0
+        },
+        {
+          "baseline": 366.48,
+          "text": "Head Value",
+          "x": 78.24
+        },
+        {
+          "baseline": 390.0,
+          "text": "Alpha One",
+          "x": 78.24
+        },
+        {
+          "baseline": 413.76,
+          "text": "Beta Two",
+          "x": 78.24
+        },
+        {
+          "baseline": 433.44,
+          "text": "1. A numbered list after a table.",
+          "x": 108.0
+        },
+        {
+          "baseline": 450.72,
+          "text": "2. Its second item.",
+          "x": 108.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1"
+}

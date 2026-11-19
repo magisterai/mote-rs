@@ -1,0 +1,58 @@
+{
+  "package_sha256": "2fdebed914f5de6350fb36f008fac3bb66a2af46c6a16730a4af4e539e41515f",
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "IMAGES IN FLOW : images beside text, in a table cell, at the foot of a page and after a heading.",
+          "x": 72.0
+        },
+        {
+          "baseline": 105.84,
+          "text": "Text before an image.",
+          "x": 72.0
+        },
+        {
+          "baseline": 271.68,
+          "text": "Text after the centred image.",
+          "x": 72.0
+        },
+        {
+          "baseline": 330.0,
+          "text": "Text after a right-aligned image.",
+          "x": 72.0
+        },
+        {
+          "baseline": 357.6,
+          "text": "A cell beside an image.",
+          "x": 162.24
+        },
+        {
+          "baseline": 626.64,
+          "text": "Filler of 300 points.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 85.92,
+          "text": "A heading kept with the image below it",
+          "x": 72.0
+        },
+        {
+          "baseline": 229.44,
+          "text": "Text after the image that moved with its heading.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1"
+}

@@ -1,0 +1,18 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+QUOTES AND LISTS ACROSS PAGES: a bordered quotation and a list that cross the foot of a page.
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(560) } })[Filler of 560 points.]
+
+> A quotation that begins near the foot of the page and runs on over several lines, so that it is divided between two pages and its border and its shading must continue on the next page as Word draws them. The quotation runs on with more words to fill its lines.
+
+#paragraph(spacing = { before = pt(0), after = pt(0), line = { rule = "exact", value = pt(540) } })[Filler of 540 points.]
+
+- First item of a list that crosses the foot of the page.
+- Second item, which runs on over two lines because its text is long enough to wrap at the margin.
+- Third item.
+- Fourth item, on the next page.
+- Fifth item.
+  - A nested item.
+  - Another nested item.
+- Sixth item.

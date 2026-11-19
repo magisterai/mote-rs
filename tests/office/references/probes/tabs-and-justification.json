@@ -1,0 +1,122 @@
+{
+  "package_sha256": "67eb551edd1306792c1a93b3a242ce6b2f56b0ef8bb87f91d7ff62a57cb50a54",
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 82.56,
+          "text": "TABS AND JUSTIFIED TEXT: tab stops with leaders and alignments, in the body, in a list and",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "in a cell; justified text with mixed sizes and indents.",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "Introduction ................................................................................................................................... 1",
+          "x": 72.0
+        },
+        {
+          "baseline": 144.24,
+          "text": "A much longer chapter title that runs further ............................................................................... 12",
+          "x": 72.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "Name",
+          "x": 72.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "Left",
+          "x": 216.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "Centre",
+          "x": 343.49
+        },
+        {
+          "baseline": 167.28,
+          "text": "1,234.56",
+          "x": 476.47
+        },
+        {
+          "baseline": 190.56,
+          "text": "Other",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "Longer left",
+          "x": 216.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "Middle text",
+          "x": 333.41
+        },
+        {
+          "baseline": 190.56,
+          "text": "7.5",
+          "x": 497.88
+        },
+        {
+          "baseline": 213.6,
+          "text": "• Item with a tab 42",
+          "x": 108.0
+        },
+        {
+          "baseline": 235.44,
+          "text": "Cell -------------------------------- 9",
+          "x": 78.24
+        },
+        {
+          "baseline": 258.24,
+          "text": "Justified text runs to both margins. The paragraph mixes larger words with ordinary ones and",
+          "x": 72.0
+        },
+        {
+          "baseline": 274.32,
+          "text": "bold words so that the spaces of each line must stretch by different amounts; its last line is not",
+          "x": 72.0
+        },
+        {
+          "baseline": 289.68,
+          "text": "stretched at all.",
+          "x": 72.0
+        },
+        {
+          "baseline": 312.72,
+          "text": "Justified text with a left indent and a first-line indent runs to both of its margins as",
+          "x": 132.0
+        },
+        {
+          "baseline": 328.08,
+          "text": "well, and its lines stretch their spaces so that every line but the last ends at the right margin",
+          "x": 108.0
+        },
+        {
+          "baseline": 343.2,
+          "text": "of the text area.",
+          "x": 108.0
+        },
+        {
+          "baseline": 366.24,
+          "text": "Averyveryverylongwordwithoutanyspacesthatcannotbestretched followed by short words on the",
+          "x": 72.0
+        },
+        {
+          "baseline": 381.6,
+          "text": "same line.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1"
+}

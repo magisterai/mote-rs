@@ -167,6 +167,22 @@ fn the_space_before_a_paragraph_must_fit_and_the_space_after_need_not() {
     );
 }
 
+/// Word sets a list item at the foot of a page whenever its own lines fit, as
+/// its exports of the quotes-and-lists-across-pages probe and the long
+/// documents show.
+#[test]
+fn a_list_item_at_the_foot_of_a_page_needs_room_for_its_own_lines_alone() {
+    let source = |filler: f64| {
+        document(filler, "", "Sample.").replace("#paragraph()[Sample.]", "- Sample.\n- Second.")
+    };
+    let lines = paragraph_lines(&planned(&source(100.0)), "Sample");
+    let required = lines[0].1.line.height - lines[0].1.line.trailing_space;
+    for (filler, expected) in [(fitting_filler(required), 1), (moving_filler(required), 2)] {
+        let plan = planned(&source(filler));
+        assert_eq!(paragraph_lines(&plan, "Sample")[0].0, expected, "{filler}");
+    }
+}
+
 #[test]
 fn the_last_line_on_a_page_of_a_divided_paragraph_omits_its_trailing_space() {
     let sample = format!("widow_control = false, {}", multiple(1.5));

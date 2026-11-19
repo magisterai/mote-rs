@@ -278,7 +278,6 @@ pub(super) fn place_blocks(
                     &blocks[index..],
                     geometry.content_bottom() - geometry.margin_top,
                 )
-                .max(prepared.minimum_start())
                 .max(kept_height(leading));
                 if paragraph
                     .lines
@@ -505,7 +504,7 @@ fn start_height(prepared: &PreparedParagraph) -> f64 {
         paragraph.style.widow_control,
         paragraph.style.keep_together,
     );
-    fitting_height(&paragraph.lines[..count]).max(prepared.minimum_start())
+    fitting_height(&paragraph.lines[..count])
 }
 fn keep_height(blocks: &[Block], maximum: f64) -> f64 {
     let Some(Block::Paragraph(first)) = blocks.first() else {

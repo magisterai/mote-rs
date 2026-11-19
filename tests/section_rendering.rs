@@ -136,7 +136,7 @@ fn native_limits_are_visible_and_page_geometry_is_local() {
             .any(|warning| warning.contains("page_number.format"))
     );
     assert!(
-        planned("overflow")
+        !planned("overflow")
             .warnings
             .iter()
             .any(|warning| warning.contains("trailing lines are omitted"))

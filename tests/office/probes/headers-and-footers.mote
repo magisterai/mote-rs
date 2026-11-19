@@ -1,0 +1,21 @@
+#document(default_font = "Helvetica", default_size = pt(11), page = { size = "letter" }, margin = { top = pt(72), right = pt(72), bottom = pt(72), left = pt(72) })
+
+#header[#paragraph(alignment = "right")[A header of one line]]
+#footer[#paragraph(alignment = "center")[Page #page_number() of #page_number(kind = "total")]]
+
+HEADERS AND FOOTERS: a tall header and footer push the text area, and a section changes them.
+
+#for index in { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 } {
+#paragraph[Line #index of the first section, whose header and footer are each one line.]
+}
+
+#section(margin = { top = pt(40), header = pt(20), bottom = pt(40), footer = pt(20) })[
+#header[#paragraph[A header of three lines, first line.]
+#paragraph[Second line of the header.]
+#paragraph[Third line of the header, which is taller than the top margin allows.]]
+#footer[#paragraph[A footer of two lines, first line.]
+#paragraph[Second line of the footer, page #page_number().]]
+#for index in { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45 } {
+#paragraph[Line #index of the second section, whose header and footer are taller than the margins.]
+}
+]

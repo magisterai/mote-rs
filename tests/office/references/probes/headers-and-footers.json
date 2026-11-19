@@ -1,0 +1,535 @@
+{
+  "package_sha256": "2e1da5a44f742bcb77b49d187a43abc1233cfa49f2ca762c382321ff247cb323",
+  "pages": [
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 46.56,
+          "text": "A header of one line",
+          "x": 441.54
+        },
+        {
+          "baseline": 82.56,
+          "text": "HEADERS AND FOOTERS: a tall header and footer push the text area, and a section changes",
+          "x": 72.0
+        },
+        {
+          "baseline": 97.68,
+          "text": "them.",
+          "x": 72.0
+        },
+        {
+          "baseline": 120.96,
+          "text": "Line 1 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 144.24,
+          "text": "Line 2 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 167.28,
+          "text": "Line 3 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 190.56,
+          "text": "Line 4 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 213.6,
+          "text": "Line 5 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 236.88,
+          "text": "Line 6 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 260.16,
+          "text": "Line 7 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 283.2,
+          "text": "Line 8 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 306.48,
+          "text": "Line 9 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 329.52,
+          "text": "Line 10 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 352.8,
+          "text": "Line 11 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 376.08,
+          "text": "Line 12 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 399.12,
+          "text": "Line 13 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 422.4,
+          "text": "Line 14 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 445.68,
+          "text": "Line 15 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 468.72,
+          "text": "Line 16 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 492.0,
+          "text": "Line 17 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 515.04,
+          "text": "Line 18 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 538.32,
+          "text": "Line 19 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 561.6,
+          "text": "Line 20 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 584.64,
+          "text": "Line 21 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 607.92,
+          "text": "Line 22 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 631.2,
+          "text": "Line 23 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 654.24,
+          "text": "Line 24 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 677.52,
+          "text": "Line 25 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 700.56,
+          "text": "Line 26 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 751.44,
+          "text": "Page 1 of 4",
+          "x": 277.87
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 46.56,
+          "text": "A header of one line",
+          "x": 441.54
+        },
+        {
+          "baseline": 82.56,
+          "text": "Line 27 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 105.84,
+          "text": "Line 28 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 128.88,
+          "text": "Line 29 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 152.16,
+          "text": "Line 30 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 175.2,
+          "text": "Line 31 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 198.48,
+          "text": "Line 32 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 221.76,
+          "text": "Line 33 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 244.8,
+          "text": "Line 34 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 268.08,
+          "text": "Line 35 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 291.36,
+          "text": "Line 36 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 314.4,
+          "text": "Line 37 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 337.68,
+          "text": "Line 38 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 360.72,
+          "text": "Line 39 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 384.0,
+          "text": "Line 40 of the first section, whose header and footer are each one line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 751.44,
+          "text": "Page 2 of 4",
+          "x": 277.87
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 30.48,
+          "text": "A header of three lines, first line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 45.84,
+          "text": "Second line of the header.",
+          "x": 72.0
+        },
+        {
+          "baseline": 60.96,
+          "text": "Third line of the header, which is taller than the top margin allows.",
+          "x": 72.0
+        },
+        {
+          "baseline": 76.08,
+          "text": "Line 1 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 99.36,
+          "text": "Line 2 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.4,
+          "text": "Line 3 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 145.68,
+          "text": "Line 4 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 168.96,
+          "text": "Line 5 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.0,
+          "text": "Line 6 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 215.28,
+          "text": "Line 7 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 238.56,
+          "text": "Line 8 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 261.6,
+          "text": "Line 9 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 284.88,
+          "text": "Line 10 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 307.92,
+          "text": "Line 11 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 331.2,
+          "text": "Line 12 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 354.48,
+          "text": "Line 13 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 377.52,
+          "text": "Line 14 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 400.8,
+          "text": "Line 15 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 423.84,
+          "text": "Line 16 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 447.12,
+          "text": "Line 17 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 470.4,
+          "text": "Line 18 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 493.44,
+          "text": "Line 19 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 516.72,
+          "text": "Line 20 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 540.0,
+          "text": "Line 21 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 563.04,
+          "text": "Line 22 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 586.32,
+          "text": "Line 23 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 609.36,
+          "text": "Line 24 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 632.64,
+          "text": "Line 25 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 655.92,
+          "text": "Line 26 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 678.96,
+          "text": "Line 27 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 702.24,
+          "text": "Line 28 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 725.52,
+          "text": "Line 29 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 752.16,
+          "text": "A footer of two lines, first line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 767.28,
+          "text": "Second line of the footer, page 3.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    },
+    {
+      "height": 792.0,
+      "lines": [
+        {
+          "baseline": 30.48,
+          "text": "A header of three lines, first line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 45.84,
+          "text": "Second line of the header.",
+          "x": 72.0
+        },
+        {
+          "baseline": 60.96,
+          "text": "Third line of the header, which is taller than the top margin allows.",
+          "x": 72.0
+        },
+        {
+          "baseline": 76.08,
+          "text": "Line 30 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 99.36,
+          "text": "Line 31 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 122.4,
+          "text": "Line 32 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 145.68,
+          "text": "Line 33 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 168.96,
+          "text": "Line 34 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 192.0,
+          "text": "Line 35 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 215.28,
+          "text": "Line 36 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 238.56,
+          "text": "Line 37 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 261.6,
+          "text": "Line 38 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 284.88,
+          "text": "Line 39 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 307.92,
+          "text": "Line 40 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 331.2,
+          "text": "Line 41 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 354.48,
+          "text": "Line 42 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 377.52,
+          "text": "Line 43 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 400.8,
+          "text": "Line 44 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 423.84,
+          "text": "Line 45 of the second section, whose header and footer are taller than the margins.",
+          "x": 72.0
+        },
+        {
+          "baseline": 752.16,
+          "text": "A footer of two lines, first line.",
+          "x": 72.0
+        },
+        {
+          "baseline": 767.28,
+          "text": "Second line of the footer, page 4.",
+          "x": 72.0
+        }
+      ],
+      "width": 612.0
+    }
+  ],
+  "renderer": "Microsoft Word 16.114.1"
+}

@@ -35,25 +35,9 @@ pub(super) struct PreparedParagraph {
     pub separate_above: bool,
 }
 pub(super) struct PreparedMarker {
-    pub level: usize,
     pub hanging: f64,
     pub marker: ListMarker,
 }
-impl PreparedParagraph {
-    pub fn minimum_start(&self) -> f64 {
-        if self.marker.as_ref().is_some_and(|marker| marker.level == 0) {
-            self.text.lines.iter().map(|line| line.height).sum::<f64>()
-                + self
-                    .text
-                    .style
-                    .spacing_after
-                    .max(self.text.style.line_height)
-        } else {
-            0.0
-        }
-    }
-}
-
 #[derive(Default, Clone)]
 pub(super) struct BlockNumbers {
     pub headings: HeadingNumbers,
@@ -513,8 +497,6 @@ impl BlockBuilder<'_, '_, '_> {
                     if !explicit_before(&element.attributes) {
                         style.spacing_before = 0.0;
                     }
-                } else {
-                    style.widow_control = false;
                 }
                 let mut runs = resolve_inline(&element.children, &style.text, self.styles);
                 if runs.iter().all(|run| run.text.is_empty()) {
@@ -608,7 +590,6 @@ impl BlockBuilder<'_, '_, '_> {
                         },
                         text: paragraph,
                         marker: (unit_index == 0).then_some(PreparedMarker {
-                            level: item_level,
                             hanging: item_geometry.hanging,
                             marker: ListMarker {
                                 kind,

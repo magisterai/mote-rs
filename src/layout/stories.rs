@@ -5,7 +5,7 @@ use super::{
 };
 use crate::{
     measurement::TextMeasurer,
-    model::{Content, Document, Element, ElementKind, Section, Value},
+    model::{Content, Document, Element, ElementKind, Section, Unit, Value},
 };
 struct StoryLine {
     line: TextLine,
@@ -74,6 +74,59 @@ pub(super) fn place(
                     line: line.line,
                 });
                 top += height;
+            }
+        }
+    }
+    Ok(())
+}
+
+/// Word begins the body below a header taller than its margin and ends it above
+/// such a footer, as its export of the headers-and-footers probe shows. The
+/// function raises the height of each story of each section to the height of
+/// its lines on the first page of the section, so that the page geometry
+/// reserves the story.
+pub(super) fn reserve_heights(
+    sections: &mut [Section],
+    total: usize,
+    styles: &LayoutStyleResolver<'_>,
+    measurer: &mut TextMeasurer<'_>,
+) -> Result<(), LayoutError> {
+    for section in sections {
+        let geometry = super::PageGeometry::from_section(section)?;
+        let start = crate::properties::number(&section.page_numbering, "start")
+            .unwrap_or(1.0)
+            .max(1.0) as usize;
+        for (story, style_name) in [
+            (&mut section.header, "Header"),
+            (&mut section.footer, "Footer"),
+        ] {
+            let measured: f64 = measure(
+                &story.content,
+                style_name,
+                geometry,
+                start,
+                total,
+                styles,
+                measurer,
+            )?
+            .iter()
+            .map(StoryLine::height)
+            .sum();
+            let declared = story
+                .properties
+                .get("height")
+                .and_then(super::style_values::points)
+                .unwrap_or(0.0);
+            if measured > declared {
+                // The page geometry holds whole twips, so the height rises to
+                // the next whole twip lest the last line lose its room.
+                story.properties.insert(
+                    "height".into(),
+                    Value::Length {
+                        value: (measured * 20.0).ceil() / 20.0,
+                        unit: Unit::Point,
+                    },
+                );
             }
         }
     }

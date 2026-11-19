@@ -21,6 +21,11 @@ complex-story fallbacks and overflow must be reported explicitly.
 Native support notes: current/total page fields are decimal. Number-format strings,
 section vertical alignment, and odd/even or next-column section starts retain
 editable DOCX mappings but warn about native limits. Header/footer tables and
-images use visible native text fallbacks; overflow omits trailing lines with a
-warning. Next-page and continuous sections, equal columns, numbering restarts,
+images use visible native text fallbacks. A header or footer taller than its
+margin pushes the body, as Word does: the body begins at the foot of the header
+and ends at the top of the footer, as the
+[headers-and-footers probe](../../tests/office/probes/headers-and-footers.mote)
+records and the [story tests](../../tests/tall_stories.rs) verify. A story whose
+lines on a later page outgrow its height on the first page of its section omits
+its trailing lines with a warning. Next-page and continuous sections, equal columns, numbering restarts,
 local stories and mixed physical page sizes render natively.

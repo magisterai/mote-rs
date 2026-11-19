@@ -3,7 +3,7 @@
 Fourteen frozen cases cover default story changes, local overrides and empty
 resets; explicit/implicit section boundaries; natural and authored column flow;
 mixed physical page sizes; numbering restarts; body and story fields; multiline
-spacing and empty lines; overflow; story links and images; and retained output
+spacing and empty lines; stories taller than their margins; story links and images; and retained output
 limits. `geometry` tests orientation metadata on an already wide canvas;
 `page-sizes` separately tests actual portrait/landscape dimension changes.
 
