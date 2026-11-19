@@ -15,7 +15,9 @@
   warns when its pieces exceed the frame. See the
   [stack test](../../tests/presentation_rendering.rs) and the
   [stacked boxes case](../../tests/cases/powerpoint-33-stacked-boxes.mote).
-- [x] `fill`, `border`: color, width, dash and enabled stroke fields.
+- [x] `fill`, `border`: color, width, dash and enabled stroke fields. A dashed border,
+  of a box or of a cell of a slide table, is four widths on and three off, as the
+  [border of a shape](shape.md) is.
 - [x] `alignment`; `vertical_alignment`: top, center/middle, bottom.
 - [x] `margin`: top/right/bottom/left; nested extra lengths remain normalized.
 - [x] `text.fit`: clip/none, shrink/autofit, resize/resize_shape.

@@ -14,7 +14,8 @@ inventory, including properties without an authoring mapping.
 - [x] Required `from` and `to` point objects, each with required `x` and `y` lengths,
   or a `shape` that names a shape of the same slide or group with a `side` (top,
   bottom, left or right) or a `site` number; see [connection sites](#connection-sites).
-- [x] `border`: width, color, style (single/solid/dashed/dotted/none), opacity.
+- [x] `border`: width, color, style (single/solid/dashed/dotted/none), opacity. A dashed
+  line is four widths on and three off, as the [border of a shape](shape.md) is.
 - [x] `cap`: flat, round or square.
 - [x] `opacity`: numeric or percentage text, normalized to text.
 - [x] `arrow` string selects the end marker; none, triangle/arrow, stealth,

@@ -26,7 +26,14 @@ property has no implied Mote argument or output support.
   `adj` guide of the preset; native output draws the same arc.
 - [x] `fill`: normalized color.
 - [x] `border`: width, color, style (single/solid/dashed/dotted/none), opacity;
-  unknown nested metadata retained without inferred output effects.
+  unknown nested metadata retained without inferred output effects. A dashed
+  stroke is four widths on and three off, which is the `dash` preset of
+  DrawingML; Word's export of the
+  [editable shapes case](../../tests/cases/word-42-editable-drawingml-shapes.mote)
+  and PowerPoint's of the
+  [shapes and lines case](../../tests/cases/powerpoint-07-shapes-lines.mote)
+  show it, and the dashes begin where the definition of the preset begins its
+  outline.
 - [x] `rotation`: number/string, with an optional `deg` suffix.
 - [x] `flip_horizontal`, `flip_vertical`: boolean values.
 - [x] `alignment`: left/center/right/justify; `vertical_alignment`: top/center/bottom.
@@ -49,6 +56,13 @@ property has no implied Mote argument or output support.
 - [x] `animate`: effects on the clock of a slide; see [animation](slide.md#animation).
   A shape of a document is drawn as authored, with a native warning.
 - [x] Lua `document.shape` uses the same validation and typed attributes.
+
+Native output evaluates the outline, the text rectangle and the connection
+sites of a shape from the definition of its preset in ECMA-376
+presetShapeDefinitions.xml: the guide formulas, the paths with their arcs and
+curves, and the paths that a definition fills lighter or darker or leaves
+unfilled. The library holds a copy of the definitions of its kinds, which a
+[test](../../tests/shape_presets.rs) compares with the standard.
 
 DOCX emits an absolute page anchor for a fixed shape and an inline drawing in a
 paragraph of its own for a shape set in the text, with editable Word shape text, preset geometry,

@@ -1,6 +1,6 @@
 # Native shape geometry captures
 
-Three frozen sources cover all ten presets, cloud outline and decoration paths,
+Three frozen sources cover ten presets, cloud outline and decoration paths,
 rotations, flips, opacity, solid/dashed/dotted/borderless outlines, layered and
 unblurred shadows, page anchoring, labels, pending paragraph spacing, page breaks,
 and zero dimensions. These cases intentionally contain no shape text: text layout

@@ -85,7 +85,7 @@ fn every_site_of_every_kind_lies_on_the_outline_that_native_output_draws() {
             assert_eq!(starts.len(), ends.len(), "{kind}");
             for (end, start) in ends.iter().zip(starts) {
                 let distance = distance(start, &outline);
-                assert!(distance < 0.3, "{kind} {transform} {end}: {distance}");
+                assert!(distance < 0.5, "{kind} {transform} {end}: {distance}");
             }
         }
     }

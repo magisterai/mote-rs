@@ -34,18 +34,10 @@ pub(super) fn normalize(
                 ("rounded", "round_rect"),
                 ("oval", "ellipse"),
             ],
-            &[
-                "rectangle",
-                "round_rect",
-                "ellipse",
-                "triangle",
-                "diamond",
-                "hexagon",
-                "chevron",
-                "cloud",
-                "parallelogram",
-                "trapezoid",
-            ],
+            &crate::drawings::presets::KINDS
+                .iter()
+                .map(|(kind, _)| *kind)
+                .collect::<Vec<_>>(),
         ),
         "fill" | "color" => normalize_color(value, span, name),
         "rotation" => Ok(Value::String(

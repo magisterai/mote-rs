@@ -14,26 +14,16 @@ pub(crate) fn shape(attributes: &Properties, bounds: [i64; 4]) -> Result<String,
         }
     }
     let [horizontal, vertical, width, height] = bounds;
-    let kind = text(attributes, "kind");
-    let preset = match kind.as_str() {
-        "round_rect" => "roundRect",
-        "ellipse" | "triangle" | "diamond" | "hexagon" | "chevron" | "cloud" | "parallelogram"
-        | "trapezoid" => &kind,
-        _ => "rect",
-    };
-    // The adjustment of a rounded rectangle is its corner radius in hundred
-    // thousandths of the shorter side, and at most half that side.
-    let adjustments = if preset == "roundRect" && attributes.contains_key("corner_radius") {
-        let radius = length(attributes, "corner_radius", 0)?;
-        let shorter = width.min(height).max(1);
-        format!(
-            "<a:avLst><a:gd name=\"adj\" fmla=\"val {}\"/></a:avLst>",
-            (radius as f64 * 100000.0 / shorter as f64)
-                .round()
-                .clamp(0.0, 50000.0) as i64
-        )
+    let preset = super::presets::preset(&text(attributes, "kind"));
+    let adjustments = super::presets::adjustments(attributes, bounds);
+    let adjustments = if adjustments.is_empty() {
+        "<a:avLst/>".to_owned()
     } else {
-        "<a:avLst/>".into()
+        let guides: String = adjustments
+            .iter()
+            .map(|(name, value)| format!("<a:gd name=\"{name}\" fmla=\"val {value}\"/>"))
+            .collect();
+        format!("<a:avLst>{guides}</a:avLst>")
     };
     let fill = if let Some(value) = attributes.get("fill") {
         solid_fill(&value.to_text(), number(attributes, "opacity"))?

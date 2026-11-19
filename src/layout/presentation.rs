@@ -379,7 +379,7 @@ fn rectangle(bounds: [f64; 4], attributes: &Properties) -> Option<PageOperation>
             .map(|value| (value.trunc().clamp(0.0, 100.0) * 255.0 / 100.0) as u8)
             .unwrap_or(255);
         let (dash, cap) = match text(border, "style").as_str() {
-            "dashed" => (vec![3.0 * width, 3.0 * width], LineCap::Flat),
+            "dashed" => (vec![4.0 * width, 3.0 * width], LineCap::Flat),
             "dotted" => (vec![(width / 100.0).max(0.01), 4.0 * width], LineCap::Round),
             _ => (Vec::new(), LineCap::Flat),
         };

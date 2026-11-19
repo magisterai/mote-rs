@@ -168,7 +168,7 @@ fn stroke(attributes: &Properties) -> Option<PathStroke> {
         _ => LineCap::Flat,
     };
     let dash = match text(attributes, "style").as_str() {
-        "dashed" => vec![3.0 * width, 3.0 * width],
+        "dashed" => vec![4.0 * width, 3.0 * width],
         "dotted" => {
             cap = LineCap::Round;
             vec![(width / 100.0).max(0.01), 4.0 * width]

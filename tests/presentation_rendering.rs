@@ -909,14 +909,18 @@ fn a_stated_corner_radius_gives_rounded_rectangles_of_any_size_the_same_corner()
         render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
             .unwrap();
     assert_eq!(plan.warnings, Vec::<String>::new());
-    // A rounded rectangle begins where its top edge meets the top-right corner.
+    // A rounded rectangle begins where its left edge meets the top-left corner.
     let corners: Vec<f64> = plan.output.pages[0]
         .operations
         .iter()
         .filter_map(|operation| match operation {
             PageOperation::Path(path) => {
-                let right = path.points.iter().map(|point| point[0]).fold(0.0, f64::max);
-                Some(right - path.points[0][0])
+                let top = path
+                    .points
+                    .iter()
+                    .map(|point| point[1])
+                    .fold(f64::INFINITY, f64::min);
+                Some(path.points[0][1] - top)
             }
             _ => None,
         })

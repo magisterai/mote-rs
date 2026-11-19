@@ -25,7 +25,7 @@
   },
   "powerpoint/04_text_box_styling": {
     "horizontal": 1.6,
-    "marks": 1249,
+    "marks": 1041,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -49,7 +49,7 @@
   },
   "powerpoint/07_shapes_lines": {
     "horizontal": 0.9,
-    "marks": 3710,
+    "marks": 3672,
     "median": 0.9,
     "page_moves": 0,
     "unmatched": 0,
@@ -57,7 +57,7 @@
   },
   "powerpoint/08_text_autofit": {
     "horizontal": 583.2,
-    "marks": 3323,
+    "marks": 3321,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 4,
@@ -113,7 +113,7 @@
   },
   "powerpoint/15_image_transforms": {
     "horizontal": 0.9,
-    "marks": 2122,
+    "marks": 2080,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -929,7 +929,7 @@
   },
   "word/42_editable_drawingml_shapes": {
     "horizontal": 0.5,
-    "marks": 2210,
+    "marks": 1615,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 5,

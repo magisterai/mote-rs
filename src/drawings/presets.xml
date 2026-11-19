@@ -1,0 +1,351 @@
+<presetShapeDefinitons>
+<rect>
+<cxnLst>
+<cxn ang="3cd4"><pos x="hc" y="t"/></cxn>
+<cxn ang="cd2"><pos x="l" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="b"/></cxn>
+<cxn ang="0"><pos x="r" y="vc"/></cxn>
+</cxnLst>
+<rect l="l" t="t" r="r" b="b"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="t"/></moveTo>
+<lnTo><pt x="r" y="t"/></lnTo>
+<lnTo><pt x="r" y="b"/></lnTo>
+<lnTo><pt x="l" y="b"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</rect>
+<roundRect>
+<avLst>
+<gd name="adj" fmla="val 16667"/>
+</avLst>
+<gdLst>
+<gd name="a" fmla="pin 0 adj 50000"/>
+<gd name="x1" fmla="*/ ss a 100000"/>
+<gd name="x2" fmla="+- r 0 x1"/>
+<gd name="y2" fmla="+- b 0 x1"/>
+<gd name="il" fmla="*/ x1 29289 100000"/>
+<gd name="ir" fmla="+- r 0 il"/>
+<gd name="ib" fmla="+- b 0 il"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="hc" y="t"/></cxn>
+<cxn ang="cd2"><pos x="l" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="b"/></cxn>
+<cxn ang="0"><pos x="r" y="vc"/></cxn>
+</cxnLst>
+<rect l="il" t="il" r="ir" b="ib"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="x1"/></moveTo>
+<arcTo wR="x1" hR="x1" stAng="cd2" swAng="cd4"/>
+<lnTo><pt x="x2" y="t"/></lnTo>
+<arcTo wR="x1" hR="x1" stAng="3cd4" swAng="cd4"/>
+<lnTo><pt x="r" y="y2"/></lnTo>
+<arcTo wR="x1" hR="x1" stAng="0" swAng="cd4"/>
+<lnTo><pt x="x1" y="b"/></lnTo>
+<arcTo wR="x1" hR="x1" stAng="cd4" swAng="cd4"/>
+<close/>
+</path>
+</pathLst>
+</roundRect>
+<ellipse>
+<gdLst>
+<gd name="idx" fmla="cos wd2 2700000"/>
+<gd name="idy" fmla="sin hd2 2700000"/>
+<gd name="il" fmla="+- hc 0 idx"/>
+<gd name="ir" fmla="+- hc idx 0"/>
+<gd name="it" fmla="+- vc 0 idy"/>
+<gd name="ib" fmla="+- vc idy 0"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="hc" y="t"/></cxn>
+<cxn ang="3cd4"><pos x="il" y="it"/></cxn>
+<cxn ang="cd2"><pos x="l" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="il" y="ib"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="b"/></cxn>
+<cxn ang="cd4"><pos x="ir" y="ib"/></cxn>
+<cxn ang="0"><pos x="r" y="vc"/></cxn>
+<cxn ang="3cd4"><pos x="ir" y="it"/></cxn>
+</cxnLst>
+<rect l="il" t="it" r="ir" b="ib"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="vc"/></moveTo>
+<arcTo wR="wd2" hR="hd2" stAng="cd2" swAng="cd4"/>
+<arcTo wR="wd2" hR="hd2" stAng="3cd4" swAng="cd4"/>
+<arcTo wR="wd2" hR="hd2" stAng="0" swAng="cd4"/>
+<arcTo wR="wd2" hR="hd2" stAng="cd4" swAng="cd4"/>
+<close/>
+</path>
+</pathLst>
+</ellipse>
+<triangle>
+<avLst>
+<gd name="adj" fmla="val 50000"/>
+</avLst>
+<gdLst>
+<gd name="a" fmla="pin 0 adj 100000"/>
+<gd name="x1" fmla="*/ w a 200000"/>
+<gd name="x2" fmla="*/ w a 100000"/>
+<gd name="x3" fmla="+- x1 wd2 0"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="x2" y="t"/></cxn>
+<cxn ang="cd2"><pos x="x1" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="l" y="b"/></cxn>
+<cxn ang="cd4"><pos x="x2" y="b"/></cxn>
+<cxn ang="cd4"><pos x="r" y="b"/></cxn>
+<cxn ang="0"><pos x="x3" y="vc"/></cxn>
+</cxnLst>
+<rect l="x1" t="vc" r="x3" b="b"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="b"/></moveTo>
+<lnTo><pt x="x2" y="t"/></lnTo>
+<lnTo><pt x="r" y="b"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</triangle>
+<diamond>
+<gdLst>
+<gd name="ir" fmla="*/ w 3 4"/>
+<gd name="ib" fmla="*/ h 3 4"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="hc" y="t"/></cxn>
+<cxn ang="cd2"><pos x="l" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="b"/></cxn>
+<cxn ang="0"><pos x="r" y="vc"/></cxn>
+</cxnLst>
+<rect l="wd4" t="hd4" r="ir" b="ib"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="vc"/></moveTo>
+<lnTo><pt x="hc" y="t"/></lnTo>
+<lnTo><pt x="r" y="vc"/></lnTo>
+<lnTo><pt x="hc" y="b"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</diamond>
+<hexagon>
+<avLst>
+<gd name="adj" fmla="val 25000"/>
+<gd name="vf" fmla="val 115470"/>
+</avLst>
+<gdLst>
+<gd name="maxAdj" fmla="*/ 50000 w ss"/>
+<gd name="a" fmla="pin 0 adj maxAdj"/>
+<gd name="shd2" fmla="*/ hd2 vf 100000"/>
+<gd name="x1" fmla="*/ ss a 100000"/>
+<gd name="x2" fmla="+- r 0 x1"/>
+<gd name="dy1" fmla="sin shd2 3600000"/>
+<gd name="y1" fmla="+- vc 0 dy1"/>
+<gd name="y2" fmla="+- vc dy1 0"/>
+<gd name="q1" fmla="*/ maxAdj -1 2"/>
+<gd name="q2" fmla="+- a q1 0"/>
+<gd name="q3" fmla="?: q2 4 2"/>
+<gd name="q4" fmla="?: q2 3 2"/>
+<gd name="q5" fmla="?: q2 q1 0"/>
+<gd name="q6" fmla="+/ a q5 q1"/>
+<gd name="q7" fmla="*/ q6 q4 -1"/>
+<gd name="q8" fmla="+- q3 q7 0"/>
+<gd name="il" fmla="*/ w q8 24"/>
+<gd name="it" fmla="*/ h q8 24"/>
+<gd name="ir" fmla="+- r 0 il"/>
+<gd name="ib" fmla="+- b 0 it"/>
+</gdLst>
+<cxnLst>
+<cxn ang="0"><pos x="r" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="x2" y="y2"/></cxn>
+<cxn ang="cd4"><pos x="x1" y="y2"/></cxn>
+<cxn ang="cd2"><pos x="l" y="vc"/></cxn>
+<cxn ang="3cd4"><pos x="x1" y="y1"/></cxn>
+<cxn ang="3cd4"><pos x="x2" y="y1"/></cxn>
+</cxnLst>
+<rect l="il" t="it" r="ir" b="ib"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="vc"/></moveTo>
+<lnTo><pt x="x1" y="y1"/></lnTo>
+<lnTo><pt x="x2" y="y1"/></lnTo>
+<lnTo><pt x="r" y="vc"/></lnTo>
+<lnTo><pt x="x2" y="y2"/></lnTo>
+<lnTo><pt x="x1" y="y2"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</hexagon>
+<chevron>
+<avLst>
+<gd name="adj" fmla="val 50000"/>
+</avLst>
+<gdLst>
+<gd name="maxAdj" fmla="*/ 100000 w ss"/>
+<gd name="a" fmla="pin 0 adj maxAdj"/>
+<gd name="x1" fmla="*/ ss a 100000"/>
+<gd name="x2" fmla="+- r 0 x1"/>
+<gd name="x3" fmla="*/ x2 1 2"/>
+<gd name="dx" fmla="+- x2 0 x1"/>
+<gd name="il" fmla="?: dx x1 l"/>
+<gd name="ir" fmla="?: dx x2 r"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="x3" y="t"/></cxn>
+<cxn ang="cd2"><pos x="x1" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="x3" y="b"/></cxn>
+<cxn ang="0"><pos x="r" y="vc"/></cxn>
+</cxnLst>
+<rect l="il" t="t" r="ir" b="b"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="t"/></moveTo>
+<lnTo><pt x="x2" y="t"/></lnTo>
+<lnTo><pt x="r" y="vc"/></lnTo>
+<lnTo><pt x="x2" y="b"/></lnTo>
+<lnTo><pt x="l" y="b"/></lnTo>
+<lnTo><pt x="x1" y="vc"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</chevron>
+<cloud>
+<gdLst>
+<gd name="il" fmla="*/ w 2977 21600"/>
+<gd name="it" fmla="*/ h 3262 21600"/>
+<gd name="ir" fmla="*/ w 17087 21600"/>
+<gd name="ib" fmla="*/ h 17337 21600"/>
+<gd name="g27" fmla="*/ w 67 21600"/>
+<gd name="g28" fmla="*/ h 21577 21600"/>
+<gd name="g29" fmla="*/ w 21582 21600"/>
+<gd name="g30" fmla="*/ h 1235 21600"/>
+</gdLst>
+<cxnLst>
+<cxn ang="0"><pos x="g29" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="g28"/></cxn>
+<cxn ang="cd2"><pos x="g27" y="vc"/></cxn>
+<cxn ang="3cd4"><pos x="hc" y="g30"/></cxn>
+</cxnLst>
+<rect l="il" t="it" r="ir" b="ib"/>
+<pathLst>
+<path w="43200" h="43200">
+<moveTo><pt x="3900" y="14370"/></moveTo>
+<arcTo wR="6753" hR="9190" stAng="-11429249" swAng="7426832"/>
+<arcTo wR="5333" hR="7267" stAng="-8646143" swAng="5396714"/>
+<arcTo wR="4365" hR="5945" stAng="-8748475" swAng="5983381"/>
+<arcTo wR="4857" hR="6595" stAng="-7859164" swAng="7034504"/>
+<arcTo wR="5333" hR="7273" stAng="-4722533" swAng="6541615"/>
+<arcTo wR="6775" hR="9220" stAng="-2776035" swAng="7816140"/>
+<arcTo wR="5785" hR="7867" stAng="37501" swAng="6842000"/>
+<arcTo wR="6752" hR="9215" stAng="1347096" swAng="6910353"/>
+<arcTo wR="7720" hR="10543" stAng="3974558" swAng="4542661"/>
+<arcTo wR="4360" hR="5918" stAng="-16496525" swAng="8804134"/>
+<arcTo wR="4345" hR="5945" stAng="-14809710" swAng="9151131"/>
+<close/>
+</path>
+<path w="43200" h="43200" fill="none" extrusionOk="false">
+<moveTo><pt x="4693" y="26177"/></moveTo>
+<arcTo wR="4345" hR="5945" stAng="5204520" swAng="1585770"/>
+<moveTo><pt x="6928" y="34899"/></moveTo>
+<arcTo wR="4360" hR="5918" stAng="4416628" swAng="686848"/>
+<moveTo><pt x="16478" y="39090"/></moveTo>
+<arcTo wR="6752" hR="9215" stAng="8257449" swAng="844866"/>
+<moveTo><pt x="28827" y="34751"/></moveTo>
+<arcTo wR="6752" hR="9215" stAng="387196" swAng="959901"/>
+<moveTo><pt x="34129" y="22954"/></moveTo>
+<arcTo wR="5785" hR="7867" stAng="-4217541" swAng="4255042"/>
+<moveTo><pt x="41798" y="15354"/></moveTo>
+<arcTo wR="5333" hR="7273" stAng="1819082" swAng="1665090"/>
+<moveTo><pt x="38324" y="5426"/></moveTo>
+<arcTo wR="4857" hR="6595" stAng="-824660" swAng="891534"/>
+<moveTo><pt x="29078" y="3952"/></moveTo>
+<arcTo wR="4857" hR="6595" stAng="-8950887" swAng="1091722"/>
+<moveTo><pt x="22141" y="4720"/></moveTo>
+<arcTo wR="4365" hR="5945" stAng="-9809656" swAng="1061181"/>
+<moveTo><pt x="14000" y="5192"/></moveTo>
+<arcTo wR="6753" hR="9190" stAng="-4002417" swAng="739161"/>
+<moveTo><pt x="4127" y="15789"/></moveTo>
+<arcTo wR="6753" hR="9190" stAng="9459261" swAng="711490"/>
+</path>
+</pathLst>
+</cloud>
+<parallelogram>
+<avLst>
+<gd name="adj" fmla="val 25000"/>
+</avLst>
+<gdLst>
+<gd name="maxAdj" fmla="*/ 100000 w ss"/>
+<gd name="a" fmla="pin 0 adj maxAdj"/>
+<gd name="x1" fmla="*/ ss a 200000"/>
+<gd name="x2" fmla="*/ ss a 100000"/>
+<gd name="x6" fmla="+- r 0 x1"/>
+<gd name="x5" fmla="+- r 0 x2"/>
+<gd name="x3" fmla="*/ x5 1 2"/>
+<gd name="x4" fmla="+- r 0 x3"/>
+<gd name="il" fmla="*/ wd2 a maxAdj"/>
+<gd name="q1" fmla="*/ 5 a maxAdj"/>
+<gd name="q2" fmla="+/ 1 q1 12"/>
+<gd name="il" fmla="*/ q2 w 1"/>
+<gd name="it" fmla="*/ q2 h 1"/>
+<gd name="ir" fmla="+- r 0 il"/>
+<gd name="ib" fmla="+- b 0 it"/>
+<gd name="q3" fmla="*/ h hc x2"/>
+<gd name="y1" fmla="pin 0 q3 h"/>
+<gd name="y2" fmla="+- b 0 y1"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="hc" y="y2"/></cxn>
+<cxn ang="3cd4"><pos x="x4" y="t"/></cxn>
+<cxn ang="0"><pos x="x6" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="x3" y="b"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="y1"/></cxn>
+<cxn ang="cd2"><pos x="x1" y="vc"/></cxn>
+</cxnLst>
+<rect l="il" t="it" r="ir" b="ib"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="b"/></moveTo>
+<lnTo><pt x="x2" y="t"/></lnTo>
+<lnTo><pt x="r" y="t"/></lnTo>
+<lnTo><pt x="x5" y="b"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</parallelogram>
+<trapezoid>
+<avLst>
+<gd name="adj" fmla="val 25000"/>
+</avLst>
+<gdLst>
+<gd name="maxAdj" fmla="*/ 50000 w ss"/>
+<gd name="a" fmla="pin 0 adj maxAdj"/>
+<gd name="x1" fmla="*/ ss a 200000"/>
+<gd name="x2" fmla="*/ ss a 100000"/>
+<gd name="x3" fmla="+- r 0 x2"/>
+<gd name="x4" fmla="+- r 0 x1"/>
+<gd name="il" fmla="*/ wd3 a maxAdj"/>
+<gd name="it" fmla="*/ hd3 a maxAdj"/>
+<gd name="ir" fmla="+- r 0 il"/>
+</gdLst>
+<cxnLst>
+<cxn ang="3cd4"><pos x="hc" y="t"/></cxn>
+<cxn ang="cd2"><pos x="x1" y="vc"/></cxn>
+<cxn ang="cd4"><pos x="hc" y="b"/></cxn>
+<cxn ang="0"><pos x="x4" y="vc"/></cxn>
+</cxnLst>
+<rect l="il" t="it" r="ir" b="b"/>
+<pathLst>
+<path>
+<moveTo><pt x="l" y="b"/></moveTo>
+<lnTo><pt x="x2" y="t"/></lnTo>
+<lnTo><pt x="x3" y="t"/></lnTo>
+<lnTo><pt x="r" y="b"/></lnTo>
+<close/>
+</path>
+</pathLst>
+</trapezoid>
+</presetShapeDefinitons>

@@ -2,6 +2,7 @@
 pub(crate) mod drawingml;
 pub(crate) mod paragraphs;
 pub(crate) mod pictures;
+pub(crate) mod presets;
 pub(crate) mod sites;
 use crate::{
     model::{Content, Element, ElementKind, Properties, Unit, Value},
