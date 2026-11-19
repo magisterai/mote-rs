@@ -82,11 +82,13 @@ pub(in crate::layout) fn place(
             let mut frame = 0;
             for slice in slices {
                 let advanced = slice.frame > frame;
+                let foot = *cursor;
                 while frame < slice.frame {
                     next_area(cursor, pages, columns, geometry);
                     frame += 1;
                 }
                 if advanced {
+                    headers.close_area(&foot, &mut collector);
                     headers.begin_area(
                         AreaStart {
                             row: slice.row,
@@ -173,6 +175,7 @@ pub(in crate::layout) fn place(
                         required + closing,
                     );
                     if !cursor.is_in_area_of(&previous) {
+                        headers.close_area(&previous, &mut collector);
                         headers.begin_area(
                             AreaStart {
                                 row,
@@ -278,6 +281,19 @@ impl<'plan> HeaderRows<'plan> {
                     table.rows[first..end].iter().map(|row| row.height).sum()
                 }
             })
+    }
+    /// Closes the table at the foot of the area that it leaves, where `foot`
+    /// is the cursor below the last row placed there.
+    fn close_area(&self, foot: &FlowCursor, collector: &mut borders::Collector) {
+        let closing = self.table.rows.last().and_then(|row| {
+            row.cells
+                .iter()
+                .map(|cell| &cell.borders[2])
+                .max_by(|first, second| first.width.total_cmp(&second.width))
+        });
+        if let Some(closing) = closing {
+            collector.close(foot.page_number - 1, foot.y, closing);
+        }
     }
     /// Begins an area to which the table has moved: sets the top border of the
     /// row at the top of the area, and repeats the header rows if the area
@@ -427,8 +443,10 @@ fn place_cell<'plan>(
                 color,
             }));
     }
-    let mut clip_top = top + window.inset;
-    let mut clip_bottom = (clip_top + window.height).min(top + height);
+    // A fragment that resumes at a row of a nested table shows the top border
+    // of that row, for which the inset holds room below the margin of the cell.
+    let mut clip_top = top + window.inset.min(cell.margins[0].max(0.0));
+    let mut clip_bottom = (top + window.inset + window.height).min(top + height);
     let mut clip_left = left;
     let mut clip_right = left + width;
     if let Some([outer_left, outer_top, outer_width, outer_height]) = outer_clip {

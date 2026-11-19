@@ -207,8 +207,20 @@ type EdgeGroups = BTreeMap<(usize, bool, i64), Vec<(f64, f64, Candidate)>>;
 #[derive(Default)]
 pub(super) struct Collector {
     segments: EdgeGroups,
+    /// The feet of the areas that the table has left before its end, each with
+    /// the page, the edge and the border that closes the table there.
+    closed: Vec<(usize, i64, Candidate)>,
+}
+fn edge_key(position: f64) -> i64 {
+    (position * 1000.0).round() as i64
 }
 impl Collector {
+    /// Closes the table at the foot of an area that it leaves: Word draws the
+    /// bottom border of the table beneath the last row there, in place of the
+    /// border of that row.
+    pub fn close(&mut self, page: usize, edge: f64, border: &Candidate) {
+        self.closed.push((page, edge_key(edge), border.clone()));
+    }
     pub fn cell(
         &mut self,
         page: usize,
@@ -226,13 +238,33 @@ impl Collector {
         ] {
             if include && end - start > 0.01 {
                 self.segments
-                    .entry((page, !horizontal, (fixed * 1000.0).round() as i64))
+                    .entry((page, !horizontal, edge_key(fixed)))
                     .or_default()
                     .push((start, end, borders[side].clone()));
             }
         }
     }
-    pub fn append(self, pages: &mut [super::super::TextPage]) {
+    pub fn append(mut self, pages: &mut [super::super::TextPage]) {
+        for (page, edge, border) in std::mem::take(&mut self.closed) {
+            let Some(mut segments) = self.segments.remove(&(page, false, edge)) else {
+                continue;
+            };
+            let own = segments
+                .iter()
+                .map(|(_, _, candidate)| candidate.width)
+                .fold(0.0, f64::max);
+            // The closing border begins where the border of the row began.
+            let excess = border.width - own;
+            if excess > 0.0 {
+                for (_, _, candidate) in &mut segments {
+                    *candidate = border.clone();
+                }
+            }
+            self.segments
+                .entry((page, false, edge + edge_key(excess.max(0.0))))
+                .or_default()
+                .extend(segments);
+        }
         for ((page, vertical, fixed), segments) in self.segments {
             let mut points: Vec<f64> = segments
                 .iter()
@@ -264,7 +296,11 @@ impl Collector {
                 }
             }
             for (start, end, candidate) in resolved {
-                let fixed = fixed as f64 / 1000.0;
+                // A row ends with the border beneath it, and the table begins
+                // with its top border, so a horizontal border lies wholly above
+                // the edge it belongs to; a vertical border straddles its edge.
+                let fixed =
+                    fixed as f64 / 1000.0 - if vertical { 0.0 } else { candidate.width / 2.0 };
                 let rule = Rule {
                     role: RuleRole::TableBorder,
                     start: if vertical {

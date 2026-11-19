@@ -1,5 +1,5 @@
 //! Paint note stories into the same ordered page plan as body content.
-use super::{NoteLayout, SEPARATOR_BAND};
+use super::NoteLayout;
 use crate::layout::{
     FlowCursor, LayoutError, PageGeometry, PageOperation, PlacedTextLine, Rule, RuleRole, TextPage,
 };
@@ -34,7 +34,7 @@ impl NoteLayout {
             separator(
                 page,
                 first.left,
-                top - SEPARATOR_BAND,
+                top - self.separator_rise,
                 first.width.min(144.0),
             );
             for number in notes {
@@ -84,7 +84,7 @@ impl NoteLayout {
         separator(
             &mut pages[cursor.page_number - 1],
             geometry.margin_left,
-            cursor.y,
+            cursor.y + self.endnote_band - self.separator_rise,
             width.min(144.0),
         );
         cursor.y += self.endnote_band;
@@ -119,7 +119,7 @@ impl NoteLayout {
                     separator(
                         &mut pages[cursor.page_number - 1],
                         geometry.margin_left,
-                        cursor.y + 6.945,
+                        cursor.y + self.endnote_band - self.separator_rise,
                         width,
                     );
                     cursor.y += self.endnote_band;

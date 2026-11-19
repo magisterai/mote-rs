@@ -11,10 +11,10 @@
   "pdf_comparison_dpi": 144,
   "pdf_changed_pixels": 0,
   "files": {
-    "geometry.json": "3b0789efa7a5905436416737ac84b2efadca55bdee3a41675b5747916be82a11",
-    "reference-1.png": "45d35d837466ff49a72a7d7b8dfe6d21ea7d2a892cda3950810232be0626b8ba",
-    "reference-2.png": "9a08f74972b2d15d1fee938a643319e4cac41856476818f51dd3548d4a5ba82a",
-    "reference-3.png": "8620de147919daa112ef883b1d63bb7a9979a9f73697aaa75932749133539507",
-    "reference-4.png": "7db908437c07c0d7131dfb5e79aa9bddf1b118c00b78d07874aaef0d83c00eec"
+    "geometry.json": "5932b497fb5fb733683650feb071a9492923dc0f9efdf5f6ca8ef0c84a60905a",
+    "reference-1.png": "09fd522dff8df2554945a470c9295e464db82b7ce365d4a3bac4173f20fb604f",
+    "reference-2.png": "66a29b9a6895c44511f9698d8a4cc3bcafb4f81cc9110b9a099b5c4bcdf98c51",
+    "reference-3.png": "7cd3d7fa56790fa3ad78509cbf4eb34f1f3d84c61ba8556e1abe71858af1d32c",
+    "reference-4.png": "d195100b7265ec4035e3ce46bb1adb4cd97c14c449dd4f97f4484d3416c729a9"
   }
 }

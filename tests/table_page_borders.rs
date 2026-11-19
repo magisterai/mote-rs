@@ -203,3 +203,71 @@ fn a_header_row_that_begins_a_page_is_not_preceded_by_the_header_rows() {
     assert_eq!(count("Head one"), 1);
     assert_eq!(count("Head two"), 1);
 }
+
+/// Returns the height, the width and the colour of each horizontal border of
+/// each page, from the top of the page down.
+fn horizontal_borders(source: &str) -> Vec<Vec<(f64, f64, String)>> {
+    let resolver = FileAssetResolver::new("tests/fixtures/images/assets").unwrap();
+    let document = mote::compile(source).unwrap();
+    let planned = render::plan(&document, &resolver, None).unwrap();
+    planned
+        .output
+        .pages
+        .iter()
+        .map(|page| {
+            let mut borders: Vec<(f64, f64, String)> = page
+                .operations
+                .iter()
+                .filter_map(|operation| match operation {
+                    mote::layout::PageOperation::Stroke { rule, .. }
+                        if rule.role == mote::layout::RuleRole::TableBorder
+                            && rule.start[1] == rule.end[1] =>
+                    {
+                        Some((rule.start[1], rule.width, rule.color.to_uppercase()))
+                    }
+                    _ => None,
+                })
+                .collect();
+            borders.sort_by(|first, second| first.0.total_cmp(&second.0));
+            borders
+        })
+        .collect()
+}
+
+#[test]
+fn a_horizontal_border_lies_wholly_above_the_edge_it_belongs_to() {
+    // Word's export of the table-row-height probe shows each border of three
+    // points a point and a half above the place of a border centred on its
+    // edge, and the side borders centred on theirs.
+    let source = "#table(borders = { all = { style = 'single', width = pt(6), color = '#000000' } })[\n#row[#cell[First]]\n#row[#cell[Second]]\n]\n";
+    let tops = line_tops(source);
+    let borders = &horizontal_borders(source)[0];
+    // The table begins at the top of the text area with a band of six points
+    // for its top border, and each row ends with the band of the border below.
+    assert_near(borders[0].0, 72.0 + 3.0);
+    assert_near(tops[0][0], 72.0 + 6.0 + 4.0);
+    assert_near(borders[1].0, tops[0][1] - 4.0 - 3.0);
+    assert_eq!(borders.len(), 3);
+}
+
+#[test]
+fn the_bottom_border_of_a_table_is_drawn_beneath_the_last_row_on_each_page() {
+    let rows = "#row[#cell[Body.]]\n".repeat(60);
+    let pages = horizontal_borders(&format!(
+        "#table(borders = {{ outside = {{ style = 'single', width = pt(6), color = '#000000' }}, inside = {{ style = 'single', width = pt(0.5), color = '#94A3B8' }} }})[\n{rows}]\n"
+    ));
+    assert!(pages.len() > 1);
+    for page in &pages {
+        let (foot, width, color) = page.last().unwrap();
+        assert_eq!((*width, color.as_str()), (6.0, "000000"));
+        // The border begins where the border of the row would have begun, half
+        // a point below the content of the row.
+        let above = page[page.len() - 2].0;
+        assert!(
+            foot - 3.0 > above && foot + 3.0 <= 720.0 + 0.001,
+            "{foot} {above}"
+        );
+    }
+    // The first row of a page keeps its own top border.
+    assert_eq!(pages[1][0].1, 0.5);
+}

@@ -18,7 +18,11 @@ inline occurrences in every single-column section. A footnote reserves space at
 the foot of the page on which its reference falls, and is set in the text width
 and at the left margin of the section that holds the reference. The foot of a
 page that continuous sections share is that of the first section on the page.
-Footnote numbering is continuous through all sections. Endnotes enter document
+Footnote numbering is continuous through all sections. The separator rule lies
+in a line of the default paragraph style above the first footnote, about half
+the size of its text above the foot of that line, as Word's marks show for
+default and for styled documents and the
+[separator tests](../../tests/note_separator.rs) hold. Endnotes enter document
 flow with continuation separators. Native markers use decimal footnote and
 lower-Roman endnote numbers. Table cells, running stories, figure descendants,
 sections with more than one column, rich block note bodies, and dynamic note

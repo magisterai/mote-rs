@@ -281,7 +281,7 @@
   },
   "probes/block-gaps": {
     "horizontal": 0.1,
-    "marks": 6,
+    "marks": 8,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -401,7 +401,7 @@
   },
   "probes/nested-table-cell-end": {
     "horizontal": 0.2,
-    "marks": 3828,
+    "marks": 190,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -465,7 +465,7 @@
   },
   "probes/script-position": {
     "horizontal": 0.2,
-    "marks": 1018,
+    "marks": 0,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 1,
@@ -473,7 +473,7 @@
   },
   "probes/section-endnotes": {
     "horizontal": 0.2,
-    "marks": 876,
+    "marks": 0,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -513,7 +513,7 @@
   },
   "probes/table-page-borders": {
     "horizontal": 0.1,
-    "marks": 2733,
+    "marks": 8,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -529,7 +529,7 @@
   },
   "probes/table-row-height": {
     "horizontal": 0.1,
-    "marks": 7727,
+    "marks": 145,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 1,
@@ -585,7 +585,7 @@
   },
   "word/07_warning_authority": {
     "horizontal": 0.2,
-    "marks": 1441,
+    "marks": 425,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 3,
@@ -769,7 +769,7 @@
   },
   "word/30_media_references_notes": {
     "horizontal": 0.1,
-    "marks": 1821,
+    "marks": 1523,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -777,7 +777,7 @@
   },
   "word/31_reference_parity": {
     "horizontal": 0.2,
-    "marks": 1,
+    "marks": 0,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -793,7 +793,7 @@
   },
   "word/33_annotation_story_placement": {
     "horizontal": 0.2,
-    "marks": 874,
+    "marks": 0,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -801,7 +801,7 @@
   },
   "word/34_notes_one_page": {
     "horizontal": 0.1,
-    "marks": 876,
+    "marks": 0,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -809,7 +809,7 @@
   },
   "word/35_notes_two_page": {
     "horizontal": 0.1,
-    "marks": 874,
+    "marks": 0,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -817,7 +817,7 @@
   },
   "word/36_footnote_page_pressure": {
     "horizontal": 0.2,
-    "marks": 874,
+    "marks": 0,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -825,7 +825,7 @@
   },
   "word/37_endnote_page_pressure": {
     "horizontal": 0.1,
-    "marks": 2460,
+    "marks": 0,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -937,7 +937,7 @@
   },
   "word/51_table_cell_block_image": {
     "horizontal": 0.1,
-    "marks": 1,
+    "marks": 0,
     "median": 0.5,
     "page_moves": 0,
     "unmatched": 2,
@@ -977,7 +977,7 @@
   },
   "word/56_table_autofit_vs_fixed": {
     "horizontal": 1.1,
-    "marks": 3,
+    "marks": 0,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -985,7 +985,7 @@
   },
   "word/57_table_cross_page_spans": {
     "horizontal": 0.1,
-    "marks": 731,
+    "marks": 730,
     "median": 0.3,
     "page_moves": 0,
     "unmatched": 0,
@@ -993,7 +993,7 @@
   },
   "word/58_nested_table_content": {
     "horizontal": 0.1,
-    "marks": 193,
+    "marks": 9,
     "median": 0.2,
     "page_moves": 0,
     "unmatched": 0,
@@ -1001,7 +1001,7 @@
   },
   "word/59_nested_table_row_splitting": {
     "horizontal": 0.1,
-    "marks": 283,
+    "marks": 21,
     "median": 0.1,
     "page_moves": 0,
     "unmatched": 0,
@@ -1017,7 +1017,7 @@
   },
   "word/61_table_borders": {
     "horizontal": 0.1,
-    "marks": 1196,
+    "marks": 54,
     "median": 0.4,
     "page_moves": 0,
     "unmatched": 0,
@@ -1057,7 +1057,7 @@
   },
   "word/66_inline_equations_flow": {
     "horizontal": 25.7,
-    "marks": 2134,
+    "marks": 293,
     "median": 0.6,
     "page_moves": 0,
     "unmatched": 121,

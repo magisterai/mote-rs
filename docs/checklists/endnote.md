@@ -15,7 +15,9 @@ Native placement supports stable single-paragraph note bodies at unambiguous
 inline occurrences in every single-column section. Footnotes reserve page-bottom
 space. Endnotes cited in any section enter document flow after the content of
 the last section, in the geometry of that section, with continuation
-separators; their numbering is continuous through all sections. Native markers
+separators, each drawn in its line as the
+[footnote separator](footnote.md) is; their numbering is continuous through all
+sections. Native markers
 use decimal footnote and lower-Roman endnote numbers. Table cells, running stories,
 figure descendants, sections with more than one column, rich block note bodies,
 and dynamic note fields retain visible inline fallbacks, and the diagnostic

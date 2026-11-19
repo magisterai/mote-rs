@@ -11,6 +11,9 @@ mod placement;
 
 pub(super) const NUMBER: &str = "__layout_note_number";
 const SEPARATOR_BAND: f64 = 14.84;
+/// The height of the separator rule above the foot of its line, as a part of
+/// the size of the text of the separator paragraph.
+const SEPARATOR_HEIGHT: f64 = 0.48;
 const BODY_GAP: f64 = 6.0;
 
 struct Note {
@@ -76,6 +79,9 @@ pub(super) struct NoteLayout {
     /// The height of the separator before the endnotes, which Word sets as a
     /// paragraph of the default style with its space after.
     endnote_band: f64,
+    /// The height of the separator rule above the foot of that paragraph, its
+    /// space after included.
+    separator_rise: f64,
     endnote_footer_heights: Vec<f64>,
     /// The geometry of the last section, in which the endnotes are set.
     endnote_geometry: PageGeometry,
@@ -94,6 +100,26 @@ impl NoteLayout {
         let mut layout = Self::default();
         let separator = styles.paragraph(&empty_paragraph());
         layout.endnote_band = separator.line_height + separator.spacing_after;
+        // Word draws the rule in the line of the separator paragraph, about
+        // half the size of its text above the foot of the line without the
+        // space that a line multiple adds, as its exports of the notes cases
+        // show for default and for styled paragraphs.
+        let mut sample = empty_paragraph();
+        sample.children.push(Content::Text("x".into()));
+        // The width of the frame does not bear on a line of one letter.
+        let trailing = super::paragraphs::plan_paragraph_text(
+            &sample,
+            f64::from(u16::MAX),
+            styles,
+            measurer,
+            false,
+        )?
+        .lines
+        .first()
+        .map_or(0.0, |line| line.trailing_space);
+        layout.separator_rise = separator.spacing_after
+            + trailing
+            + SEPARATOR_HEIGHT * separator.text.measurement.size_points;
         if let Some(last) = sections.last() {
             layout.endnote_geometry = PageGeometry::from_section(last)?;
             if layout.endnote_geometry.column_count > 1 {

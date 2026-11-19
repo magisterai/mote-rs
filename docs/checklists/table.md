@@ -32,7 +32,13 @@ body and in a cell, and the row that begins a page lies the width of its top
 border below the top of the text area; a repeated header row there takes the top
 border of the table. Word draws the bottom border of the table beneath the last
 row on a page, so a row fits the foot of a page that holds it and the excess of
-that border over its own. The column that holds a nested table holds also the
+that border over its own, and native output draws that border there. A
+horizontal border lies wholly above the edge it belongs to, since a row ends
+with the border beneath it and the table begins with its top border, whereas a
+vertical border straddles its edge; a nested table that resumes on a new page
+shows the top border of the row at which it resumes. Word's marks, compared
+point by point as the [Office comparison](../../tests/office/README.md)
+describes, show the three rules. The column that holds a nested table holds also the
 halves of its side borders that lie outside its grid. A cell border that states
 no colour takes the colour that DOCX writes for it. The
 [page border tests](../../tests/table_page_borders.rs) hold these rules, which
