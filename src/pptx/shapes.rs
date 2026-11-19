@@ -67,7 +67,51 @@ pub(super) fn connector(element: &Element, next_shape: &mut usize) -> Result<Str
         name
     })?;
     let properties = drawingml::connector(attributes).map_err(Error)?;
+    let mut connections = String::new();
+    for (end, element_name) in [("from", "stCxn"), ("to", "endCxn")] {
+        let Some(endpoint) = crate::properties::object(attributes, end) else {
+            continue;
+        };
+        let shape = text(endpoint, "shape");
+        if !shape.is_empty() {
+            let site = crate::properties::number(endpoint, "site").unwrap_or_default();
+            connections.push_str(&format!(
+                "<a:{element_name} id=\"{MARK}{shape}{MARK}\" idx=\"{site}\"/>"
+            ));
+        }
+    }
+    let connections = if connections.is_empty() {
+        "<p:cNvCxnSpPr/>".to_owned()
+    } else {
+        format!("<p:cNvCxnSpPr>{connections}</p:cNvCxnSpPr>")
+    };
     Ok(format!(
-        "<p:cxnSp><p:nvCxnSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr><p:spPr>{properties}</p:spPr></p:cxnSp>"
+        "<p:cxnSp><p:nvCxnSpPr><p:cNvPr id=\"{identifier}\" name=\"{name}\"/>{connections}<p:nvPr/></p:nvCxnSpPr><p:spPr>{properties}</p:spPr></p:cxnSp>"
     ))
+}
+
+/// Marks the name of a shape whose identifier a connector awaits. The
+/// character cannot occur in XML, so that it marks nothing else.
+const MARK: char = '\u{1}';
+
+/// Replaces each shape name that a connector of the slide `markup` awaits with
+/// the identifier of that shape, which may follow the connector on the slide.
+pub(super) fn attach(
+    markup: &str,
+    identifiers: &std::collections::BTreeMap<String, usize>,
+) -> Result<String, Error> {
+    let mut output = String::new();
+    for (index, piece) in markup.split(MARK).enumerate() {
+        if index % 2 == 0 {
+            output.push_str(piece);
+        } else {
+            let identifier = identifiers.get(piece).ok_or_else(|| {
+                Error(format!(
+                    "a line joins shape {piece:?}, which is not written"
+                ))
+            })?;
+            output.push_str(&identifier.to_string());
+        }
+    }
+    Ok(output)
 }

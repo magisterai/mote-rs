@@ -120,3 +120,21 @@ The `arrow` argument is the marker at the end, one of `triangle`, `stealth`,
 giving both ends. The `cap` argument is `flat`, `round` or `square`. In a document
 a line is drawn within a group; a line that stands alone appears as the text
 `[line]`, with a warning.
+
+An end of a line may name a shape of the same slide or group instead of a point.
+The end then lies on the outline of the shape, at the connection site on the
+given `side` (`top`, `bottom`, `left` or `right`), however the shape is slanted,
+notched or turned, and PowerPoint keeps the line attached when the shape is
+moved. A `site` number selects one of the sites of the shape directly.
+
+```mote
+#presentation(size = "wide")
+#slide[
+  #shape(name = "receive", kind = "parallelogram",
+    position = { x = inch(1), y = inch(2), width = inch(1.8), height = inch(0.8) })[Input]
+  #shape(name = "validate", kind = "chevron",
+    position = { x = inch(4), y = inch(2), width = inch(1.8), height = inch(0.8) })[Ship]
+  #line(from = { shape = "receive", side = "right" },
+    to = { shape = "validate", side = "left" }, arrow = "triangle")
+]
+```

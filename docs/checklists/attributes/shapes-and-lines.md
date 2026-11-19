@@ -140,8 +140,8 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
 - [ ] `cxnSpLocks` — [a:CT_ConnectorLocking](shapes-and-lines.md#a-ct_connectorlocking); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `stCxn` — [a:CT_Connection](shapes-and-lines.md#a-ct_connection); Strict, Transitional; minOccurs=0; maxOccurs=1.
-- [ ] `endCxn` — [a:CT_Connection](shapes-and-lines.md#a-ct_connection); Strict, Transitional; minOccurs=0; maxOccurs=1.
+- [x] `stCxn` — [a:CT_Connection](shapes-and-lines.md#a-ct_connection); Strict, Transitional; minOccurs=0; maxOccurs=1. PPTX records the shape and the site that `line.from` names. Evidence: [drawings.md](../../../docs/specification/drawings.md), [connection_sites.rs](../../../tests/connection_sites.rs).
+- [x] `endCxn` — [a:CT_Connection](shapes-and-lines.md#a-ct_connection); Strict, Transitional; minOccurs=0; maxOccurs=1. PPTX records the shape and the site that `line.to` names. Evidence: [drawings.md](../../../docs/specification/drawings.md), [connection_sites.rs](../../../tests/connection_sites.rs).
 - [ ] `extLst` — [a:CT_OfficeArtExtensionList](fonts.md#a-ct_officeartextensionlist); Strict, Transitional; minOccurs=0; maxOccurs=1.
 
 <a id="wps-ct_linkedtextboxinformation"></a>
@@ -225,5 +225,5 @@ Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/d
 
 Sources: [Transitional](../../reference/ooxml/ecma-376/part-4/xsd-transitional/dml-main.xsd), [Strict](../../reference/ooxml/ecma-376/part-1/xsd-strict/dml-main.xsd).
 
-- [ ] `@id` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required.
-- [ ] `@idx` — `xsd:unsignedInt`; Strict, Transitional; use=required.
+- [x] `@id` — [a:ST_DrawingElementId](values-drawing.md#a-st_drawingelementid); Strict, Transitional; use=required. The identifier of the shape that a line end names. Evidence: [drawings.md](../../../docs/specification/drawings.md), [connection_sites.rs](../../../tests/connection_sites.rs).
+- [x] `@idx` — `xsd:unsignedInt`; Strict, Transitional; use=required. The connection site, by its place in the `cxnLst` of the preset. Evidence: [drawings.md](../../../docs/specification/drawings.md), [connection_sites.rs](../../../tests/connection_sites.rs).

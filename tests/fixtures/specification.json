@@ -595,6 +595,10 @@
       "model": "drawings-3"
     },
     {
+      "example": "drawings/5",
+      "model": "drawings-connection"
+    },
+    {
       "example": "charts/1",
       "model": "charts-1"
     },
@@ -12283,6 +12287,236 @@
                     }
                   ],
                   "kind": "shape"
+                }
+              ],
+              "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "drawings-connection": {
+      "columns": {},
+      "content": [
+        {
+          "category": "block",
+          "children": [
+            {
+              "attributes": {
+                "kind": "parallelogram",
+                "name": "receive",
+                "position": {
+                  "height": {
+                    "text": "0.8in",
+                    "unit": "in",
+                    "value": 0.8
+                  },
+                  "width": {
+                    "text": "1.8in",
+                    "unit": "in",
+                    "value": 1.8
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "y": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  }
+                }
+              },
+              "category": "block",
+              "kind": "shape"
+            },
+            {
+              "attributes": {
+                "kind": "chevron",
+                "name": "validate",
+                "position": {
+                  "height": {
+                    "text": "0.8in",
+                    "unit": "in",
+                    "value": 0.8
+                  },
+                  "width": {
+                    "text": "1.8in",
+                    "unit": "in",
+                    "value": 1.8
+                  },
+                  "x": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4.0
+                  },
+                  "y": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  }
+                }
+              },
+              "category": "block",
+              "kind": "shape"
+            },
+            {
+              "attributes": {
+                "arrow": {
+                  "end": "triangle"
+                },
+                "from": {
+                  "shape": "receive",
+                  "side": "right",
+                  "site": 2.0,
+                  "x": {
+                    "text": "194.4pt",
+                    "unit": "pt",
+                    "value": 194.4
+                  },
+                  "y": {
+                    "text": "172.8pt",
+                    "unit": "pt",
+                    "value": 172.8
+                  }
+                },
+                "to": {
+                  "shape": "validate",
+                  "side": "left",
+                  "site": 1.0,
+                  "x": {
+                    "text": "316.8pt",
+                    "unit": "pt",
+                    "value": 316.8
+                  },
+                  "y": {
+                    "text": "172.8pt",
+                    "unit": "pt",
+                    "value": 172.8
+                  }
+                }
+              },
+              "category": "block",
+              "kind": "line"
+            }
+          ],
+          "kind": "slide"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "attributes": {
+                    "kind": "parallelogram",
+                    "name": "receive",
+                    "position": {
+                      "height": {
+                        "text": "0.8in",
+                        "unit": "in",
+                        "value": 0.8
+                      },
+                      "width": {
+                        "text": "1.8in",
+                        "unit": "in",
+                        "value": 1.8
+                      },
+                      "x": {
+                        "text": "1in",
+                        "unit": "in",
+                        "value": 1.0
+                      },
+                      "y": {
+                        "text": "2in",
+                        "unit": "in",
+                        "value": 2.0
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "kind": "shape"
+                },
+                {
+                  "attributes": {
+                    "kind": "chevron",
+                    "name": "validate",
+                    "position": {
+                      "height": {
+                        "text": "0.8in",
+                        "unit": "in",
+                        "value": 0.8
+                      },
+                      "width": {
+                        "text": "1.8in",
+                        "unit": "in",
+                        "value": 1.8
+                      },
+                      "x": {
+                        "text": "4in",
+                        "unit": "in",
+                        "value": 4.0
+                      },
+                      "y": {
+                        "text": "2in",
+                        "unit": "in",
+                        "value": 2.0
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "kind": "shape"
+                },
+                {
+                  "attributes": {
+                    "arrow": {
+                      "end": "triangle"
+                    },
+                    "from": {
+                      "shape": "receive",
+                      "side": "right",
+                      "site": 2.0,
+                      "x": {
+                        "text": "194.4pt",
+                        "unit": "pt",
+                        "value": 194.4
+                      },
+                      "y": {
+                        "text": "172.8pt",
+                        "unit": "pt",
+                        "value": 172.8
+                      }
+                    },
+                    "to": {
+                      "shape": "validate",
+                      "side": "left",
+                      "site": 1.0,
+                      "x": {
+                        "text": "316.8pt",
+                        "unit": "pt",
+                        "value": 316.8
+                      },
+                      "y": {
+                        "text": "172.8pt",
+                        "unit": "pt",
+                        "value": 172.8
+                      }
+                    }
+                  },
+                  "category": "block",
+                  "kind": "line"
                 }
               ],
               "kind": "slide"

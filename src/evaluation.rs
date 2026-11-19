@@ -206,7 +206,14 @@ fn evaluate_with_state(
             message,
         )
     })?;
-    Ok(document.finish())
+    let mut document = document.finish();
+    drawings::connect(&mut document.content)?;
+    for section in &mut document.sections {
+        drawings::connect(&mut section.content)?;
+        drawings::connect(&mut section.header.content)?;
+        drawings::connect(&mut section.footer.content)?;
+    }
+    Ok(document)
 }
 
 /// Built-in Word styles count as declared.

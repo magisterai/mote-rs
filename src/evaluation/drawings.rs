@@ -2,8 +2,9 @@
 use super::{attributes, declarations, images, values::*};
 use crate::{
     diagnostics::{Diagnostic, Span},
-    model::{ElementKind, Properties, Unit, Value},
+    model::{Content, Element, ElementKind, Properties, Unit, Value},
 };
+use std::collections::BTreeMap;
 
 pub(super) fn normalize(
     kind: ElementKind,
@@ -159,6 +160,44 @@ pub(super) fn group_position(value: Value, span: Span) -> Result<Value, Diagnost
 }
 fn point(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
     let mut fields = require_object(value, span, name)?;
+    if let Some(shape) = fields.remove("shape") {
+        if fields.contains_key("x") || fields.contains_key("y") {
+            return Err(Diagnostic::new(
+                span,
+                format!("line.{name} takes a shape or x and y, not both"),
+            ));
+        }
+        fields.insert(
+            "shape".into(),
+            Value::String(normalize_identifier(shape, span, &format!("{name}.shape"))?),
+        );
+        match (fields.remove("side"), fields.remove("site")) {
+            (Some(side), None) => {
+                fields.insert(
+                    "side".into(),
+                    normalize_enum(
+                        side,
+                        span,
+                        &format!("{name}.side"),
+                        &["top", "bottom", "left", "right"],
+                    )?,
+                );
+            }
+            (None, Some(site)) => {
+                fields.insert(
+                    "site".into(),
+                    normalize_integer(site, span, &format!("{name}.site"), 0)?,
+                );
+            }
+            _ => {
+                return Err(Diagnostic::new(
+                    span,
+                    format!("line.{name} requires a side or a site of its shape"),
+                ));
+            }
+        }
+        return Ok(Value::Object(fields));
+    }
     for coordinate in ["x", "y"] {
         let value = fields
             .remove(coordinate)
@@ -298,4 +337,115 @@ fn arrows(value: Value, span: Span) -> Result<Value, Diagnostic> {
         }
     }
     Ok(Value::Object(fields))
+}
+
+/// Places each end of a line that names a shape at a connection site of that
+/// shape. A line joins the shapes of its own slide or group, and the name must
+/// belong to one shape alone of its slide, or of the outermost group of a
+/// document, so that an editable connector may record the shape it joins.
+pub(super) fn connect(content: &mut [Content]) -> Result<(), Diagnostic> {
+    for node in content {
+        let Content::Element(element) = node else {
+            continue;
+        };
+        if matches!(element.kind, ElementKind::Slide | ElementKind::Group) {
+            let mut names = BTreeMap::new();
+            count_names(&element.children, &mut names);
+            join(element, &names)?;
+        } else {
+            connect(&mut element.children)?;
+        }
+    }
+    Ok(())
+}
+
+fn count_names(content: &[Content], names: &mut BTreeMap<String, usize>) {
+    for node in content {
+        let Content::Element(element) = node else {
+            continue;
+        };
+        match element.kind {
+            ElementKind::Shape => {
+                let name = crate::properties::text(&element.attributes, "name");
+                if !name.is_empty() {
+                    *names.entry(name).or_default() += 1;
+                }
+            }
+            ElementKind::Group => count_names(&element.children, names),
+            _ => {}
+        }
+    }
+}
+
+fn join(container: &mut Element, names: &BTreeMap<String, usize>) -> Result<(), Diagnostic> {
+    let shapes: BTreeMap<String, Properties> = container
+        .children
+        .iter()
+        .filter_map(|node| match node {
+            Content::Element(element) if element.kind == ElementKind::Shape => Some((
+                crate::properties::text(&element.attributes, "name"),
+                element.attributes.clone(),
+            )),
+            _ => None,
+        })
+        .collect();
+    for node in &mut container.children {
+        let Content::Element(element) = node else {
+            continue;
+        };
+        if element.kind == ElementKind::Group {
+            join(element, names)?;
+            continue;
+        }
+        if element.kind != ElementKind::Line {
+            continue;
+        }
+        let location = element.source_location.clone();
+        for end in ["from", "to"] {
+            let Some(Value::Object(endpoint)) = element.attributes.get_mut(end) else {
+                continue;
+            };
+            let name = crate::properties::text(endpoint, "shape");
+            if name.is_empty() {
+                continue;
+            }
+            let failure = |message: String| {
+                let location = location.as_ref();
+                let diagnostic = Diagnostic::new(
+                    location.map_or(Span { start: 0, end: 0 }, |location| location.span),
+                    message,
+                );
+                match location {
+                    Some(location) => diagnostic.with_source(location.source.clone()),
+                    None => diagnostic,
+                }
+            };
+            let shape = match (shapes.get(&name), names.get(&name)) {
+                (Some(shape), Some(1)) => shape,
+                (Some(_), _) => {
+                    return Err(failure(format!(
+                        "line.{end} names shape {name:?}, which more than one shape bears"
+                    )));
+                }
+                (None, _) => {
+                    return Err(failure(format!(
+                        "line.{end} names shape {name:?}, which its slide or group does not hold"
+                    )));
+                }
+            };
+            let (site, point) = crate::drawings::sites::locate(shape, endpoint)
+                .map_err(|message| failure(format!("line.{end}: {message}")))?;
+            for (coordinate, value) in ["x", "y"].into_iter().zip(point) {
+                endpoint.insert(
+                    coordinate.into(),
+                    Value::Length {
+                        value: (value * 12700.0).round() / 12700.0,
+                        unit: Unit::Point,
+                    },
+                );
+            }
+            endpoint.insert("site".into(), Value::Number(site as f64));
+        }
+    }
+    Ok(())
 }

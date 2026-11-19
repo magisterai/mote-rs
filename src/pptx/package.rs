@@ -193,6 +193,7 @@ pub(super) fn write(
             &mut items,
         );
         let mut timeline = super::timing::Timeline::default();
+        let mut identifiers = std::collections::BTreeMap::new();
         for item in items {
             let (content, path) = match item {
                 super::groups::Item::Open(group) => {
@@ -216,6 +217,10 @@ pub(super) fn write(
                 timeline.record(next_shape, element);
             }
             if element.kind == ElementKind::Shape {
+                identifiers.insert(
+                    crate::properties::text(&element.attributes, "name"),
+                    next_shape,
+                );
                 let shape = super::shapes::write(
                     element,
                     document,
@@ -376,6 +381,7 @@ pub(super) fn write(
                 ])?,
             );
         }
+        output = super::shapes::attach(&output, &identifiers)?;
         output.push_str("</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr>");
         if let Some(duration) =
             crate::properties::number(&slide.element.attributes, "advance_after")

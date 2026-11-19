@@ -122,7 +122,11 @@ pub(crate) fn shape(attributes: &Properties) -> Vec<PaintedPath> {
     }
     paths
 }
-fn transform(points: Vec<[f64; 2]>, bounds: [f64; 4], attributes: &Properties) -> Vec<[f64; 2]> {
+pub(crate) fn transform(
+    points: Vec<[f64; 2]>,
+    bounds: [f64; 4],
+    attributes: &Properties,
+) -> Vec<[f64; 2]> {
     let center = [bounds[0] + bounds[2] / 2.0, bounds[1] + bounds[3] / 2.0];
     let (sine, cosine) = (rotation(attributes, "rotation", 0.0) * PI / 180.0).sin_cos();
     points

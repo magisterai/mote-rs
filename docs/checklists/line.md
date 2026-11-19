@@ -11,7 +11,9 @@ inventory, including properties without an authoring mapping.
 
 - [x] Named arguments only; no content body or positional arguments.
 - [x] `name`: string or number, normalized to a string.
-- [x] Required `from` and `to` point objects, each with required `x` and `y` lengths.
+- [x] Required `from` and `to` point objects, each with required `x` and `y` lengths,
+  or a `shape` that names a shape of the same slide or group with a `side` (top,
+  bottom, left or right) or a `site` number; see [connection sites](#connection-sites).
 - [x] `border`: width, color, style (single/solid/dashed/dotted/none), opacity.
 - [x] `cap`: flat, round or square.
 - [x] `opacity`: numeric or percentage text, normalized to text.
@@ -46,3 +48,18 @@ centred on the end and covers it. The native PNG painter draws the cap that the
 stroke states, as the PDF painter does
 ([test](../../tests/presentation_rendering.rs)).
 PowerPoint visual review remains unreviewed independently of model support.
+
+## Connection sites
+
+An end that names a shape lies at a connection site of that shape: a point
+that the `cxnLst` of its preset definition gives, which lies on the outline
+that native output draws, turned and flipped with the shape. A `side` takes the
+site that faces that way nearest the middle of that side of the frame; a `site`
+numbers the sites in the order of the definition. The line names a shape of its
+own slide or group, and the name belongs to one shape alone of the slide, or of
+the outermost group of a document; else, or where the site does not exist,
+evaluation fails. PPTX writes `a:stCxn` and `a:endCxn`, so that PowerPoint keeps
+the connector on the shape when the shape is moved. DOCX and native output draw
+the line between the sites. The sites lie on the frame that `position` states,
+which a shape whose text resizes it outgrows
+([tests](../../tests/connection_sites.rs)).

@@ -289,7 +289,12 @@ fn inspect(element: &Element, path: &str, warnings: &mut BTreeSet<String>) {
             ]);
             for name in ["from", "to"] {
                 if let Some(fields) = object(attributes, name) {
-                    unknown(fields, &["x", "y"], &format!("{path}.{name}"), warnings);
+                    unknown(
+                        fields,
+                        &["x", "y", "shape", "side", "site"],
+                        &format!("{path}.{name}"),
+                        warnings,
+                    );
                 }
             }
         }

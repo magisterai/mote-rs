@@ -8,7 +8,7 @@ mod decorations;
 mod dividers;
 mod document;
 pub(crate) mod drawing_text;
-mod drawings;
+pub(crate) mod drawings;
 mod fallbacks;
 pub(crate) mod presentation;
 pub use presentation::plan_presentation;

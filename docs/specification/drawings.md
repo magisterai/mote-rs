@@ -108,6 +108,30 @@ shape rules. `cap` accepts `flat`, `round`, or `square`.
       arrow = "triangle", cap = "round")
 ```
 
+An end may instead name a shape of the same slide or group with `shape`, and a
+`side` of it, `top`, `bottom`, `left` or `right`, or a `site` number. The end
+then lies at a connection site of the shape: one of the points that the
+DrawingML definition of its kind gives, at which a connector meets the
+outline. A `side` takes the site that faces that way nearest the middle of that
+side of the frame; a `site` counts the sites from zero in the order of the
+definition. The site turns and flips with the shape. Normalization replaces the
+end with the `x` and `y` of the site and records the number of the site
+beside `shape`, so that an editable connector stays attached to the shape. The
+name must belong to one shape alone of the slide, or of the outermost group of
+a document; a name that no shape of the slide or group of the line bears, an
+end with both `shape` and `x` or `y`, and a site that does not exist are errors.
+
+```mote
+#slide[
+  #shape(name = "receive", kind = "parallelogram",
+         position = {x = inch(1), y = inch(2), width = inch(1.8), height = inch(0.8)})
+  #shape(name = "validate", kind = "chevron",
+         position = {x = inch(4), y = inch(2), width = inch(1.8), height = inch(0.8)})
+  #line(from = {shape = "receive", side = "right"},
+        to = {shape = "validate", side = "left"}, arrow = "triangle")
+]
+```
+
 `arrow` may be a string selecting the end marker, or an object containing
 `start` and `end`. Marker kinds are `none`, `triangle`, `stealth`, `diamond`, and
 `oval`; `arrow` is an alias for `triangle`. Object fields `from` and `to` are
