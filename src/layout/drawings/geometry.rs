@@ -98,7 +98,7 @@ pub(crate) fn preset(attributes: &Properties) -> presets::Geometry {
         bounds[3],
         &presets::adjustments(
             attributes,
-            bounds.map(|length| (length * 12700.0).round() as i64),
+            [bounds[2], bounds[3]].map(|length| (length * 12700.0).round() as i64),
         ),
     )
 }

@@ -1,0 +1,10 @@
+{
+  "source_sha256": "c2dd9052a0eb972e9d23c967208b5cce0fd1eeba530d3a847768fb317cf7ce78",
+  "native_png_dpi": 72,
+  "native_png_files": {
+    "reference-1.png": "3c56b4a1e0e98689e4177f8aa1fb7abc9c56c0d7216b5e53cbe1100b2edd1d2b",
+    "reference-2.png": "39fdd791cf56e5f15673bc00ccd4dcac6d8db2519224a1a035c6da25549824ab"
+  },
+  "native_pages_visually_inspected": true,
+  "word_review_status": "compared with Word in the shape-kinds probe"
+}

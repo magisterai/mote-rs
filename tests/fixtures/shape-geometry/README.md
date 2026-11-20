@@ -1,6 +1,9 @@
 # Native shape geometry captures
 
-Three frozen sources cover ten presets, cloud outline and decoration paths,
+The `kinds` source covers the thirty-eight further presets and the kinds that
+an argument adjusts; its pictures were written by the native painter and
+inspected, and Word draws the same shapes in the shape-kinds Office probe.
+Three more frozen sources cover ten presets, cloud outline and decoration paths,
 rotations, flips, opacity, solid/dashed/dotted/borderless outlines, layered and
 unblurred shadows, page anchoring, labels, pending paragraph spacing, page breaks,
 and zero dimensions. These cases intentionally contain no shape text: text layout

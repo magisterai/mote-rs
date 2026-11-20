@@ -21,9 +21,33 @@ property has no implied Mote argument or output support.
 - [x] `name`: string or number, normalized to a string.
 - [x] `kind`: rectangle (`rect` alias), round_rect (`rounded`), ellipse (`oval`),
   triangle, diamond, hexagon, chevron, cloud, parallelogram, trapezoid.
+- [x] `kind`, flowchart: terminator, document, predefined_process, manual_input,
+  preparation, delay, off_page_connector, stored_data.
+- [x] `kind`, polygons and solids: right_triangle, pentagon, octagon, plus,
+  cylinder, cube.
+- [x] `kind`, arrows: right_arrow, left_arrow, up_arrow, down_arrow,
+  left_right_arrow, notched_right_arrow, home_plate, circular_arrow. The copy of
+  the standard lacks the up arrow, which is defined as the down arrow turned over.
+- [x] `kind`, callouts and rectangle variants: rect_callout, round_rect_callout,
+  ellipse_callout, snip_rect, round_top_rect, folded_corner, frame.
+- [x] `kind`, arcs, braces and symbols: pie, donut, block_arc, left_brace,
+  right_brace, star4, star5, heart, lightning_bolt. The text of a pie is set in
+  the rectangle `il`, `it`, `ir`, `ib`, as Office sets it; the standard
+  exchanges two of the edges.
 - [x] `corner_radius`: nonnegative length; the corner of a round_rect, at most
   half its shorter side; a warning on another kind. DOCX and PPTX write the
   `adj` guide of the preset; native output draws the same arc.
+- [x] `tail`: `x` and `y` lengths; the end of the tail of a callout, from the
+  origin of the position of the shape; a warning on another kind.
+- [x] `angles`: `start` and `end` in degrees clockwise from the right; the
+  sector of a pie, the arc of a block_arc, and the run of a circular_arrow to
+  its head; a warning on another kind.
+- [x] `thickness`: nonnegative length, at most half the shorter side; the ring
+  of a donut, the band of a frame and the arc of a block_arc; a warning on
+  another kind.
+- [x] An adjusting argument writes every adjustment of the preset to DOCX and
+  PPTX, those not stated at their defaults, and native output evaluates the
+  definition with the same values ([tests](../../tests/shape_presets.rs)).
 - [x] `fill`: normalized color.
 - [x] `border`: width, color, style (single/solid/dashed/dotted/none), opacity;
   unknown nested metadata retained without inferred output effects. A dashed
@@ -62,7 +86,13 @@ sites of a shape from the definition of its preset in ECMA-376
 presetShapeDefinitions.xml: the guide formulas, the paths with their arcs and
 curves, and the paths that a definition fills lighter or darker or leaves
 unfilled. The library holds a copy of the definitions of its kinds, which a
-[test](../../tests/shape_presets.rs) compares with the standard.
+[test](../../tests/shape_presets.rs) compares with the standard. Word's export
+of the [shape-kinds probe](../../tests/office/probes/shape-kinds.mote) and
+PowerPoint's of the
+[powerpoint-shape-kinds probe](../../tests/office/probes/powerpoint-shape-kinds.mote)
+draw every kind, and the adjusted kinds, as native output does: the text of
+each lies within 0.2 point of Word's and 0.7 point of PowerPoint's, and the
+marks differ only at the tips of the four-pointed star.
 
 DOCX emits an absolute page anchor for a fixed shape and an inline drawing in a
 paragraph of its own for a shape set in the text, with editable Word shape text, preset geometry,

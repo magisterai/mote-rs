@@ -20,9 +20,8 @@ one drawing.
 
 - The `position` argument is required. It gives `width` and `height`, and
   optionally `x` and `y`.
-- The `kind` argument is `rectangle`, the default, or one of `round_rect`,
-  `ellipse`, `triangle`, `diamond`, `hexagon`, `chevron`, `cloud`,
-  `parallelogram` and `trapezoid`.
+- The `kind` argument is `rectangle`, the default, or one of the
+  [kinds](#kinds) below.
 - The `corner_radius` argument is a length, such as `pt(6)`, giving the corner
   of a `round_rect`. If the argument is omitted, the corner is a sixth of the
   shorter side, so a small tag and a large card receive different corners; a
@@ -34,6 +33,52 @@ one drawing.
   `shadow = { color, blur, distance, angle, opacity }`.
 - The optional body holds the shape's text: paragraphs, inline formatting and
   lists.
+
+## Kinds
+
+- Basic: `rectangle`, `round_rect`, `ellipse`, `triangle`, `right_triangle`,
+  `diamond`, `parallelogram`, `trapezoid`, `pentagon`, `hexagon`, `octagon`,
+  `plus` and `cloud`.
+- Flowchart: `terminator` (start or end), `document`, `predefined_process`,
+  `manual_input`, `preparation`, `delay`, `off_page_connector` and
+  `stored_data`. A process is a `rectangle`, a decision a `diamond`, data a
+  `parallelogram`, and a database a `cylinder`.
+- Solids: `cylinder` and `cube`.
+- Arrows: `right_arrow`, `left_arrow`, `up_arrow`, `down_arrow`,
+  `left_right_arrow`, `notched_right_arrow`, `chevron`, `home_plate` (a step
+  with a point) and `circular_arrow`.
+- Callouts: `rect_callout`, `round_rect_callout` and `ellipse_callout`.
+- Rectangle variants: `snip_rect` (one corner cut), `round_top_rect` (a tab),
+  `folded_corner` (a note) and `frame`.
+- Arcs and rings: `pie`, `donut` and `block_arc`.
+- Braces and symbols: `left_brace`, `right_brace`, `star4`, `star5`, `heart`
+  and `lightning_bolt`.
+
+Three arguments adjust particular kinds, and warn on any other kind.
+
+- The `tail` argument, `{ x, y }`, is the point at which the tail of a callout
+  ends, measured as the `x` and `y` of the position are.
+- The `angles` argument, `{ start, end }`, is in degrees clockwise from the
+  right. A `pie` is the sector from `start` clockwise to `end`, a `block_arc`
+  the arc so bounded, and a `circular_arrow` runs from `start` to its head at
+  `end`.
+- The `thickness` argument is a length: the width of the ring of a `donut`, of
+  the band of a `frame`, or of the arc of a `block_arc`.
+
+```mote
+#presentation(size = "wide")
+#slide[
+  #shape(kind = "rect_callout", tail = { x = inch(4), y = inch(3.2) },
+    position = { x = inch(1), y = inch(1), width = inch(2.4), height = inch(1.2) },
+    fill = "#fef3c7")[Churn fell here.]
+  #shape(kind = "pie", angles = { start = 270, end = 180 },
+    position = { x = inch(5), y = inch(1), width = inch(1.5), height = inch(1.5) },
+    fill = "#2563eb")
+  #shape(kind = "donut", thickness = pt(10),
+    position = { x = inch(7.5), y = inch(1), width = inch(1.5), height = inch(1.5) },
+    fill = "#059669")
+]
+```
 
 ## Placement
 

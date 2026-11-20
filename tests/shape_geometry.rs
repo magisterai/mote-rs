@@ -10,7 +10,7 @@ use std::{fs, path::Path};
 fn preset_paths_transforms_shadows_and_anchor_flow_match_captures() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/shape-geometry");
     let resolver = FileAssetResolver::new(&root).unwrap();
-    for case in ["presets", "effects", "flow"] {
+    for case in ["presets", "effects", "flow", "kinds"] {
         let source = fs::read_to_string(root.join(format!("{case}.mote"))).unwrap();
         let folder = root.join("captured").join(case);
         let manifest: serde_json::Value =

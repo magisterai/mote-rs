@@ -4,7 +4,7 @@
 use mote::{layout::PageOperation, render, source::FileAssetResolver};
 use std::path::Path;
 
-const KINDS: [&str; 10] = [
+const KINDS: [&str; 48] = [
     "rectangle",
     "round_rect",
     "ellipse",
@@ -15,39 +15,80 @@ const KINDS: [&str; 10] = [
     "cloud",
     "parallelogram",
     "trapezoid",
+    "terminator",
+    "document",
+    "predefined_process",
+    "manual_input",
+    "preparation",
+    "delay",
+    "off_page_connector",
+    "stored_data",
+    "cylinder",
+    "cube",
+    "pentagon",
+    "octagon",
+    "right_triangle",
+    "plus",
+    "right_arrow",
+    "left_arrow",
+    "up_arrow",
+    "down_arrow",
+    "left_right_arrow",
+    "notched_right_arrow",
+    "home_plate",
+    "circular_arrow",
+    "rect_callout",
+    "round_rect_callout",
+    "ellipse_callout",
+    "snip_rect",
+    "round_top_rect",
+    "folded_corner",
+    "frame",
+    "pie",
+    "donut",
+    "block_arc",
+    "left_brace",
+    "right_brace",
+    "star4",
+    "star5",
+    "heart",
+    "lightning_bolt",
 ];
 
 fn deck(objects: &str) -> String {
     format!("#presentation(size = \"wide\")\n#slide[\n{objects}\n]\n")
 }
 
-/// Returns the outline that native output draws for the one filled shape of
-/// the slide, and the start of each line.
-fn outline_and_starts(source: &str) -> (Vec<[f64; 2]>, Vec<[f64; 2]>) {
+/// A path that native output fills: its points, and whether it is closed.
+type Outline = (Vec<[f64; 2]>, bool);
+
+/// Returns the paths that native output fills for the one shape of the slide,
+/// and the start of each line.
+fn outlines_and_starts(source: &str) -> (Vec<Outline>, Vec<[f64; 2]>) {
     let document = mote::compile(source).unwrap();
     let resolver = FileAssetResolver::new(Path::new(env!("CARGO_MANIFEST_DIR"))).unwrap();
     let plan =
         render::plan_with_layout(&document, &resolver, None, render::LayoutMode::Presentation)
             .unwrap();
-    let mut outline = Vec::new();
+    let mut outlines = Vec::new();
     let mut starts = Vec::new();
     for operation in &plan.output.pages[0].operations {
         let PageOperation::Path(path) = operation else {
             continue;
         };
-        if path.closed {
-            outline = path.points.clone();
+        if path.fill.is_some() {
+            outlines.push((path.points.clone(), path.closed));
         } else {
             starts.push(path.points[0]);
         }
     }
-    (outline, starts)
+    (outlines, starts)
 }
 
-/// Returns the distance from `point` to the nearest edge of the closed
-/// polygon `outline`.
-fn distance(point: [f64; 2], outline: &[[f64; 2]]) -> f64 {
-    (0..outline.len())
+/// Returns the distance from `point` to the nearest edge of the path
+/// `outline`.
+fn distance(point: [f64; 2], (outline, closed): &Outline) -> f64 {
+    (0..outline.len() - usize::from(!closed))
         .map(|index| {
             let start = outline[index];
             let end = outline[(index + 1) % outline.len()];
@@ -66,25 +107,40 @@ fn distance(point: [f64; 2], outline: &[[f64; 2]]) -> f64 {
 
 #[test]
 fn every_site_of_every_kind_lies_on_the_outline_that_native_output_draws() {
+    let line = |end: &str| {
+        format!(
+            "#line(from = {{ shape = \"Target\", {end} }}, to = {{ x = inch(0.5), y = inch(0.5) }})\n"
+        )
+    };
     for transform in ["", "rotation = 30, flip_horizontal = true,"] {
         for kind in KINDS {
-            let mut objects = format!(
+            let shape = format!(
                 "#shape(name = \"Target\", kind = \"{kind}\", {transform} fill = \"#dce6f1\", position = {{ x = inch(3), y = inch(2), width = inch(1.8), height = inch(1.1) }})\n"
             );
+            // The sites of a kind are those that a line may name.
+            let sites = (0..)
+                .map(|site| format!("site = {site}"))
+                .take_while(|end| mote::compile(&deck(&format!("{shape}{}", line(end)))).is_ok());
             let ends: Vec<String> = ["top", "bottom", "left", "right"]
                 .map(|side| format!("side = \"{side}\""))
                 .into_iter()
-                .chain((0..4).map(|site| format!("site = {site}")))
+                .chain(sites)
                 .collect();
-            for end in &ends {
-                objects.push_str(&format!(
-                    "#line(from = {{ shape = \"Target\", {end} }}, to = {{ x = inch(0.5), y = inch(0.5) }})\n"
-                ));
-            }
-            let (outline, starts) = outline_and_starts(&deck(&objects));
+            assert!(ends.len() >= 6, "{kind}");
+            let lines: String = ends.iter().map(|end| line(end)).collect();
+            let (outlines, starts) = outlines_and_starts(&deck(&format!("{shape}{lines}")));
             assert_eq!(starts.len(), ends.len(), "{kind}");
+            // The third site of a block arc is the centre of its frame, which
+            // the arc does not pass.
+            let centre = (kind == "block_arc").then(|| starts[6]);
             for (end, start) in ends.iter().zip(starts) {
-                let distance = distance(start, &outline);
+                if centre == Some(start) {
+                    continue;
+                }
+                let distance = outlines
+                    .iter()
+                    .map(|outline| distance(start, outline))
+                    .fold(f64::INFINITY, f64::min);
                 assert!(distance < 0.5, "{kind} {transform} {end}: {distance}");
             }
         }

@@ -503,6 +503,14 @@
     "unmatched": 1,
     "vertical": 2.1
   },
+  "probes/powerpoint-shape-kinds": {
+    "horizontal": 0.4,
+    "marks": 12,
+    "median": 0.5,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.7
+  },
   "probes/quotes-and-lists-across-pages": {
     "horizontal": 0.0,
     "marks": 104,
@@ -542,6 +550,14 @@
     "page_moves": 0,
     "unmatched": 0,
     "vertical": 0.3
+  },
+  "probes/shape-kinds": {
+    "horizontal": 0.5,
+    "marks": 16,
+    "median": 0.1,
+    "page_moves": 0,
+    "unmatched": 0,
+    "vertical": 0.2
   },
   "probes/shape-page-foot": {
     "horizontal": 0.0,

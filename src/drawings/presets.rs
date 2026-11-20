@@ -2,7 +2,10 @@
 //! sites of each shape kind follow from its definition in ECMA-376
 //! presetShapeDefinitions.xml. The file `presets.xml` holds the definitions of
 //! the kinds that Mote supports, without their adjust handles.
-use crate::{model::Properties, properties::text};
+use crate::{
+    model::Properties,
+    properties::{number, object, text},
+};
 use std::{collections::HashMap, f64::consts::PI, sync::OnceLock};
 
 /// The shape kinds, each with the DrawingML preset that defines it.
@@ -17,7 +20,92 @@ pub(crate) const KINDS: &[(&str, &str)] = &[
     ("cloud", "cloud"),
     ("parallelogram", "parallelogram"),
     ("trapezoid", "trapezoid"),
+    ("terminator", "flowChartTerminator"),
+    ("document", "flowChartDocument"),
+    ("predefined_process", "flowChartPredefinedProcess"),
+    ("manual_input", "flowChartManualInput"),
+    ("preparation", "flowChartPreparation"),
+    ("delay", "flowChartDelay"),
+    ("off_page_connector", "flowChartOffpageConnector"),
+    ("stored_data", "flowChartOnlineStorage"),
+    ("cylinder", "can"),
+    ("cube", "cube"),
+    ("pentagon", "pentagon"),
+    ("octagon", "octagon"),
+    ("right_triangle", "rtTriangle"),
+    ("plus", "plus"),
+    ("right_arrow", "rightArrow"),
+    ("left_arrow", "leftArrow"),
+    ("up_arrow", "upArrow"),
+    ("down_arrow", "downArrow"),
+    ("left_right_arrow", "leftRightArrow"),
+    ("notched_right_arrow", "notchedRightArrow"),
+    ("home_plate", "homePlate"),
+    ("circular_arrow", "circularArrow"),
+    ("rect_callout", "wedgeRectCallout"),
+    ("round_rect_callout", "wedgeRoundRectCallout"),
+    ("ellipse_callout", "wedgeEllipseCallout"),
+    ("snip_rect", "snip1Rect"),
+    ("round_top_rect", "round2SameRect"),
+    ("folded_corner", "foldedCorner"),
+    ("frame", "frame"),
+    ("pie", "pie"),
+    ("donut", "donut"),
+    ("block_arc", "blockArc"),
+    ("left_brace", "leftBrace"),
+    ("right_brace", "rightBrace"),
+    ("star4", "star4"),
+    ("star5", "star5"),
+    ("heart", "heart"),
+    ("lightning_bolt", "lightningBolt"),
 ];
+
+/// The arguments that adjust a preset: the kind, the argument, and the guides
+/// of the definition that the argument sets.
+const ADJUSTMENTS: &[(&str, &str, &[&str])] = &[
+    ("round_rect", "corner_radius", &["adj"]),
+    ("rect_callout", "tail", &["adj1", "adj2"]),
+    ("round_rect_callout", "tail", &["adj1", "adj2"]),
+    ("ellipse_callout", "tail", &["adj1", "adj2"]),
+    ("pie", "angles", &["adj1", "adj2"]),
+    ("block_arc", "angles", &["adj1", "adj2"]),
+    ("block_arc", "thickness", &["adj3"]),
+    ("circular_arrow", "angles", &["adj4", "adj3"]),
+    ("donut", "thickness", &["adj"]),
+    ("frame", "thickness", &["adj1"]),
+];
+
+/// The arguments of a shape that adjust its preset.
+pub(crate) const ADJUSTING: [&str; 4] = ["corner_radius", "tail", "angles", "thickness"];
+
+/// The fields of the adjusting arguments that are tables.
+pub(crate) const ADJUSTING_FIELDS: [(&str, &[&str]); 2] =
+    [("tail", &["x", "y"]), ("angles", &["start", "end"])];
+
+/// Returns a warning for each adjusting argument that a shape states and that
+/// has no effect on its kind.
+pub(crate) fn idle_arguments(attributes: &Properties) -> Vec<String> {
+    let kind = text(attributes, "kind");
+    ADJUSTING
+        .into_iter()
+        .filter(|argument| attributes.contains_key(*argument))
+        .filter_map(|argument| {
+            let kinds: Vec<&str> = ADJUSTMENTS
+                .iter()
+                .filter(|(_, name, _)| *name == argument)
+                .map(|(kind, ..)| *kind)
+                .collect();
+            let (last, rest) = kinds.split_last()?;
+            let list = if rest.is_empty() {
+                (*last).to_owned()
+            } else {
+                format!("{} or {last}", rest.join(", "))
+            };
+            (!kinds.contains(&kind.as_str()))
+                .then(|| format!("{argument} has an effect only on a {list} shape"))
+        })
+        .collect()
+}
 
 /// The geometry of a shape within its frame, whose corner is the origin.
 pub(crate) struct Geometry {
@@ -56,24 +144,97 @@ pub(crate) fn preset(kind: &str) -> &'static str {
         .map_or("rect", |(_, preset)| preset)
 }
 
-/// Returns the adjustments that the attributes of a shape state for its
-/// preset, each with the name of its guide. The frame `bounds` is in drawing
-/// units.
-pub(crate) fn adjustments(attributes: &Properties, bounds: [i64; 4]) -> Vec<(&'static str, i64)> {
-    let shorter = bounds[2].min(bounds[3]).max(1);
-    let length = |name: &str| super::length_in_drawing_units(attributes.get(name));
-    // A share of the shorter side, in hundred thousandths and at most a half.
-    let share = |length: i64| {
-        (length as f64 * 100000.0 / shorter as f64)
-            .round()
-            .clamp(0.0, 50000.0) as i64
-    };
-    match text(attributes, "kind").as_str() {
-        "round_rect" => length("corner_radius")
-            .map(|radius| vec![("adj", share(radius))])
-            .unwrap_or_default(),
-        _ => Vec::new(),
+/// Returns the definition of the preset of a shape kind.
+fn definition(kind: &str) -> roxmltree::Node<'static, 'static> {
+    static DEFINITIONS: OnceLock<roxmltree::Document<'static>> = OnceLock::new();
+    DEFINITIONS
+        .get_or_init(|| {
+            roxmltree::Document::parse(include_str!("presets.xml"))
+                .expect("the preset definitions are well formed")
+        })
+        .root_element()
+        .children()
+        .find(|node| node.has_tag_name(preset(kind)))
+        .expect("every kind has a definition")
+}
+
+/// Returns the elements of the list `name` of a definition.
+fn list(
+    definition: roxmltree::Node<'static, 'static>,
+    name: &'static str,
+) -> impl Iterator<Item = roxmltree::Node<'static, 'static>> {
+    definition
+        .children()
+        .find(|node| node.has_tag_name(name))
+        .into_iter()
+        .flat_map(|node| node.children().filter(roxmltree::Node::is_element))
+}
+
+/// Returns the adjustments of the preset of a shape, each with the name of its
+/// guide, where the attributes of the shape state any; the defaults of the
+/// definition then accompany those stated, as Office writes them together.
+/// The size `size` of the frame is in drawing units.
+pub(crate) fn adjustments(attributes: &Properties, size: [i64; 2]) -> Vec<(&'static str, i64)> {
+    let kind = text(attributes, "kind");
+    let length = super::length_in_drawing_units;
+    let position = object(attributes, "position");
+    let mut stated: Vec<(&str, i64)> = Vec::new();
+    for (_, argument, guides) in ADJUSTMENTS.iter().filter(|(owner, ..)| *owner == kind) {
+        let fields = object(attributes, argument);
+        let values = match *argument {
+            // The tail of a callout is stated from the origin of the position
+            // of the shape, and held from the centre of the frame in hundred
+            // thousandths of its width and its height.
+            "tail" => [0, 1].map(|axis| {
+                let name = ["x", "y"][axis];
+                let coordinate = length(fields?.get(name))? as f64;
+                let corner = length(position.and_then(|position| position.get(name)));
+                let extent = size[axis].max(1) as f64;
+                let centre = corner.unwrap_or(0) as f64 + extent / 2.0;
+                Some(((coordinate - centre) * 100000.0 / extent).round() as i64)
+            }),
+            // An angle is stated in degrees and held in sixty thousandths of one.
+            "angles" => ["start", "end"].map(|name| {
+                let degrees = number(fields?, name)?.rem_euclid(360.0);
+                Some(((degrees * 60000.0).round() as i64).min(21599999))
+            }),
+            // A corner radius or a thickness is a share of the shorter side,
+            // in hundred thousandths and at most a half.
+            _ => [
+                length(attributes.get(*argument)).map(|length| {
+                    let shorter = size[0].min(size[1]).max(1);
+                    (length as f64 * 100000.0 / shorter as f64)
+                        .round()
+                        .clamp(0.0, 50000.0) as i64
+                }),
+                None,
+            ],
+        };
+        stated.extend(
+            guides
+                .iter()
+                .zip(values)
+                .filter_map(|(guide, value)| Some((*guide, value?))),
+        );
     }
+    if stated.is_empty() {
+        return Vec::new();
+    }
+    list(definition(&kind), "avLst")
+        .filter_map(|guide| {
+            let name = guide.attribute("name")?;
+            let default = guide
+                .attribute("fmla")?
+                .strip_prefix("val ")?
+                .parse()
+                .ok()?;
+            let value = stated
+                .iter()
+                .find(|(guide, _)| *guide == name)
+                .map_or(default, |(_, value)| *value);
+            Some((name, value))
+        })
+        .collect()
 }
 
 /// Returns the geometry of a shape of the kind `kind` and of the size `width`
@@ -84,23 +245,8 @@ pub(crate) fn geometry(
     height: f64,
     adjustments: &[(&'static str, i64)],
 ) -> Geometry {
-    static DEFINITIONS: OnceLock<roxmltree::Document<'static>> = OnceLock::new();
-    let definition = DEFINITIONS
-        .get_or_init(|| {
-            roxmltree::Document::parse(include_str!("presets.xml"))
-                .expect("the preset definitions are well formed")
-        })
-        .root_element()
-        .children()
-        .find(|node| node.has_tag_name(preset(kind)))
-        .expect("every kind has a definition");
-    let list = |name: &'static str| {
-        definition
-            .children()
-            .find(|node| node.has_tag_name(name))
-            .into_iter()
-            .flat_map(|node| node.children().filter(roxmltree::Node::is_element))
-    };
+    let definition = definition(kind);
+    let list = |name| list(definition, name);
     let shorter = width.min(height);
     let mut values: HashMap<String, f64> = [
         ("w", width),

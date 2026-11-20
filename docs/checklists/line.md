@@ -55,8 +55,11 @@ PowerPoint visual review remains unreviewed independently of model support.
 An end that names a shape lies at a connection site of that shape: a point
 that the `cxnLst` of its preset definition gives, which lies on the outline
 that native output draws, turned and flipped with the shape. A `side` takes the
-site that faces that way nearest the middle of that side of the frame; a `site`
-numbers the sites in the order of the definition. The line names a shape of its
+site nearest the middle of that side of the frame among those that face within
+an eighth of a turn of that way, or among all the sites where none faces so; a
+`site` numbers the sites in the order of the definition. Every site of every
+kind lies on the drawn outline but the third of a block_arc, which the standard
+sets at the centre of the frame. The line names a shape of its
 own slide or group, and the name belongs to one shape alone of the slide, or of
 the outermost group of a document; else, or where the site does not exist,
 evaluation fails. PPTX writes `a:stCxn` and `a:endCxn`, so that PowerPoint keeps

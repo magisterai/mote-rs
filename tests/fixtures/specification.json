@@ -588,14 +588,18 @@
     },
     {
       "example": "drawings/3",
-      "model": "drawings-2"
+      "model": "drawings-adjustments"
     },
     {
       "example": "drawings/4",
-      "model": "drawings-3"
+      "model": "drawings-2"
     },
     {
       "example": "drawings/5",
+      "model": "drawings-3"
+    },
+    {
+      "example": "drawings/6",
       "model": "drawings-connection"
     },
     {
@@ -12520,6 +12524,270 @@
                 }
               ],
               "kind": "slide"
+            }
+          ],
+          "footer_properties": {},
+          "header_properties": {},
+          "margin": {},
+          "page": {},
+          "page_numbering": {},
+          "section_properties": {}
+        }
+      ]
+    },
+    "drawings-adjustments": {
+      "columns": {},
+      "content": [
+        {
+          "attributes": {
+            "kind": "rect_callout",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "width": {
+                "text": "2in",
+                "unit": "in",
+                "value": 2.0
+              },
+              "x": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              }
+            },
+            "tail": {
+              "x": {
+                "text": "3.5in",
+                "unit": "in",
+                "value": 3.5
+              },
+              "y": {
+                "text": "2.5in",
+                "unit": "in",
+                "value": 2.5
+              }
+            }
+          },
+          "category": "block",
+          "children": [
+            {
+              "category": "block",
+              "children": [
+                {
+                  "kind": "text",
+                  "text": "Note"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "kind": "shape"
+        },
+        {
+          "attributes": {
+            "angles": {
+              "end": 180.0,
+              "start": 270.0
+            },
+            "fill": "#28734f",
+            "kind": "pie",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "width": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "x": {
+                "text": "4in",
+                "unit": "in",
+                "value": 4.0
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              }
+            }
+          },
+          "category": "block",
+          "kind": "shape"
+        },
+        {
+          "attributes": {
+            "fill": "#28734f",
+            "kind": "donut",
+            "position": {
+              "height": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "width": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              },
+              "x": {
+                "text": "6in",
+                "unit": "in",
+                "value": 6.0
+              },
+              "y": {
+                "text": "1in",
+                "unit": "in",
+                "value": 1.0
+              }
+            },
+            "thickness": {
+              "text": "8pt",
+              "unit": "pt",
+              "value": 8.0
+            }
+          },
+          "category": "block",
+          "kind": "shape"
+        }
+      ],
+      "margin": {},
+      "page": {},
+      "sections": [
+        {
+          "columns": {},
+          "content": [
+            {
+              "attributes": {
+                "kind": "rect_callout",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "width": {
+                    "text": "2in",
+                    "unit": "in",
+                    "value": 2.0
+                  },
+                  "x": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  }
+                },
+                "tail": {
+                  "x": {
+                    "text": "3.5in",
+                    "unit": "in",
+                    "value": 3.5
+                  },
+                  "y": {
+                    "text": "2.5in",
+                    "unit": "in",
+                    "value": 2.5
+                  }
+                }
+              },
+              "category": "block",
+              "children": [
+                {
+                  "category": "block",
+                  "children": [
+                    {
+                      "kind": "text",
+                      "text": "Note"
+                    }
+                  ],
+                  "kind": "paragraph"
+                }
+              ],
+              "kind": "shape"
+            },
+            {
+              "attributes": {
+                "angles": {
+                  "end": 180.0,
+                  "start": 270.0
+                },
+                "fill": "#28734f",
+                "kind": "pie",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "width": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "x": {
+                    "text": "4in",
+                    "unit": "in",
+                    "value": 4.0
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  }
+                }
+              },
+              "category": "block",
+              "kind": "shape"
+            },
+            {
+              "attributes": {
+                "fill": "#28734f",
+                "kind": "donut",
+                "position": {
+                  "height": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "width": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  },
+                  "x": {
+                    "text": "6in",
+                    "unit": "in",
+                    "value": 6.0
+                  },
+                  "y": {
+                    "text": "1in",
+                    "unit": "in",
+                    "value": 1.0
+                  }
+                },
+                "thickness": {
+                  "text": "8pt",
+                  "unit": "pt",
+                  "value": 8.0
+                }
+              },
+              "category": "block",
+              "kind": "shape"
             }
           ],
           "footer_properties": {},

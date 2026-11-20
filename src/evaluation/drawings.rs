@@ -19,7 +19,11 @@ pub(super) fn normalize(
         "animate" => super::presentation::animation(value, span),
         "border" => images::normalize(name, value, span),
         "opacity" => Ok(percent(value)),
-        "corner_radius" if kind == ElementKind::Shape => normalize_length(value, span, name),
+        "corner_radius" | "thickness" if kind == ElementKind::Shape => {
+            normalize_length(value, span, name)
+        }
+        "tail" if kind == ElementKind::Shape => attributes::normalize_length_map(value, span, name),
+        "angles" if kind == ElementKind::Shape => angles(value, span),
         "arrow" if kind == ElementKind::Line => arrows(value, span),
         "cap" if kind == ElementKind::Line => {
             normalize_enum(value, span, name, &["flat", "round", "square"])
@@ -198,6 +202,26 @@ fn point(value: Value, span: Span, name: &str) -> Result<Value, Diagnostic> {
             coordinate.into(),
             normalize_length(value, span, &format!("{name}.{coordinate}"))?,
         );
+    }
+    Ok(Value::Object(fields))
+}
+fn angles(value: Value, span: Span) -> Result<Value, Diagnostic> {
+    let mut fields = require_object(value, span, "angles")?;
+    for name in ["start", "end"] {
+        if let Some(value) = fields.remove(name) {
+            let degrees = value
+                .to_text()
+                .trim()
+                .trim_end_matches("deg")
+                .trim()
+                .parse::<f64>()
+                .ok()
+                .filter(|degrees| degrees.is_finite())
+                .ok_or_else(|| {
+                    Diagnostic::new(span, format!("angles.{name} must be a number of degrees"))
+                })?;
+            fields.insert(name.into(), Value::Number(degrees));
+        }
     }
     Ok(Value::Object(fields))
 }

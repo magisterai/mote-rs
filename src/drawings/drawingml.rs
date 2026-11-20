@@ -15,7 +15,7 @@ pub(crate) fn shape(attributes: &Properties, bounds: [i64; 4]) -> Result<String,
     }
     let [horizontal, vertical, width, height] = bounds;
     let preset = super::presets::preset(&text(attributes, "kind"));
-    let adjustments = super::presets::adjustments(attributes, bounds);
+    let adjustments = super::presets::adjustments(attributes, [width, height]);
     let adjustments = if adjustments.is_empty() {
         "<a:avLst/>".to_owned()
     } else {

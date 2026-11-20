@@ -265,9 +265,11 @@ fn validate_named_argument(
                 "animate" => Some(ArgumentType::Collection),
                 "name" | "rotation" | "opacity" => Some(ArgumentType::NumberOrString),
                 "kind" | "alignment" | "vertical_alignment" => Some(ArgumentType::String),
-                "position" | "border" | "margin" | "text" | "shadow" => Some(ArgumentType::Object),
+                "position" | "border" | "margin" | "text" | "shadow" | "tail" | "angles" => {
+                    Some(ArgumentType::Object)
+                }
                 "fill" => Some(ArgumentType::Color),
-                "corner_radius" => Some(ArgumentType::Length),
+                "corner_radius" | "thickness" => Some(ArgumentType::Length),
                 "flip_horizontal" | "flip_vertical" => Some(ArgumentType::Boolean),
                 _ => None,
             },
